@@ -1,0 +1,16 @@
+{
+    "movies": [
+        {
+            "title": "The Shawshank Redemption",
+            "watched": false
+        },
+        {
+            "title": "12 Angry Men",
+            "watched": false
+        },
+        {
+            "title": "Schindler's List",
+            "watched": false
+        }
+    ]
+}
