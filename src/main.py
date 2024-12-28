@@ -12,7 +12,8 @@ def save_movies(movies):
         json.dump(movies, file, indent=4)
 
 def get_unwatched_movies(movies):
-    return [movie for movie in movies['movies'] if not movie['watched']]
+    # movies is now a list, not a dictionary
+    return [movie for movie in movies if not movie['watched']]
 
 def pick_random_movie(movies):
     unwatched_movies = get_unwatched_movies(movies)
@@ -21,7 +22,7 @@ def pick_random_movie(movies):
     return random.choice(unwatched_movies)
 
 def main():
-    movies = load_movies()
+    movies = load_movies()  # This already loads the list
     unwatched_movies = get_unwatched_movies(movies)
     print(f"Want to watch a movie tonight? You have {len(unwatched_movies)} movies remaining in your 2025 must watch list. Answer Yes or No")
     answer = input().strip().lower()
@@ -39,7 +40,7 @@ def main():
         print(f"How about watching '{movie['title']}'?")
         movie['watched'] = True
         save_movies(movies)
-        time.sleep(5)
+        time.sleep(1)
         print("Do you want to watch another one? Answer Yes or No")
         answer = input().strip().lower()
 
