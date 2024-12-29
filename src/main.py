@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request, render_template
 import json
 import random
 import os
-import secrets
-print(secrets.token_hex(16))
+# import secrets
+# print(secrets.token_hex(16))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
