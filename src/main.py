@@ -2,15 +2,19 @@ from flask import Flask, jsonify, request, render_template
 import json
 import random
 import os
+# import secrets
+# print(secrets.token_hex(16))
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
+MOVIES_FILE = os.environ.get('MOVIES_FILE', os.path.join(os.path.dirname(__file__), 'movies.json'))
 
 def load_movies():
-    with open(os.path.join(os.path.dirname(__file__), 'movies.json'), 'r') as file:
+    with open(MOVIES_FILE, 'r') as file:
         return json.load(file)
 
 def save_movies(movies):
-    with open(os.path.join(os.path.dirname(__file__), 'movies.json'), 'w') as file:
+    with open(MOVIES_FILE, 'w') as file:
         json.dump(movies, file, indent=4)
 
 def get_unwatched_movies(movies):
