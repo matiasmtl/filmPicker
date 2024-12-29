@@ -1,7 +1,9 @@
+from flask import Flask, jsonify, request, render_template
 import json
 import random
-import time
 import os
+
+app = Flask(__name__)
 
 def load_movies():
     with open(os.path.join(os.path.dirname(__file__), 'movies.json'), 'r') as file:
@@ -12,7 +14,6 @@ def save_movies(movies):
         json.dump(movies, file, indent=4)
 
 def get_unwatched_movies(movies):
-    # movies is now a list, not a dictionary
     return [movie for movie in movies if not movie['watched']]
 
 def pick_random_movie(movies):
@@ -21,34 +22,29 @@ def pick_random_movie(movies):
         return None
     return random.choice(unwatched_movies)
 
-def main():
-    movies = load_movies()  # This already loads the list
+@app.route('/')
+def index():
+    movies = load_movies()
     unwatched_movies = get_unwatched_movies(movies)
-    while True:
-        print(f"Want to watch a movie tonight? You have {len(unwatched_movies)} movies remaining in your 2025 must watch list. Answer Yes or No")
-        answer = input().strip().lower()
-        if answer in ["yes", "no"]:
-            break
-        print("Please answer with 'Yes' or 'No'.")
+    return render_template('index.html', unwatched_count=len(unwatched_movies))
 
-    if answer == "no":
-        print("Okay. Let me know if you change your mind.")
-        time.sleep(1)
-        return
-    while answer == "yes":
-        movie = pick_random_movie(movies)
-        if movie is None:
-            print("No movies left to watch in the 2025 list!")
-            return
-        print(f"How about watching '{movie['title']}'?")
+@app.route('/pick_movie', methods=['POST'])
+def pick_movie():
+    movies = load_movies()
+    movie = pick_random_movie(movies)
+    if movie:
         movie['watched'] = True
         save_movies(movies)
-        time.sleep(1)
-        print("Do you want to watch another one? Answer Yes or No")
-        answer = input().strip().lower()
+        return jsonify(movie)
+    return jsonify({'error': 'No movies left to watch!'})
 
-    print("Alright, until next time!")
-    time.sleep(3)
+@app.route('/add_movie', methods=['POST'])
+def add_movie():
+    new_movie_title = request.form['title']
+    movies = load_movies()
+    movies.append({"title": new_movie_title, "watched": False})
+    save_movies(movies)
+    return jsonify({"message": "Movie added successfully!"})
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
