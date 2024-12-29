@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Picker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+    <script>
+        async function pickMovie() {
+            const response = await fetch('/pick_movie', { method: 'POST' });
+            const data = await response.json();
+            const messageDiv = document.getElementById('message');
+            if (data.error) {
+                messageDiv.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+            } else {
+                messageDiv.innerHTML = `<div class="alert alert-success">How about watching '${data.title}'?</div>`;
+            }
+        }
+
+        async function addMovie(event) {
+            event.preventDefault();
+            const title = document.getElementById('new-movie-title').value;
+            const response = await fetch('/add_movie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `title=${title}`
+            });
+            const data = await response.json();
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<div class="alert alert-info">${data.message}</div>`;
+            document.getElementById('new-movie-title').value = '';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="my-4">Welcome to Movie Picker</h1>
+        <p class="lead">You have {{ unwatched_count }} movies remaining in your 2025 must-watch list.</p>
+        <button class="btn btn-custom btn-lg" onclick="pickMovie()">Pick a Movie</button>
+        <div id="message" class="mt-4"></div>
+        <form class="mt-4" onsubmit="addMovie(event)">
+            <div class="form-group">
+                <input type="text" id="new-movie-title" class="form-control" placeholder="Enter new movie title"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-custom">Add Movie</button>
+        </form>
+    </div>
+</body>
+
+</html>
