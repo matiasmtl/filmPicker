@@ -24,19 +24,22 @@ def pick_random_movie(movies):
 def main():
     movies = load_movies()  # This already loads the list
     unwatched_movies = get_unwatched_movies(movies)
-    print(f"Want to watch a movie tonight? You have {len(unwatched_movies)} movies remaining in your 2025 must watch list. Answer Yes or No")
-    answer = input().strip().lower()
+    while True:
+        print(f"Want to watch a movie tonight? You have {len(unwatched_movies)} movies remaining in your 2025 must watch list. Answer Yes or No")
+        answer = input().strip().lower()
+        if answer in ["yes", "no"]:
+            break
+        print("Please answer with 'Yes' or 'No'.")
 
     if answer == "no":
         print("Okay. Let me know if you change your mind.")
-        time.sleep(3)
+        time.sleep(1)
         return
-
     while answer == "yes":
         movie = pick_random_movie(movies)
         if movie is None:
             print("No movies left to watch in the 2025 list!")
-            break
+            return
         print(f"How about watching '{movie['title']}'?")
         movie['watched'] = True
         save_movies(movies)
