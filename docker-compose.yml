@@ -2,9 +2,10 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    image: matiasmtl/movie-picker:latest # Specify your Docker Hub image
+    # build: .  # Comment out or remove this line when using image from Docker Hub
     ports:
-      - "5000:5000"
+      - "32778:5000" # Change 32778 to your desired external port
     env_file:
       - .env
     volumes:
