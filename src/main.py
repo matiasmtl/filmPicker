@@ -9,10 +9,11 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
 
 # Option 1: Use absolute path during development
-# MOVIES_FILE = r'C:\Users\Matias\Documents\cajita\mat\Code\filmPicker\my-python-project\src\movies.json'
+# MOVIES_FILE = r'C:\myLocalPath\filmPicker\my-python-project\src\movies.json'
 
 # Option 2: Use relative path from current file
 # MOVIES_FILE = os.path.join(os.path.dirname(__file__), 'movies.json')
+# print(f"Looking for movies.json at: {MOVIES_FILE}")
 
 # Option 3: Use environment variable with fallback (for Docker deployment)
 MOVIES_FILE = os.environ.get('MOVIES_FILE', os.path.join(os.path.dirname(__file__), 'movies.json'))
