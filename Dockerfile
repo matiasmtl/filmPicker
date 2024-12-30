@@ -10,6 +10,10 @@ COPY requirements.txt .
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create directory and copy movies.json
+RUN mkdir -p /app/src
+COPY src/movies.json /app/src/
+
 # Copy the rest of the application code
 COPY . .
 

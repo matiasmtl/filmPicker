@@ -7,9 +7,21 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
+
+# Option 1: Use absolute path during development
+# MOVIES_FILE = r'C:\Users\Matias\Documents\cajita\mat\Code\filmPicker\my-python-project\src\movies.json'
+
+# Option 2: Use relative path from current file
+# MOVIES_FILE = os.path.join(os.path.dirname(__file__), 'movies.json')
+
+# Option 3: Use environment variable with fallback (for Docker deployment)
 MOVIES_FILE = os.environ.get('MOVIES_FILE', os.path.join(os.path.dirname(__file__), 'movies.json'))
 
 def load_movies():
+    # Create the file if it doesn't exist
+    if not os.path.exists(MOVIES_FILE):
+        with open(MOVIES_FILE, 'w') as file:
+            json.dump([], file)
     with open(MOVIES_FILE, 'r') as file:
         return json.load(file)
 
@@ -37,10 +49,19 @@ def pick_movie():
     movies = load_movies()
     movie = pick_random_movie(movies)
     if movie:
-        movie['watched'] = True
-        save_movies(movies)
         return jsonify(movie)
     return jsonify({'error': 'No movies left to watch!'})
+
+@app.route('/mark_watched', methods=['POST'])
+def mark_watched():
+    title = request.form['title']
+    movies = load_movies()
+    for movie in movies:
+        if movie['title'] == title:
+            movie['watched'] = True
+            save_movies(movies)
+            return jsonify({"message": f"'{title}' marked as watched!"})
+    return jsonify({"error": "Movie not found"}), 404
 
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
