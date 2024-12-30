@@ -12,7 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all application files
 COPY src /app/src
-COPY movies.json /app/src/movies.json
 
 # Set permissions
 RUN chmod 777 /app/src && \
