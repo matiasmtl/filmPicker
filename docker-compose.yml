@@ -2,12 +2,14 @@ version: '3.8'
 
 services:
   web:
-    image: matiasmtl/movie-picker:latest # Specify your Docker Hub image
-    # build: .  # Comment out or remove this line when using image from Docker Hub
+    image: matiasmtl/movie-picker:latest
     ports:
-      - "32778:5000" # Change 32778 to your desired external port
-    env_file:
-      - .env
+      - "32778:5000"
+    environment:
+      - SECRET_KEY=change_this_in_production
     volumes:
-      - ./src:/app/src
+      - movie-data:/app/src
     restart: unless-stopped
+
+volumes:
+  movie-data:

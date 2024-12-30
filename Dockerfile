@@ -10,23 +10,22 @@ COPY requirements.txt .
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create directory with proper permissions
-RUN mkdir -p /app/src && chmod 777 /app/src
+# Copy all application files
+COPY src /app/src
+COPY movies.json /app/src/movies.json
 
-# Copy movies.json first and set permissions
-COPY src/movies.json /app/src/
-RUN chmod 666 /app/src/movies.json
+# Set permissions
+RUN chmod 777 /app/src && \
+    chmod 666 /app/src/movies.json
 
-# Copy the rest of the application code
-COPY . .
+# Define environment variable
+ENV FLASK_APP=src/main.py \
+    MOVIES_FILE=/app/src/movies.json \
+    FLASK_ENV=production \
+    FLASK_DEBUG=0
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
-
-# Define environment variable
-ENV FLASK_APP=src/main.py
-ENV MOVIES_FILE=/app/src/movies.json
-ENV FLASK_DEBUG=1
 
 # Switch to non-root user for security
 RUN useradd -m myuser
