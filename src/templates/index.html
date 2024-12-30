@@ -26,11 +26,35 @@
             const response = await fetch('/pick_movie', { method: 'POST' });
             const data = await response.json();
             const messageDiv = document.getElementById('message');
+
             if (data.error) {
                 messageDiv.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
             } else {
-                messageDiv.innerHTML = `<div class="alert alert-success">How about watching '${data.title}'?</div>`;
+                messageDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        <p>How about watching '${data.title}'?</p>
+                        <button class="btn btn-success btn-sm" onclick="markAsWatched('${data.title}')">Mark as Watched</button>
+                        <button class="btn btn-secondary btn-sm" onclick="clearMessage()">Maybe Later</button>
+                    </div>`;
             }
+        }
+
+        function clearMessage() {
+            document.getElementById('message').innerHTML = '';
+        }
+
+        async function markAsWatched(title) {
+            const response = await fetch('/mark_watched', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `title=${encodeURIComponent(title)}`
+            });
+            const data = await response.json();
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<div class="alert alert-info">${data.message}</div>`;
+            location.reload(); // Refresh to update the unwatched count
         }
 
         async function addMovie(event) {
