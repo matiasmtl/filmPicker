@@ -1,3 +1,4 @@
+# from CLI run SECRET_KEY=your_secret_key_here TMDB_API_KEY=your_tmdb_api_key_here docker-compose up
 version: '3.8'
 
 services:
@@ -6,7 +7,7 @@ services:
     ports:
       - "32778:5000"
     environment:
-      - SECRET_KEY=change_this_in_production
+      - TMDB_API_KEY=${TMDB_API_KEY?TMDB API key is required}
     volumes:
       - movie-data:/app/src
     restart: unless-stopped

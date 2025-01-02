@@ -30,5 +30,8 @@ EXPOSE 5000
 RUN useradd -m myuser
 USER myuser
 
+# Define volume
+VOLUME ["/app/src"]
+
 # Run app.py when the container launches
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
