@@ -21,6 +21,63 @@
             background-color: #007bff;
             color: white;
         }
+
+        .watched-movies {
+            margin-top: 30px;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+        }
+
+        .collapse-header {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .star-rating {
+            color: #ffd700;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .star-rating .star {
+            display: inline-block;
+            transition: color 0.2s;
+        }
+
+        .star-rating .star.active {
+            color: #ffd700;
+        }
+
+        .star-rating .star:not(.active) {
+            color: #ccc;
+        }
+
+        .movie-poster {
+            max-width: 200px;
+            margin: 10px auto;
+        }
+
+        .movie-details {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .tmdb-rating {
+            color: #e17b20;
+            /* Orange-brown color */
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.1);
+            /* Slight dark background */
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .tmdb-rating .star-icon {
+            color: #e17b20;
+            /* Match the text color */
+        }
     </style>
     <script>
         async function pickMovie() {
@@ -31,12 +88,34 @@
             if (data.error) {
                 messageDiv.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
             } else {
-                messageDiv.innerHTML = `
+                let content = `
                     <div class="alert alert-success">
-                        <p>How about watching '${data.title}'?</p>
-                        <button class="btn btn-success btn-sm" onclick="markAsWatched('${data.title}')">Mark as Watched</button>
-                        <button class="btn btn-secondary btn-sm" onclick="clearMessage()">Maybe Later</button>
+                        <h4>How about watching '${data.title}'?</h4>`;
+
+                if (data.poster) {
+                    content += `<img src="${data.poster}" alt="${data.title}" class="movie-poster">`;
+                }
+
+                content += `<div class="movie-details">`;
+                if (data.year) {
+                    content += `<p><strong>Year:</strong> ${data.year}</p>`;
+                }
+                if (data.tmdb_rating) {
+                    content += `<p><strong>TMDB Rating:</strong> <span class="tmdb-rating"><span class="star-icon">★</span> ${data.tmdb_rating}/10</span></p>`;
+                }
+                if (data.overview) {
+                    content += `<p><strong>Synopsis:</strong> ${data.overview}</p>`;
+                }
+
+                content += `
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-success btn-sm" onclick="markAsWatched('${data.title}')">Mark as Watched</button>
+                            <button class="btn btn-secondary btn-sm" onclick="clearMessage()">Maybe Later</button>
+                        </div>
                     </div>`;
+
+                messageDiv.innerHTML = content;
             }
         }
 
@@ -73,14 +152,36 @@
             messageDiv.innerHTML = `<div class="alert alert-info">${data.message}</div>`;
             document.getElementById('new-movie-title').value = '';
         }
+
+        async function rateMovie(title, rating) {
+            const response = await fetch('/rate_movie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `title=${encodeURIComponent(title)}&rating=${rating}`
+            });
+            const data = await response.json();
+            if (data.success) {
+                const stars = document.querySelectorAll(`[data-movie="${title}"] .star`);
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+        }
     </script>
 </head>
 
 <body>
     <div class="container text-center">
         <h1 class="my-4">Welcome to Movie Picker</h1>
-        <p class="lead">You have {{ unwatched_count }} movies remaining in your 2025 must-watch list.</p>
-        <button class="btn btn-custom btn-lg" onclick="pickMovie()">Pick a Movie</button>
+        <p class="lead">You have {{ unwatched_count }} movies remaining in your 2025 must-watch list. </p>
+        <p class="lead"> Roll the dice to pick one.</p>
+        <button class="btn btn-custom btn-lg" onclick="pickMovie()">🎲</button>
         <div id="message" class="mt-4"></div>
         <form class="mt-4" onsubmit="addMovie(event)">
             <div class="form-group">
@@ -89,7 +190,31 @@
             </div>
             <button type="submit" class="btn btn-custom">Add Movie</button>
         </form>
+
+        <div class="watched-movies">
+            <div class="collapse-header" data-toggle="collapse" data-target="#watchedMovies">
+                <h3>Watched Movies ▼</h3>
+            </div>
+            <div id="watchedMovies" class="collapse">
+                {% for movie in watched_movies %}
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <div class="star-rating" data-movie="{{ movie.title|e }}">
+                            {% for i in range(1, 6) %}
+                            <span class="star {% if movie.rating >= i %}active{% endif %}" data-rating="{{ i }}"
+                                onclick="rateMovie(this.parentElement.getAttribute('data-movie'), {{ i }})">★</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
