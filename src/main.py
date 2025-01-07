@@ -4,6 +4,10 @@ import random
 import os
 import requests
 from dotenv import load_dotenv
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -100,27 +104,86 @@ def get_movie_details(title):
 # Add function to get TV show details
 def get_tv_show_details(title):
     try:
+        headers = {
+            'Authorization': f'Bearer {TMDB_API_KEY}',
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+        
+        # Search for the TV show
         search_response = requests.get(
             TMDB_TV_SEARCH_URL,
             params={
-                'api_key': TMDB_API_KEY,
                 'query': title,
                 'language': 'en-US'
-            }
+            },
+            headers=headers
         )
         search_data = search_response.json()
+        logger.debug(f"Search results: {search_data}")
         
         if search_data['results']:
             show = search_data['results'][0]
+            show_id = show['id']
+            episodes = get_tv_show_episodes(show_id)
+            
             return {
-                'overview': show['overview'],
-                'poster_path': f"https://image.tmdb.org/t/p/w500{show['poster_path']}" if show['poster_path'] else None,
-                'first_air_date': show['first_air_date'],
-                'rating': show['vote_average']
+                'overview': show.get('overview', ''),
+                'poster_path': f"https://image.tmdb.org/t/p/w500{show['poster_path']}" if show.get('poster_path') else None,
+                'first_air_date': show.get('first_air_date', ''),
+                'rating': show.get('vote_average', 0),
+                'seasons': episodes
             }
     except Exception as e:
-        print(f"Error fetching TV show details: {str(e)}")
+        logger.error(f"Error fetching TV show details: {str(e)}")
     return None
+
+def get_tv_show_episodes(show_id):
+    try:
+        # Get series details with authentication headers
+        headers = {
+            'Authorization': f'Bearer {TMDB_API_KEY}',
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+        
+        series_response = requests.get(
+            f"https://api.themoviedb.org/3/tv/{show_id}",
+            headers=headers
+        )
+        series_data = series_response.json()
+        logger.debug(f"Series data: {series_data}")
+        
+        if 'status_code' in series_data and series_data['status_code'] == 34:
+            logger.error(f"TV show not found: {show_id}")
+            return []
+
+        seasons = []
+        # Get episodes for each season
+        for season in range(1, series_data.get('number_of_seasons', 0) + 1):
+            season_response = requests.get(
+                f"https://api.themoviedb.org/3/tv/{show_id}/season/{season}",
+                headers=headers
+            )
+            season_data = season_response.json()
+            logger.debug(f"Season {season} data: {season_data}")
+            
+            if 'episodes' in season_data:
+                seasons.append({
+                    'season_number': season,
+                    'episode_count': len(season_data['episodes']),
+                    'episodes': [{
+                        'episode_number': ep['episode_number'],
+                        'name': ep.get('name', f'Episode {ep["episode_number"]}'),
+                        'overview': ep.get('overview', ''),
+                        'air_date': ep.get('air_date', ''),
+                        'watched': False
+                    } for ep in season_data['episodes']]
+                })
+        
+        logger.info(f"Found {len(seasons)} seasons")
+        return seasons
+    except Exception as e:
+        logger.error(f"Error fetching TV show episodes: {str(e)}")
+        return []
 
 # Update the index route to include TV shows
 @app.route('/')
@@ -215,14 +278,18 @@ def add_show():
     
     # Get show details from TMDB
     show_details = get_tv_show_details(title)
+    if not show_details:
+        return jsonify({'success': False, 'error': 'Could not fetch show details'})
+        
     new_show = {
         'title': title,
         'status': 'to_watch',
         'rating': 0,
-        'overview': show_details['overview'] if show_details else None,
-        'poster': show_details['poster_path'] if show_details else None,
-        'year': show_details['first_air_date'][:4] if show_details and show_details['first_air_date'] else None,
-        'tmdb_rating': show_details['rating'] if show_details else None
+        'overview': show_details.get('overview'),
+        'poster': show_details.get('poster_path'),
+        'year': show_details.get('first_air_date', '')[:4] if show_details.get('first_air_date') else None,
+        'tmdb_rating': show_details.get('rating'),
+        'seasons': show_details.get('seasons', [])
     }
     
     shows.append(new_show)
@@ -259,6 +326,27 @@ def update_show_status():
             return jsonify({'success': True})
     
     return jsonify({'success': False, 'error': 'Show not found'})
+
+# Add new route to update episode watched status
+@app.route('/update_episode_status', methods=['POST'])
+def update_episode_status():
+    title = request.form.get('title')
+    season = int(request.form.get('season'))
+    episode = int(request.form.get('episode'))
+    watched = request.form.get('watched') == 'true'
+    
+    shows = load_tv_shows()
+    for show in shows:
+        if show['title'] == title:
+            for s in show['seasons']:
+                if s['season_number'] == season:
+                    for ep in s['episodes']:
+                        if ep['episode_number'] == episode:
+                            ep['watched'] = watched
+                            save_tv_shows(shows)
+                            return jsonify({'success': True})
+    
+    return jsonify({'success': False, 'error': 'Show/episode not found'}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)

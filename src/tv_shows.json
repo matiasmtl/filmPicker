@@ -52,5 +52,690 @@
         "poster": "https://image.tmdb.org/t/p/w500/57okJJUBK0AaijxLh3RjNUaMvFI.jpg",
         "year": "1999",
         "tmdb_rating": 8.7
+    },
+    {
+        "title": "Six Feet Under",
+        "status": "to_watch",
+        "rating": 0,
+        "overview": "When death is your business, what is your life? For the Fisher family, the world outside of their family-owned funeral home continues to be at least as challenging as\u2014and far less predictable than\u2014the one inside.",
+        "poster": "https://image.tmdb.org/t/p/w500/ztuH5aJIZQpu5ci27tY2nx1gwjO.jpg",
+        "year": "2001",
+        "tmdb_rating": 8.1,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 13,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Pilot",
+                        "overview": "Nate Fisher returns home for the holidays to the shattering news of his father's death.",
+                        "air_date": "2001-06-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Will",
+                        "overview": "After a pyramid scheme owner dies and leaves his wife and baby daughter with a load of debt, Nate offers to loan them a casket. Meanwhile, the Fisher family attend the reading of their father's will.",
+                        "air_date": "2001-06-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Foot",
+                        "overview": "When a bakery owner is killed, it's up to Federico to put the pieces back together. The family considers selling the funeral business altogether to Kroehner.",
+                        "air_date": "2001-06-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Familia",
+                        "overview": "After a gang member is killed, the Fishers find that his family's wishes for burial differ from those of his gang leader. Nate's girlfriend Brenda makes an unfavorable impression during a family dinner.",
+                        "air_date": "2001-06-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "An Open Book",
+                        "overview": "Ruth is stunned by the visitors at a porn star's wake; Nate has a strange first meeting with Brenda's brother Billy; and Keith takes issue with David's desire to replace his father as deacon at the family church.",
+                        "air_date": "2001-07-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Room",
+                        "overview": "An ornery widower camps out in the Fisher Funeral Home; sparks fly between Claire and Billy; Ruth spurns Hiram and is later wooed by a Russian florist; David is pursued by a pushy parishioner while performing charity work; and an examination of the business's receipts uncovers some interesting secrets.",
+                        "air_date": "2001-07-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Brotherhood",
+                        "overview": "When a young Army vet dies of Gulf War Syndrome, his brother opts for a cremation and disposal of the body; Ruth has Hiram over to cook dinner and then takes a job with Nikolai; David's church involvement results in his casting a very important vote; and Billy interferes with Nate and Brenda's vacation plans.",
+                        "air_date": "2001-07-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Crossroads",
+                        "overview": "In an effort to raise income, Nate and David decide to rent out a room in the funeral home; Claire struggles to grasp the lessons of her outreach hike in the mountains; Ruth attempts to reconcile her feelings about Hiram; Brenda's Aussie friend gets under Nate's skin; and David is buoyed by the news of extra funeral business.",
+                        "air_date": "2001-07-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Life's Too Short",
+                        "overview": "A tragedy reunites Claire with a guy who sullied her reputation at school; David and his new boyfriend run into Keith and his new partner on the disco circuit; and Ruth has an eye-opening camping trip with Hiram.",
+                        "air_date": "2001-07-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The New Person",
+                        "overview": "Nate and David hire an outspoken mortician; Billy's photo gallery exhibit features one particularly surprising shot; and Claire frets over Gabe's inconsistent behavior.",
+                        "air_date": "2001-08-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "The Trip",
+                        "overview": "Nate, David and Brenda take an interesting trip to Vegas for a funeral directors' conference; a baby's death from SIDS stuns the family; and Ruth takes a floral-arrangement class.",
+                        "air_date": "2001-08-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "A Private Life",
+                        "overview": "A gay man's murder forces David to confont his own fears about his lifestyle; Brenda's parents and Nate consider getting help for the increasingly troubled Billy...but Brenda isn't so sure that's the answer. Meanwhile, Ruth, Claire and David all share secrets with respective acquaintances.",
+                        "air_date": "2001-08-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "Knock, Knock",
+                        "overview": "The Fisher family experiences the control-freak side of Tracy Montrose Blaire; Brenda visits a remorseful Billy; David faces problems at his church; Gabe reverts to some bad habits; and Rico finds reason to celebrate.",
+                        "air_date": "2001-08-19",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 2,
+                "episode_count": 13,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "In the Game",
+                        "overview": "A young actress's death prompts her castmates from a slasher film to pitch in for a cheap funeral at Fisher & Sons. Meanwhile, Ruth arranges a dinner for Nate, David and Claire--and their significant others--after reading a book for parents of gay and lesbian children.",
+                        "air_date": "2002-03-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Out, Out Brief Candle",
+                        "overview": "A college football player's death during practice bothers Nate, who earlier learned of his own potentially fatal condition. Meanwhile, Federico's request to borrow money from Nate and David is rejected, and he later learns of their newest purchase: a 'casket wall' display.",
+                        "air_date": "2002-03-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Plan",
+                        "overview": "The death of a psychic's husband sparks some interesting conversation around Fisher & Sons. Meanwhile, Ruth is changed after attending a lengthy self-actualization seminar; Claire is upset to discover that her guidance counselor has betrayed her confidence; and Brenda walks out on a college course she enrolled in.",
+                        "air_date": "2002-03-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Driving Mr. Mossback",
+                        "overview": "Nate brings Claire to his old stomping ground in Seattle to help him retrieve the body of a man who feared flying. There, they stay with Lisa, a woman who still carries a torch for Nate.",
+                        "air_date": "2002-03-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Invisible Woman",
+                        "overview": "Ruth takes a personal interest in the death of a woman who has no friends or relatives. Meanwhile, Brenda's search for a literary muse prompts her to turn to one of her massage clients--a prostitute named Melissa--and Nate's relationship with Brenda takes an unexpected turn.",
+                        "air_date": "2002-03-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "In Place of Anger",
+                        "overview": "Mitzi Huntley arrives back in Nate and David's lives thanks to a comparison-shopping widow. Meanwhile, Ruth's estranged sister Sarah arrives for an unexpected visit. Later, a vodka-fueled family dinner casts a pall over Nate and Brenda's happy news.",
+                        "air_date": "2002-04-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Back to the Garden",
+                        "overview": "A Jewish funeral at Fisher & Sons leads Nate to seek spiritual guidance from an intense female rabbi. Claire is surprised to meet a guy while visiting her Aunt Sarah. Meanwhile, a medical emergency prompts David to consider giving his relationship with Keith another shot. Federico's jealous suspicions about his cousin Ramon prove to be very misguided.",
+                        "air_date": "2002-04-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "It's the Most Wonderful Time of the Year",
+                        "overview": "The Christmas season marks the anniversary of Nathaniel's death...and gets everyone thinking about their last moments with him. Meanwhile, Nate and Brenda are shocked by Margaret Chenowith's Christmas Eve guest, Claire gets into a dangerous online relationship and Federico stirs up trouble in his own family.",
+                        "air_date": "2002-04-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Someone Else's Eyes",
+                        "overview": "Ruth continues to help an injured Nikolai recover, but her patience is tested when she discovers just how he broke his legs. Brenda's escapades help her to write, but her feelings about being engaged grow more muddled--especially after Billy's release from the hospital.",
+                        "air_date": "2002-04-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Secret",
+                        "overview": "David and Keith continue trying to iron out their problems...and Karla has a secret that isn't going to make things any better. Meanwhile, Claire takes a curious approach to photography, Ruth prepares to move ahead with Nikolai and Brenda's engagement anxiety leads her on a sexual adventure with Melissa.",
+                        "air_date": "2002-05-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "The Liar and the Whore",
+                        "overview": "Nate and Brenda find comfort thanks to Rabbi Ari's advice. Ruth's need to control the lives of Nikolai and Claire leads her to a surprising self-assessment. Federico's suspicions about an elderly woman's 'natural' death lead him to place Vanessa under scrutiny. A disgruntled former client files a lawsuit against Fisher & Sons.",
+                        "air_date": "2002-05-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "I'll Take You",
+                        "overview": "Claire seems to be finding some direction in her life, and a newly serious Billy is an unlikely choice to help her. Tensions between Nate and Brenda finally come to a head, while Keith has a problem that threatens everything he has worked towards in his relationship with David.",
+                        "air_date": "2002-05-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "The Last Time",
+                        "overview": "Fisher & Sons is the subject of an unannounced inspection, which proves surprisingly beneficial for Federico. Meanwhile, Claire's art-school interview takes an unexpected turn, and things grow tense between Keith and David. Also, Nate finds himself at a crossroads, both with Brenda and with his AVM.",
+                        "air_date": "2002-06-02",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 3,
+                "episode_count": 13,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Perfect Circles",
+                        "overview": "Fisher & Sons has become Fisher & Diaz, and Rico is doing all he can to make sure he's not a 'gofer' anymore. Meanwhile, David and Keith decide to give couple's therapy a try, Claire skips art class to get to know a crematory worker named Phil; and Ruth goes overboard in her obsession with her granddaughter Maya.",
+                        "air_date": "2003-03-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "You Never Know",
+                        "overview": "David and Rico are at odds over doing business with the family of a deceased telemarketer, Claire finds she has more in common with a fellow art student named Russell than with Phil, and Ruth meets a new friend, Bettina. Meanwhile, David and Keith get a taste of a different kind of family life and Carol continues to make life miserable for Lisa.",
+                        "air_date": "2003-03-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Eye Inside",
+                        "overview": "Keith and David find the reality of a resort vacation different than advertised, Ruth learns the meaning of 'express checkout' during a shopping excursion with Bettina, and Claire gets a lesson in 'sick' art from a new teacher.",
+                        "air_date": "2003-03-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Nobody Sleeps",
+                        "overview": "While the partner of a recently deceased gay man is orchestrating an operatic tribute at Fisher & Diaz, Lisa plans an unwanted birthday party for Ruth. Meanwhile, Claire has a night to remember with Russell and two outlaw art teachers.",
+                        "air_date": "2003-03-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Trap",
+                        "overview": "Fisher & Diaz deal with the recently discovered body of a man missing for years. Meanwhile, Ruth sets the ground rules for a new live-in apprentice named Arthur, David meets an old acquaintance during an L.A. Gay Men's Chorus rehearsal, and Claire is surprised by her responsibilities as Olivier's new assistant.",
+                        "air_date": "2003-03-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Making Love Work",
+                        "overview": "A nosebleed proves deadly for one audience member queuing up to see the 'Dr. Dave' advice show. Meanwhile, Lisa takes Maya on an illuminating camping trip, and Rico wrestles with the challenges of a double-wide corpse and 'triple X' casket.",
+                        "air_date": "2003-04-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Timing & Space",
+                        "overview": "A group of familiar relatives and friends is united in mourning. Meanwhile, David and Keith play 'Leading Ladies' at brunch with members of the Gay Men's Chorus, Ruth and Arthur perform a rendition of 'My Favorite Things,' and Rico grows increasingly concerned about Vanessa's 'intense energy.'",
+                        "air_date": "2003-04-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Tears, Bones and Desire",
+                        "overview": "After the patriarch of a cultish new-age clan dies, Fisher & Diaz is overrun by the wives and children left behind. Meanwhile, Keith gets back at David and his brunch pals during an intense game of paintball, Claire tires of being Olivier's lackey assistant, and Ruth and Arthur savor the smell of clean laundry.",
+                        "air_date": "2003-04-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "The Opening",
+                        "overview": "The Fishers run into some unexpected guests at an art-school benefit featuring works for sale by Claire, Russell and Olivier. Meanwhile, David and Keith have an awkward video-store meeting with Father Jack, then haggle over the 'rules' of three-way sex with a stranger.",
+                        "air_date": "2003-04-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Everyone Leaves",
+                        "overview": "A bee sting during a family picnic ends a life. Nate tends to Maya while Lisa visits her sister in Santa Cruz. Meanwhile, Vanessa seems back to her old self, to Rico's relief; Russell's decision to share a secret with Claire backfires; Arthur wonders whether he should be mixing laundry with Ruth; and David gets a look at another dysfunctional family.",
+                        "air_date": "2003-05-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "Death Works Overtime",
+                        "overview": "Fisher & Diaz is brimming over with activity after a trio of unrelated deaths. Meanwhile, Nate anxiously awaits Lisa's return from Santa Cruz; Vanessa and her sister Angelica enjoy a therapeutic shopping excursion, to Rico's chagrin; Claire grades herself in art school, then takes another important test; and Ruth cries all over a stranger's jacket.",
+                        "air_date": "2003-05-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "Twilight",
+                        "overview": "After a serial killer is executed in Texas, his daughter brings him home for a fitting Fisher & Diaz funeral. Meanwhile, Ruth spends some quality time in the company of George Sibley; David arrives at a crossroads in his relationship with Keith; Rico can't find refuge from his domestic demons; and Nate and Claire get lost in their own separate twilights.",
+                        "air_date": "2003-05-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "I'm Sorry, I'm Lost",
+                        "overview": "Death continues to shuffle its deck randomly for would-be clients of Fisher & Diaz. Meanwhile, Nate looks to quell his inner demons through extreme remedies offered at a local bar--giving Claire way more baby-sitting action than she bargained for. Also, Ruth shakes up the family with some unexpected news.",
+                        "air_date": "2003-06-01",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 4,
+                "episode_count": 12,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Falling into Place",
+                        "overview": "In an attempt to honor Lisa's last wishes, Nate finds himself at odds with her family. Meanwhile, David and Keith look for 'genuinely new' ways to start over; Federico seeks out a priest for absolution; Vanessa gets tired of Angelica; Brenda does 'the neighbor thing' with Joe; and Ruth sings the praises of her new husband George.",
+                        "air_date": "2004-06-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "In Case of Rapture",
+                        "overview": "George puts his stamp on the Fisher home. David cautions Nate about projecting his personal grief onto their clients; Keith applies for a glamorous new job; Joe challenges the logic of Brenda's 12-step plan; Claire reawakens her artistic muse after meeting a free spirit named Edie; and Federico proves that charity doesn't always begin at home.",
+                        "air_date": "2004-06-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Parallel Play",
+                        "overview": "A group of prank-happy teenagers find their latest joke is no laughing matter. Meanwhile, the Fishers decide to hold a yard sale; David grooms Arthur for a new role; Nate gets intimately involved in Maya's afternoon playgroup; Claire attends an art party; Ruth and George receive some unwanted wedding gifts; Federico gets caught up in family responsibilities; Keith adjusts to the peculiarities of his new job; Joe isn't thrilled by Brenda's yearning for normalcy; and some important memories go up in smoke.",
+                        "air_date": "2004-06-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Can I Come Up Now?",
+                        "overview": "David's ex-fiancee re-enters his life in search of answers to the question, 'Why me?' Meanwhile, Nate has a psychic rendezvous, Keith's new job sends him into the closet, Federico identifies with David's past, Claire decides not to let life pass her by, George dumps some surprise baggage on Ruth, and Margaret weighs in on daughter Brenda's new relationship.",
+                        "air_date": "2004-07-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "That's My Dog",
+                        "overview": "With Keith out of town on business, David gets taken for a ride by a hitchhiker. Meanwhile, Nate feels out of place in a bereavement group, Ruth tries to play matchmaker--to George's chagrin, Claire feels empty after a critique of her self-portraits, Brenda and her mom go back to school, and Federico gets an unexpected visitor at work.",
+                        "air_date": "2004-07-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Terror Starts At Home",
+                        "overview": "Fisher & Diaz hosts two very different parties in one night. Meanwhile, David is uncomfortable with all the comfort he's receiving; Nate finds temporary relief at a 'canine retreat,' Claire and her art-school friends go on a trip, Ruth grows frustrated with George's \"nasty little secrets\" and Federico gets his phone wires crossed.",
+                        "air_date": "2004-07-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Dare",
+                        "overview": "Ruth goes on a fossil hunt with George, and digs up Sarah and Bettina. Claire focuses her talents on Edie; Federico tries to unload on Sophia; Vanessa does some part-time detective work; Keith goes 'out' to a bar with his co-workers; David drowns his stress; Nate dares Brenda to be honest with Joe, and receives some relationship advice himself.",
+                        "air_date": "2004-08-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Coming and Going",
+                        "overview": "Nate and Brenda take Maya on a train ride, getting caught in their tracks when they go a little too far. Meanwhile, David tries to 'sex-orcise' his demons; Keith straightens out a conflict of interest; Federico starts sleeping on the job; Ruth schools George when he treads on her garden; Vanessa and Angelica take some female matters into their own hands; and Claire enjoys 'dancing' with Edie--as a spectator sport.",
+                        "air_date": "2004-08-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Grinding the Corn",
+                        "overview": "Ruth and Bettina take a road trip to Mexico, leaving the men of Fisher & Diaz to some male bonding--and comic-book crime-fighting. David and Keith open up after closing their 'open' relationship; Claire warms up to Jimmy after getting the cold shoulder from Edie and Anita; Billy resurfaces as a substitute art teacher; and Nate can't decide what he wants from Brenda, who turns to old friends to treat the pain.",
+                        "air_date": "2004-08-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Black Forest",
+                        "overview": "Nate gives Maya 'one last look' at a memorial for Lisa, where some surprise discoveries ensue. David and Keith are inspired by a same-sex wedding; George agrees to Ruth's marriage stipulations; Federico is disturbed by the 'new and improved' Vanessa; Brenda crosses a bridge with her therapy client; and Claire and Billy develop something in the darkroom.",
+                        "air_date": "2004-08-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "Bomb Shelter",
+                        "overview": "Ruth is giddy about going to a tantric workshop with George, who retreats to the family's emergency shelter. Meanwhile, David's last bite at a sushi restaurant threatens to cost him--and Keith--a lot more than the bill; Nate drops a bomb on Barb, which sparks a counterattack; Claire fights Russell over credit for her latest photos; Margaret's hospital stay helps Brenda and Billy begin to heal their rift; and Vanessa shows she can beat Federico at his own game.",
+                        "air_date": "2004-08-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "Untitled",
+                        "overview": "Ruth is delighted to meet George's daughter, but worries as his paranoid 'views' of the future escalate. 'Star' Claire gets high off her newfound fame; Federico pleads his case to Vanessa, who delivers a verdict; David confronts a demon face-to-face; Keith considers a business proposal; and Nate comes to final blows with Barb and Hoyt.",
+                        "air_date": "2004-09-12",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 5,
+                "episode_count": 12,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "A Coat of White Primer",
+                        "overview": "Ruth dreads George's return from the hospital in light of his recent diagnosis; Nate and Brenda prep for a big day, but an emergency makes them reconsider; David and Keith discuss alternative parenting options; Rico tries internet dating; and Claire enjoys domestic bliss but crosses a line with her camera.",
+                        "air_date": "2005-06-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Dancing for Me",
+                        "overview": "Nate hangs with some high-school friends but finds that, as adults, they share little more than teenage memories; Ruth gets relief from George's daughter Maggie; Brenda is reluctant to accept Margaret's help and struggles in her new internship; David and Keith's latest baby dream starts to resemble a nightmare; Claire bemoans being pigeonholed by her art; Billy defends his career but secretly wonders what happened to his old self; and Rico, mortified that he couldn't take a dating hint, seeks sympathy from Vanessa.",
+                        "air_date": "2005-06-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Hold My Hand",
+                        "overview": "Claire is seduced by Billy's lust for life but hits a roadblock trying to fund the next leg of her educational journey; George is haunted by visions of an early trauma; Brenda feels at home with her new supervisor Jackie; David and Keith meet a fertile young woman named Mary; Vanessa encourages Rico to mingle, so he does--at a funeral directors' conference.",
+                        "air_date": "2005-06-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Time Flies",
+                        "overview": "Brenda is disturbed by Nate's reaction to her latest news; Ruth shares her feelings about George with her knitting circle; David and Keith 'propose' to Mary and meet Roger's equally unconventional family; Rico is shocked at how Vanessa and the boys are doing; frustrated, George shares a beer and a song with Billy; and Nate comes home to an unpleasant surprise.",
+                        "air_date": "2005-06-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Eat a Peach",
+                        "overview": "Nate and Brenda discuss giving Maya a 'coherent narrative'; David and Keith await news from Mary, and meet a special little boy; Vanessa is shocked when Julio gets into trouble at school--and mortified when Rico schmoozes things over; Billy invites Claire to dinner, but has no appetite; Margaret helps stage an ambush; and Maggie brings George to a tense meal.",
+                        "air_date": "2005-07-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Rainbow of Her Reasons",
+                        "overview": "Ruth happily helps 'circle the wagons' when Sarah calls; David and Keith discover it's hard work playing house with Anthony and his brother Durrell; Nate muses on the loss of his first love; Claire finds a temporary financial solution; Vanessa hires a nanny with unexpected talents; Rico gets an offer he can't believe--or refuse.",
+                        "air_date": "2005-07-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Silence",
+                        "overview": "David and Keith struggle to create parent-child boundaries; When Brenda and Nate get some ambiguous news, it confirms their views on life and death; Ruth fills her schedule with activities, but has trouble unwinding; Claire meets an interesting guy at work, and makes an effort to fit in; Margaret lets a cat out of the bag; and George drops a bomb on Ruth.",
+                        "air_date": "2005-07-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Singing for Our Lives",
+                        "overview": "A young Latina's funeral raises questions about the culture--and future--of Fisher and Diaz. Meanwhile, David and Keith are upset when they're not in the driver's seat; Claire takes her co-worker Ted to an art school show; Brenda gets vital info from her doctor--and from Jackie; and Ruth goes out for some pampering and gets more than she paid for.",
+                        "air_date": "2005-07-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Ecotone",
+                        "overview": "David and Keith get comfortable with their new family life; Claire is shocked to discover she and Ted share a passion for politics; Ruth finds empowerment in the woods; Maggie is forced to make a series of awkward calls; Brenda faces several truths at once; Rico finally 'gets' Vanessa; and Nate brings the family together against their will.",
+                        "air_date": "2005-07-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "All Alone",
+                        "overview": "While David attends to family business, Keith makes an embarrassing self-discovery on the job; Brenda is challenged by Nate and answers a hard question for Maya; Margaret compares herself to her daughter; Ruth lets Bettina play nurse; Rico and Vanessa decide to protect their future; Claire is comforted by Ted's squareness; and George makes a speech about love.",
+                        "air_date": "2005-08-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "Static",
+                        "overview": "As David's fears take over, Keith tries to protect him--and the boys; Billy attends to his sister; Claire goes on a drunken harassment spree and pushes Ted away; Rico pushes for a talk about the business; George tries to help Ruth with Maya; Nate urges Brenda to embrace a taboo; and Vanessa sees the future in a funeral home.",
+                        "air_date": "2005-08-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "Everyone's Waiting",
+                        "overview": "David finally embraces a demon; Keith gives 'tough love'; Nathaniel talks to his younger son; Brenda delivers and fights Nate's negativity; Claire gets an exciting call; Ted inspires sexy photos; Margaret is impressed to see Olivier's nurturing side; George's limitations eclipse his intentions; and Claire drives into her future.",
+                        "air_date": "2005-08-21",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "The IT Crowd",
+        "status": "watched",
+        "rating": 4,
+        "overview": "Two I.T. nerds and their clueless female manager, who work in the basement of a very successful company. When they are called on for help, they are never treated with any respect at all.",
+        "poster": "https://image.tmdb.org/t/p/w500/qZXkBoOUYzvKI4UCMzDQ5kqWHjh.jpg",
+        "year": "2006",
+        "tmdb_rating": 8.2,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 6,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Yesterday's Jam",
+                        "overview": "It's Jen's first day at Reynholm Industries and she is assigned the position of manager of the IT department. Roy and Moss quickly find out that she has absolutely no knowledge of computers whatsoever.",
+                        "air_date": "2006-02-03",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Calamity Jen",
+                        "overview": "Denholm tries to reduce stress in the work place and invites a stress expert to give the employees a class about dealing with stress.\u00a0Meanwhile, Jen buys new shoes that are a few sizes too small, which leads to a very painful result.",
+                        "air_date": "2006-02-03",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Fifty-Fifty",
+                        "overview": "Moss and Roy go on a lonely hearts website. Meanwhile Jen meets the man of her dreams.",
+                        "air_date": "2006-02-10",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Red Door",
+                        "overview": "After being told that she can never open the red door, Jen finds a way to find out what the mystery is all about.",
+                        "air_date": "2006-02-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Haunting of Bill Crouse",
+                        "overview": "When her date Bill turns out to be a jerk, Jen asks Moss to send him away if he stops by. When he does and Moss can't convince him to leave, Moss has to lie and ends up telling Bill that Jen is dead.",
+                        "air_date": "2006-02-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Aunt Irma Visits",
+                        "overview": "Roy and Moss get the same symptoms as Jen when it's her time of the month.",
+                        "air_date": "2006-03-03",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 2,
+                "episode_count": 6,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Work Outing",
+                        "overview": "Jen is asked out on a date by Philip and Roy and Moss decide to tag along which ruins any chance of romance Jen was hoping for.",
+                        "air_date": "2007-08-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Return of the Golden Child",
+                        "overview": "Moss decides to try and work out exactly when Roy will die by using a website on the Internet that calulates time of death based on the answers given to certain questions. Roy doesn't want to know anything about it, but Moss spills it anyway, making Roy very nervous.",
+                        "air_date": "2007-08-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Moss and the German",
+                        "overview": "Moss decides to sign himself up for a German cookery course, but due to a slight miscommunication between Moss and the advertiser, it turns out to be something else entirely.  Roy tries to see a film before someone can spoil the ending for him.  Jen finds out smoking is not as glamorous as she used to think.",
+                        "air_date": "2007-09-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Dinner Party",
+                        "overview": "Jen's attempt to throw a successful dinner party don't go exactly the way she was hoping. The evening isn't a total disaster for everyone, though, as Richmond meets the woman of his dreams.",
+                        "air_date": "2007-09-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Smoke and Mirrors",
+                        "overview": "When Jen\u00a0complains about her bad bra, Moss attempts to create the world's most perfect bra. When he succeeds, he attempts to get onto the BBC show Dragon's Den to demonstrate it, which turns out a bit awkward.",
+                        "air_date": "2007-09-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Men Without Women",
+                        "overview": "After making several unsuccessful advances, Douglas offers Jen the job as his new PA in order to get even closer to her. This way he hopes to slip a potion in her tea, that he obtained from a sorcerer and which should make Douglas irresistable to Jen.",
+                        "air_date": "2007-09-28",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 3,
+                "episode_count": 6,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "From Hell",
+                        "overview": "Douglas's neglegance in running the company nearly ruins Reynholm Industries. Meanwhile, Jen has a builder over at her house to do some renovations. When Roy seems to remember the guy from being on a TV show\u00a0\"Builders from hell\", Jen gets a bit nervous.",
+                        "air_date": "2008-11-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Are We Not Men?",
+                        "overview": "Roy and Moss try to meet new friends by getting familiar with the latest football news and slang. They meet new, yet peculiar friends. Meanwhile, Jen dates a guy who looks like a magician.",
+                        "air_date": "2008-11-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Tramps Like Us",
+                        "overview": "When a sexual harassment case ends with a low pay out, Jen, Roy and Moss find themselves all moving in different directions.\u00a0",
+                        "air_date": "2008-12-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Speech",
+                        "overview": "Jen makes enemies of Roy and Moss after trying to assert herself more after being named as Employee of the Month. Douglas discovers that the woman who he loves is not quite as she seems.",
+                        "air_date": "2008-12-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Friendface",
+                        "overview": "The boys are introduced to a social networking website by Jen. \u00a0Through the site they get in touch with old acquaintances to which they brag a little bit too much, which leads to awkward situations.",
+                        "air_date": "2008-12-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Calendar Geeks",
+                        "overview": "To\u00a0raise money for charity, the girls of the 7th floor come up with the idea to do a nude calendar. Roy -who happens to be there to fix a computer- gets excited when the girls ask him to do the photography. Jen doesn't like the idea so much and comes up with an alternative.",
+                        "air_date": "2008-12-26",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 4,
+                "episode_count": 6,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Jen the Fredo",
+                        "overview": "Jen decides she wants to stretch herself more at work and applies for the post of Entertainment Manager. After discovering that her boss Douglas's business connections have wilder tastes than she planned for, she ends up turning to Moss and Roy for help.",
+                        "air_date": "2010-06-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Final Countdown",
+                        "overview": "Moss ends up becoming a celebrity after he beats all the records on a popular daytime quiz show. Roy tries to explain to an old mate after being mistaken for a window cleaner. Jen finds herself pre-occupied with Douglas' secret head of department meetings.",
+                        "air_date": "2010-07-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Something Happened",
+                        "overview": "Douglas finds himself becoming a Spaceologist. Some bad luck changes Roy's life. Jen ends up getting involved with a rock band.",
+                        "air_date": "2010-07-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Italian for Beginners",
+                        "overview": "Roy gets obsessed by his latest girlfriend's sad family history, while Jen tells an absolute whopper to get some attention.",
+                        "air_date": "2010-07-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Bad Boys",
+                        "overview": "When Roy and Moss become juvenile delinquents for the day they end up having an uncomfortable experience at a local shopping centre.",
+                        "air_date": "2010-07-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Reynholm vs Reynholm",
+                        "overview": "Douglas discovers that marriage agrees with him for all of a fortnight. He then finds himself in court defending himself with Jen, Roy and Moss' help.",
+                        "air_date": "2010-07-30",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
     }
 ]

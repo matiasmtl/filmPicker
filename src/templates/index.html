@@ -164,6 +164,38 @@
         .tv-category .collapse-header {
             padding: 10px 30px 10px 15px;
         }
+
+        .episodes-list {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .season-header {
+            background-color: rgba(40, 167, 69, 0.1);
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .episode-item {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .episode-checkbox {
+            margin-right: 10px;
+        }
+
+        .episode-title {
+            flex-grow: 1;
+        }
+
+        .episode-info {
+            font-size: 0.9em;
+            color: #666;
+        }
     </style>
     <script>
         async function pickMovie() {
@@ -385,6 +417,20 @@
                 setTimeout(() => showSection('tv'), 100);
             }
         }
+
+        async function updateEpisodeStatus(title, season, episode, watched) {
+            const response = await fetch('/update_episode_status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `title=${encodeURIComponent(title)}&season=${season}&episode=${episode}&watched=${watched}`
+            });
+            const data = await response.json();
+            if (!data.success) {
+                console.error('Failed to update episode status');
+            }
+        }
     </script>
 </head>
 
@@ -405,7 +451,7 @@
         <!-- Welcome message when no section is selected -->
         <div id="welcome" class="section active">
             <h2 class="my-4">Welcome!</h2>
-            <p class="lead">Please select Movies or TV Shows above to get started.</p>
+            <p class="lead">What do you want to watch next?</p>
         </div>
 
         <!-- Movies Section - remove 'active' class -->
@@ -488,6 +534,40 @@
                                     </div>
                                     <button class="btn btn-sm btn-success mt-2" 
                                             onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
+                                    {% if show.seasons %}
+                                    <div class="episodes-list mt-3">
+                                        <h6>Episodes</h6>
+                                        {% for season in show.seasons %}
+                                            {% if season.episodes %}
+                                            <div class="season-header">
+                                                <h6 class="mb-0">Season {{ season.season_number }}</h6>
+                                            </div>
+                                            <div class="episodes">
+                                                {% for episode in season.episodes %}
+                                                <div class="episode-item">
+                                                    <input type="checkbox" 
+                                                        class="episode-checkbox"
+                                                        {% if episode.watched %}checked{% endif %}
+                                                        data-show="{{ show.title|e }}"
+                                                        data-season="{{ season.season_number }}"
+                                                        data-episode="{{ episode.episode_number }}"
+                                                        onchange="updateEpisodeStatus(
+                                                            this.dataset.show,
+                                                            parseInt(this.dataset.season),
+                                                            parseInt(this.dataset.episode),
+                                                            this.checked
+                                                        )">
+                                                    <span class="episode-title">{{ episode.name }}</span>
+                                                    {% if episode.air_date %}
+                                                    <span class="episode-info ml-2">({{ episode.air_date }})</span>
+                                                    {% endif %}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -574,6 +654,37 @@
                                               onclick="rateShow(this.parentElement.getAttribute('data-show'), {{ i }})">★</span>
                                         {% endfor %}
                                     </div>
+                                    {% if show.seasons %}
+                                    <div class="episodes-list">
+                                        {% for season in show.seasons %}
+                                        <div class="season-header">
+                                            <h6 class="mb-0">Season {{ season.season_number }}</h6>
+                                        </div>
+                                        <div class="episodes">
+                                            {% for episode in season.episodes %}
+                                            <div class="episode-item">
+                                                <input type="checkbox" 
+                                                       class="episode-checkbox"
+                                                       {% if episode.watched %}checked{% endif %}
+                                                       data-show="{{ show.title|e }}"
+                                                       data-season="{{ season.season_number }}"
+                                                       data-episode="{{ episode.episode_number }}"
+                                                       onchange="updateEpisodeStatus(
+                                                           this.dataset.show,
+                                                           parseInt(this.dataset.season),
+                                                           parseInt(this.dataset.episode),
+                                                           this.checked
+                                                       )">
+                                                <span class="episode-title">{{ episode.episode_number }}. {{ episode.name }}</span>
+                                                {% if episode.air_date %}
+                                                <span class="episode-info">({{ episode.air_date }})</span>
+                                                {% endif %}
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
