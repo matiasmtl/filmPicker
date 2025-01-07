@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Breaking Bad",
+        "status": "watched",
+        "rating": 5,
+        "overview": "A high school chemistry teacher turned methamphetamine manufacturer...",
+        "poster": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+        "year": "2008",
+        "tmdb_rating": 8.8
+    },
+    {
+        "title": "The Wire",
+        "status": "watched",
+        "rating": 5,
+        "overview": "The Baltimore drug scene, as seen through the eyes of drug dealers and law enforcement...",
+        "poster": "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+        "year": "2002",
+        "tmdb_rating": 9.3
+    },
+    {
+        "title": "Better Call Saul",
+        "status": "watched",
+        "rating": 4,
+        "overview": "The trials and tribulations of criminal lawyer Jimmy McGill in the years leading up to establishing his strip-mall law office in Albuquerque, New Mexico...",
+        "poster": "https://image.tmdb.org/t/p/w500/4yYu7GR7Q7NY5zFQ7t3X0a8w0jz.jpg",
+        "year": "2015",
+        "tmdb_rating": 8.7
+    },
+    {
+        "title": "The Squid Game",
+        "status": "ongoing",
+        "rating": 0,
+        "overview": "Hundreds of cash-strapped contestants accept an invitation to compete in children's games for a tempting prize, but the stakes are deadly...",
+        "poster": "https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg",
+        "year": "2021",
+        "tmdb_rating": 7.9
+    },
+    {
+        "title": "Silo",
+        "status": "ongoing",
+        "rating": 0,
+        "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets...",
+        "poster": "https://image.tmdb.org/t/p/w500/8X8t0X5X2t3X0a8w0jz.jpg",
+        "year": "2023",
+        "tmdb_rating": 8.1
+    },
+    {
+        "title": "The Sopranos",
+        "status": "watched",
+        "rating": 5,
+        "overview": "The story of New Jersey-based Italian-American mobster Tony Soprano and the difficulties he faces as he tries to balance the conflicting requirements of his home life and the criminal organization he heads. Those difficulties are often highlighted through his ongoing professional relationship with psychiatrist Jennifer Melfi. The show features Tony's family members and Mafia associates in prominent roles and story arcs, most notably his wife Carmela and his cousin and prot\u00e9g\u00e9 Christopher Moltisanti.",
+        "poster": "https://image.tmdb.org/t/p/w500/57okJJUBK0AaijxLh3RjNUaMvFI.jpg",
+        "year": "1999",
+        "tmdb_rating": 8.7
+    }
+]
