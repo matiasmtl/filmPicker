@@ -175,7 +175,7 @@ def get_tv_show_episodes(show_id):
                         'name': ep.get('name', f'Episode {ep["episode_number"]}'),
                         'overview': ep.get('overview', ''),
                         'air_date': ep.get('air_date', ''),
-                        'watched': False
+                        'watched': False  # Explicitly set to False for new shows
                     } for ep in season_data['episodes']]
                 })
         
@@ -313,19 +313,27 @@ def rate_show():
 @app.route('/update_show_status', methods=['POST'])
 def update_show_status():
     title = request.form.get('title')
-    status = request.form.get('status')
+    new_status = request.form.get('status')
     
-    if status not in ['to_watch', 'ongoing', 'watched']:
-        return jsonify({'success': False, 'error': 'Invalid status'})
-    
-    shows = load_tv_shows()
-    for show in shows:
-        if show['title'] == title:
-            show['status'] = status
-            save_tv_shows(shows)
-            return jsonify({'success': True})
-    
-    return jsonify({'success': False, 'error': 'Show not found'})
+    try:
+        with open(TV_SHOWS_FILE, 'r') as f:
+            shows = json.load(f)
+        
+        for show in shows:
+            if show['title'].lower() == title.lower():
+                show['status'] = new_status
+                # Reset all episodes to unwatched when starting a show
+                if new_status == 'ongoing':
+                    for season in show.get('seasons', []):
+                        for episode in season.get('episodes', []):
+                            episode['watched'] = False
+                
+        with open(TV_SHOWS_FILE, 'w') as f:
+            json.dump(shows, f, indent=4)
+        
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
 
 # Add new route to update episode watched status
 @app.route('/update_episode_status', methods=['POST'])
@@ -347,6 +355,34 @@ def update_episode_status():
                             return jsonify({'success': True})
     
     return jsonify({'success': False, 'error': 'Show/episode not found'}), 404
+
+# Add new route to update batch episode watched status
+@app.route('/update_episode_status_batch', methods=['POST'])
+def update_episode_status_batch():
+    try:
+        title = request.form.get('title')
+        season = int(request.form.get('season'))
+        episode = int(request.form.get('episode'))
+        watched = request.form.get('watched') == 'true'
+        
+        shows = load_tv_shows()
+        for show in shows:
+            if show['title'] == title:
+                for s in show['seasons']:
+                    if s['season_number'] == season:
+                        # Update all episodes up to and including the selected one
+                        updated = False
+                        for ep in s['episodes']:
+                            if ep['episode_number'] <= episode:
+                                ep['watched'] = watched
+                                updated = True
+                        if updated:
+                            save_tv_shows(shows)
+                            return jsonify({'success': True})
+        return jsonify({'success': False, 'error': 'Show/season not found'})
+    except Exception as e:
+        logger.error(f"Error in batch update: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)

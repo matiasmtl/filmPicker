@@ -196,6 +196,54 @@
             font-size: 0.9em;
             color: #666;
         }
+
+        /* Custom checkbox styles */
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .custom-checkbox input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox .checkmark {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked + .checkmark {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .custom-checkbox .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+            display: block;
+        }
+
+        .episode-number {
+            margin-left: 5px;
+        }
     </style>
     <script>
         async function pickMovie() {
@@ -375,21 +423,48 @@
         }
 
         async function startWatching(title) {
-            const response = await fetch('/update_show_status', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `title=${encodeURIComponent(title)}&status=ongoing`
-            });
-            const data = await response.json();
-            if (data.success) {
-                // Instead of simple reload, ensure we stay on TV section
-                window.location.href = '/#tv';
-                location.reload();
-                // After reload, show TV section
-                setTimeout(() => showSection('tv'), 100);
+            try {
+                const response = await fetch('/update_show_status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `title=${encodeURIComponent(title)}&status=ongoing`
+                });
+                
+                const data = await response.json();
+                if (!response.ok) {
+                    console.error('Error:', data.error);
+                    return;
+                }
+                
+                if (data.success) {
+                    // Add a brief delay before reloading to ensure server-side changes are complete
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    
+                    // Clear any lingering checkbox states from the DOM
+                    clearCheckboxStates();
+                    
+                    // Force reload to the TV section
+                    window.location.href = '/#tv';
+                    location.reload();
+                } else {
+                    console.error('Failed to update show status:', data.error);
+                }
+            } catch (error) {
+                console.error('Error starting show:', error);
             }
+        }
+
+        function clearCheckboxStates() {
+            // Clear all episode checkboxes
+            document.querySelectorAll('.episode-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Clear any stored checkbox states in localStorage if you're using it
+            const checkboxKeys = Object.keys(localStorage).filter(key => key.startsWith('episode_'));
+            checkboxKeys.forEach(key => localStorage.removeItem(key));
         }
 
         // Add this new function to handle page loads with hash
@@ -419,18 +494,127 @@
         }
 
         async function updateEpisodeStatus(title, season, episode, watched) {
-            const response = await fetch('/update_episode_status', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `title=${encodeURIComponent(title)}&season=${season}&episode=${episode}&watched=${watched}`
-            });
-            const data = await response.json();
-            if (!data.success) {
-                console.error('Failed to update episode status');
+            let currentCheckbox = event.target;
+            
+            if (watched) {
+                const checkboxes = document.querySelectorAll(
+                    `input.episode-checkbox[data-show="${title}"][data-season="${season}"]`
+                );
+                
+                const sortedCheckboxes = Array.from(checkboxes)
+                    .sort((a, b) => parseInt(a.dataset.episode) - parseInt(b.dataset.episode));
+                
+                const hasPreviousUnwatched = sortedCheckboxes.some(checkbox => 
+                    parseInt(checkbox.dataset.episode) < episode && !checkbox.checked
+                );
+                
+                if (hasPreviousUnwatched) {
+                    const modal = $('#batchUpdateModal');
+                    
+                    // Remove any existing click handlers
+                    const confirmButton = document.getElementById('confirmBatchUpdate');
+                    const existingHandler = confirmButton.getAttribute('data-click-handler');
+                    if (existingHandler) {
+                        confirmButton.removeEventListener('click', window[existingHandler]);
+                    }
+                    
+                    // Create new handler with unique name
+                    const handlerName = `handleConfirm_${Date.now()}`;
+                    window[handlerName] = async () => {
+                        confirmButton.removeEventListener('click', window[handlerName]);
+                        delete window[handlerName];
+                        
+                        modal.modal('hide');
+                        
+                        const response = await fetch('/update_episode_status_batch', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `title=${encodeURIComponent(title)}&season=${season}&episode=${episode}&watched=${watched}`
+                        });
+                        
+                        const data = await response.json();
+                        if (data.success) {
+                            sortedCheckboxes.forEach(checkbox => {
+                                if (parseInt(checkbox.dataset.episode) <= episode) {
+                                    checkbox.checked = true;
+                                }
+                            });
+                            
+                            // Re-enable all event handlers
+                            reattachEventHandlers();
+                        }
+                    };
+                    
+                    // Store handler reference and attach it
+                    confirmButton.setAttribute('data-click-handler', handlerName);
+                    confirmButton.addEventListener('click', window[handlerName]);
+                    
+                    modal.one('hidden.bs.modal', function () {
+                        if (!currentCheckbox.checked) {
+                            performSingleUpdate();
+                        }
+                        // Clean up handler
+                        const handlerName = confirmButton.getAttribute('data-click-handler');
+                        if (handlerName && window[handlerName]) {
+                            confirmButton.removeEventListener('click', window[handlerName]);
+                            delete window[handlerName];
+                        }
+                        confirmButton.removeAttribute('data-click-handler');
+                    });
+                    
+                    modal.modal('show');
+                    return;
+                }
+            }
+            
+            await performSingleUpdate();
+            
+            async function performSingleUpdate() {
+                const response = await fetch('/update_episode_status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `title=${encodeURIComponent(title)}&season=${season}&episode=${episode}&watched=${watched}`
+                });
+                const data = await response.json();
+                if (!data.success) {
+                    console.error('Failed to update episode status');
+                    currentCheckbox.checked = !watched;
+                }
             }
         }
+
+        // Add this new function to reattach event handlers
+        function reattachEventHandlers() {
+            // Reattach star rating handlers
+            document.querySelectorAll('.star-rating .star').forEach(star => {
+                star.onclick = function() {
+                    const parent = this.parentElement;
+                    const isShow = parent.hasAttribute('data-show');
+                    const title = parent.getAttribute(isShow ? 'data-show' : 'data-movie');
+                    const rating = this.getAttribute('data-rating');
+                    if (isShow) {
+                        rateShow(title, rating);
+                    } else {
+                        rateMovie(title, rating);
+                    }
+                };
+            });
+
+            // Reattach mark as completed handlers
+            document.querySelectorAll('[onclick^="markAsCompleted"]').forEach(button => {
+                button.onclick = function() {
+                    const title = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    markAsCompleted(title);
+                };
+            });
+        }
+
+        // Add event listener to ensure handlers are attached after DOM loads
+        document.addEventListener('DOMContentLoaded', reattachEventHandlers);
     </script>
 </head>
 
@@ -542,26 +726,20 @@
                                             <div class="season-header">
                                                 <h6 class="mb-0">Season {{ season.season_number }}</h6>
                                             </div>
-                                            <div class="episodes">
+                                            <div class="episodes-grid">
                                                 {% for episode in season.episodes %}
-                                                <div class="episode-item">
+                                                <label class="custom-checkbox" title="{{ episode.name }}">
                                                     <input type="checkbox" 
-                                                        class="episode-checkbox"
-                                                        {% if episode.watched %}checked{% endif %}
-                                                        data-show="{{ show.title|e }}"
-                                                        data-season="{{ season.season_number }}"
-                                                        data-episode="{{ episode.episode_number }}"
-                                                        onchange="updateEpisodeStatus(
-                                                            this.dataset.show,
-                                                            parseInt(this.dataset.season),
-                                                            parseInt(this.dataset.episode),
-                                                            this.checked
-                                                        )">
-                                                    <span class="episode-title">{{ episode.episode_number }}. {{ episode.name }}</span>
-                                                    {% if episode.air_date %}
-                                                    <span class="episode-info ml-2">({{ episode.air_date }})</span>
-                                                    {% endif %}
-                                                </div>
+                                                           class="episode-checkbox"
+                                                           data-show="{{ show.title|e }}" 
+                                                           data-season="{{ season.season_number }}"
+                                                           data-episode="{{ episode.episode_number }}"
+                                                           {% if episode.watched %}checked{% endif %}
+                                                           onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
+                                                    <span class="checkmark"></span>
+                                                    <span class="episode-number">{{ episode.episode_number }}</span>
+                                                    <span class="episode-name">{{ episode.name }}</span>
+                                                </label>
                                                 {% endfor %}
                                             </div>
                                             {% endif %}
@@ -660,26 +838,20 @@
                                         <div class="season-header">
                                             <h6 class="mb-0">Season {{ season.season_number }}</h6>
                                         </div>
-                                        <div class="episodes">
+                                        <div class="episodes-grid">
                                             {% for episode in season.episodes %}
-                                            <div class="episode-item">
+                                            <label class="custom-checkbox" title="{{ episode.name }}">
                                                 <input type="checkbox" 
                                                        class="episode-checkbox"
-                                                       {% if episode.watched %}checked{% endif %}
-                                                       data-show="{{ show.title|e }}"
+                                                       data-show="{{ show.title|e }}" 
                                                        data-season="{{ season.season_number }}"
                                                        data-episode="{{ episode.episode_number }}"
-                                                       onchange="updateEpisodeStatus(
-                                                           this.dataset.show,
-                                                           parseInt(this.dataset.season),
-                                                           parseInt(this.dataset.episode),
-                                                           this.checked
-                                                       )">
-                                                <span class="episode-title">{{ episode.episode_number }}. {{ episode.name }}</span>
-                                                {% if episode.air_date %}
-                                                <span class="episode-info">({{ episode.air_date }})</span>
-                                                {% endif %}
-                                            </div>
+                                                       {% if episode.watched %}checked{% endif %}
+                                                       onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
+                                                <span class="checkmark"></span>
+                                                <span class="episode-number">{{ episode.episode_number }}</span>
+                                                <span class="episode-name">{{ episode.name }}</span>
+                                            </label>
                                             {% endfor %}
                                         </div>
                                         {% endfor %}
@@ -699,6 +871,27 @@
                     </div>
                     <button type="submit" class="btn btn-custom">Add TV Show</button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Batch Update Modal -->
+    <div class="modal fade" id="batchUpdateModal" tabindex="-1" role="dialog" aria-labelledby="batchUpdateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="batchUpdateModalLabel">Update Episodes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Would you like to mark all previous episodes as watched too?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Just This Episode</button>
+                    <button type="button" class="btn btn-primary" id="confirmBatchUpdate">Yes, Update All</button>
+                </div>
             </div>
         </div>
     </div>
