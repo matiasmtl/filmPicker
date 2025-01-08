@@ -557,7 +557,7 @@
                                                             parseInt(this.dataset.episode),
                                                             this.checked
                                                         )">
-                                                    <span class="episode-title">{{ episode.name }}</span>
+                                                    <span class="episode-title">{{ episode.episode_number }}. {{ episode.name }}</span>
                                                     {% if episode.air_date %}
                                                     <span class="episode-info ml-2">({{ episode.air_date }})</span>
                                                     {% endif %}
