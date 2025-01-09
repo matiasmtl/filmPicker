@@ -243,6 +243,10 @@
 
         .episode-number {
             margin-left: 5px;
+            /* Add these properties to preserve whitespace */
+            white-space: pre;
+            display: inline-block;
+            min-width: 28px;  /* Increase min-width to accommodate number + period + space */
         }
     </style>
     <script>
@@ -745,7 +749,7 @@
                                                                    {% if episode.watched %}checked{% endif %}
                                                                    onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
                                                             <span class="checkmark"></span>
-                                                            <span class="episode-number">{{ episode.episode_number }}</span>
+                                                            <span class="episode-number">{{ episode.episode_number }}. </span>
                                                             <span class="episode-name">{{ episode.name }}</span>
                                                         </label>
                                                         {% endfor %}
@@ -864,7 +868,7 @@
                                                                    {% if episode.watched %}checked{% endif %}
                                                                    onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
                                                             <span class="checkmark"></span>
-                                                            <span class="episode-number">{{ episode.episode_number }}</span>
+                                                            <span class="episode-number">{{ episode.episode_number }}. </span>
                                                             <span class="episode-name">{{ episode.name }}</span>
                                                         </label>
                                                         {% endfor %}
