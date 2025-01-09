@@ -28,6 +28,31 @@ TV_SHOWS_FILE = os.path.join(BASE_DIR, 'tv_shows.json')
 # Add new TMDB TV endpoint
 TMDB_TV_SEARCH_URL = "https://api.themoviedb.org/3/search/tv"
 
+def title_case(s):
+    """Convert string to title case, handling special cases and preserving articles"""
+    # Skip if string is empty
+    if not s:
+        return s
+        
+    # Split into words
+    words = s.lower().split()
+    
+    # Capitalize first and last word always
+    words[0] = words[0].capitalize()
+    if len(words) > 1:
+        words[-1] = words[-1].capitalize()
+    
+    # Words that should stay lowercase (articles, conjunctions, etc.)
+    lowercase_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 
+                      'of', 'on', 'or', 'the', 'to', 'with'}
+    
+    # Capitalize all words except those in lowercase_words
+    for i in range(1, len(words)-1):
+        if words[i].lower() not in lowercase_words:
+            words[i] = words[i].capitalize()
+    
+    return ' '.join(words)
+
 def load_movies():
     try:
         if not os.path.exists(MOVIES_FILE):
@@ -271,6 +296,9 @@ def add_show():
     title = request.form.get('title')
     if not title:
         return jsonify({'success': False, 'error': 'Title is required'})
+    
+    # Format the title in title case
+    title = title_case(title)
     
     shows = load_tv_shows()
     if any(show['title'] == title for show in shows):
