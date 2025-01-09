@@ -430,5 +430,17 @@ def update_episode_status_batch():
         logger.error(f"Error in batch update: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
+# Add new route to delete TV shows
+@app.route('/delete_show', methods=['POST'])
+def delete_show():
+    title = request.form.get('title')
+    if not title:
+        return jsonify({'success': False, 'error': 'Title is required'})
+    
+    shows = load_tv_shows()
+    shows = [show for show in shows if show['title'] != title]
+    save_tv_shows(shows)
+    return jsonify({'success': True})
+
 if __name__ == "__main__":
     app.run(debug=True)
