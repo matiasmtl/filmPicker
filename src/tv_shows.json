@@ -20660,5 +20660,78 @@
                 ]
             }
         ]
+    },
+    {
+        "title": "lucky hank",
+        "status": "watched",
+        "rating": 4,
+        "overview": "A mid-life crisis tale about the unlikely chairman of the English department in a badly underfunded college in the Pennsylvania rust belt.",
+        "poster": "https://image.tmdb.org/t/p/w500/eKYPaXerPYUhmCsGlk8KlGkrIc9.jpg",
+        "year": "2023",
+        "tmdb_rating": 6.778,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 8,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Pilot",
+                        "overview": "Hank rants against Railton College, calling it \"Mediocrity\u2019s Capitol,\" and the administration is pressured to fire him. Hank and Lily contemplate a future outside of Railton.",
+                        "air_date": "2023-03-19",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "George Saunders",
+                        "overview": "When George Saunders visits Railton College, the professors scramble to impress the celebrated writer, while Hank is reminded of his own failed writing career. Hank and Lily anticipate an announcement from their daughter Julie.",
+                        "air_date": "2023-03-26",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Escape",
+                        "overview": "Hank spirals when a storage pod full of his father\u2019s belongings is dropped in his front yard. The professors spiral when rumors of budget cuts threaten their tenured jobs.",
+                        "air_date": "2023-04-02",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Goose Boxer",
+                        "overview": "Amid firing rumors, the professors look to the union to protect their jobs, while Hank tries a different approach. Lily interviews for a job at a prestigious New York prep school.",
+                        "air_date": "2023-04-09",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Clock",
+                        "overview": "Hank and Lily host the annual English department dinner. Lily has a decision to make. Hank\u2019s past involving his troubled relationship with his father catches up to him.",
+                        "air_date": "2023-04-16",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Arrival",
+                        "overview": "Hank and Tony travel to an academic conference, where their differing philosophies on work and life cause friction. Lily mediates trouble in Julie and Russell\u2019s marriage.",
+                        "air_date": "2023-04-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Count of Monte Cristo",
+                        "overview": "Hank contends with the return of his father to Railton. Lily hunts for apartments in New York. Julie looks to Hank for help in Lily\u2019s absence.",
+                        "air_date": "2023-04-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "The Chopping Block",
+                        "overview": "Hank is faced with an impossible decision at work, as his department\u2019s jobs are on the line. Lily settles into a new normal in New York.",
+                        "air_date": "2023-05-07",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
     }
 ]

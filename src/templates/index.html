@@ -248,6 +248,12 @@
             display: inline-block;
             min-width: 28px;  /* Increase min-width to accommodate number + period + space */
         }
+
+        .episode-air-date {
+            color: #666;
+            font-size: 0.85em;
+            margin-left: 4px;
+        }
     </style>
     <script>
         async function pickMovie() {
@@ -751,6 +757,9 @@
                                                             <span class="checkmark"></span>
                                                             <span class="episode-number">{{ episode.episode_number }}. </span>
                                                             <span class="episode-name">{{ episode.name }}</span>
+                                                            {% if episode.air_date %}
+                                                            <span class="episode-air-date"> ({{ episode.air_date }})</span>
+                                                            {% endif %}
                                                         </label>
                                                         {% endfor %}
                                                     </div>
@@ -870,6 +879,9 @@
                                                             <span class="checkmark"></span>
                                                             <span class="episode-number">{{ episode.episode_number }}. </span>
                                                             <span class="episode-name">{{ episode.name }}</span>
+                                                            {% if episode.air_date %}
+                                                            <span class="episode-air-date"> ({{ episode.air_date }})</span>
+                                                            {% endif %}
                                                         </label>
                                                         {% endfor %}
                                                     </div>
