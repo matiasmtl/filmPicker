@@ -528,16 +528,17 @@
             let currentCheckbox = event.target;
             
             if (watched) {
-                const checkboxes = document.querySelectorAll(
-                    `input.episode-checkbox[data-show="${title}"][data-season="${season}"]`
+                const allCheckboxes = document.querySelectorAll(
+                    `input.episode-checkbox[data-show="${title}"]`
                 );
                 
-                const sortedCheckboxes = Array.from(checkboxes)
-                    .sort((a, b) => parseInt(a.dataset.episode) - parseInt(b.dataset.episode));
-                
-                const hasPreviousUnwatched = sortedCheckboxes.some(checkbox => 
-                    parseInt(checkbox.dataset.episode) < episode && !checkbox.checked
-                );
+                const hasPreviousUnwatched = Array.from(allCheckboxes).some(checkbox => {
+                    const checkboxSeason = parseInt(checkbox.dataset.season);
+                    const checkboxEpisode = parseInt(checkbox.dataset.episode);
+                    return (checkboxSeason < season || 
+                           (checkboxSeason === season && checkboxEpisode < episode)) && 
+                           !checkbox.checked;
+                });
                 
                 if (hasPreviousUnwatched) {
                     const modal = $('#batchUpdateModal');
@@ -567,8 +568,13 @@
                         
                         const data = await response.json();
                         if (data.success) {
-                            sortedCheckboxes.forEach(checkbox => {
-                                if (parseInt(checkbox.dataset.episode) <= episode) {
+                            // Update all checkboxes in current and previous seasons
+                            allCheckboxes.forEach(checkbox => {
+                                const checkboxSeason = parseInt(checkbox.dataset.season);
+                                const checkboxEpisode = parseInt(checkbox.dataset.episode);
+                                
+                                if (checkboxSeason < season || 
+                                    (checkboxSeason === season && checkboxEpisode <= episode)) {
                                     checkbox.checked = true;
                                 }
                             });

@@ -398,24 +398,33 @@ def update_episode_status():
 def update_episode_status_batch():
     try:
         title = request.form.get('title')
-        season = int(request.form.get('season'))
-        episode = int(request.form.get('episode'))
+        target_season = int(request.form.get('season'))
+        target_episode = int(request.form.get('episode'))
         watched = request.form.get('watched') == 'true'
         
         shows = load_tv_shows()
         for show in shows:
             if show['title'] == title:
-                for s in show['seasons']:
-                    if s['season_number'] == season:
-                        # Update all episodes up to and including the selected one
-                        updated = False
-                        for ep in s['episodes']:
-                            if ep['episode_number'] <= episode:
+                updated = False
+                for season in show['seasons']:
+                    season_num = season['season_number']
+                    # For seasons before the target season, mark all episodes
+                    if season_num < target_season:
+                        for ep in season['episodes']:
+                            ep['watched'] = watched
+                            updated = True
+                    # For the target season, mark episodes up to target_episode
+                    elif season_num == target_season:
+                        for ep in season['episodes']:
+                            if ep['episode_number'] <= target_episode:
                                 ep['watched'] = watched
                                 updated = True
-                        if updated:
-                            save_tv_shows(shows)
-                            return jsonify({'success': True})
+                    # Don't touch episodes in future seasons
+                
+                if updated:
+                    save_tv_shows(shows)
+                    return jsonify({'success': True})
+                
         return jsonify({'success': False, 'error': 'Show/season not found'})
     except Exception as e:
         logger.error(f"Error in batch update: {str(e)}")
