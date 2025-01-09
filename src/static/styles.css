@@ -6,6 +6,8 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 8px;
     padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 0 0 4px 4px;
 }
 
 .custom-checkbox {
@@ -176,4 +178,44 @@
 
 .modal .close:hover {
     opacity: 1;
+}
+
+.season-container {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.season-header {
+    background-color: rgba(40, 167, 69, 0.05);
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.season-header::after {
+    content: "→";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.season-header[aria-expanded="true"]::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.season-header:hover {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.season-header h6 {
+    margin: 0;
+    padding-right: 20px;
 }

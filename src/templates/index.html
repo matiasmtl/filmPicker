@@ -724,28 +724,33 @@
                                     <button class="btn btn-sm btn-success mt-2" 
                                             onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
                                     {% if show.seasons %}
-                                    <div class="episodes-list mt-3">
-                                        <h6>Episodes</h6>
+                                    <div class="episodes-list">
                                         {% for season in show.seasons %}
                                             {% if season.episodes %}
-                                            <div class="season-header">
-                                                <h6 class="mb-0">Season {{ season.season_number }}</h6>
-                                            </div>
-                                            <div class="episodes-grid">
-                                                {% for episode in season.episodes %}
-                                                <label class="custom-checkbox" title="{{ episode.name }}">
-                                                    <input type="checkbox" 
-                                                           class="episode-checkbox"
-                                                           data-show="{{ show.title|e }}" 
-                                                           data-season="{{ season.season_number }}"
-                                                           data-episode="{{ episode.episode_number }}"
-                                                           {% if episode.watched %}checked{% endif %}
-                                                           onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
-                                                    <span class="checkmark"></span>
-                                                    <span class="episode-number">{{ episode.episode_number }}</span>
-                                                    <span class="episode-name">{{ episode.name }}</span>
-                                                </label>
-                                                {% endfor %}
+                                            <div class="season-container">
+                                                <div class="collapse-header season-header" data-toggle="collapse" 
+                                                     data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" 
+                                                     aria-expanded="false">
+                                                    <h6 class="mb-0">Season {{ season.season_number }}</h6>
+                                                </div>
+                                                <div id="season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" class="collapse">
+                                                    <div class="episodes-grid">
+                                                        {% for episode in season.episodes %}
+                                                        <label class="custom-checkbox" title="{{ episode.name }}">
+                                                            <input type="checkbox" 
+                                                                   class="episode-checkbox"
+                                                                   data-show="{{ show.title|e }}" 
+                                                                   data-season="{{ season.season_number }}"
+                                                                   data-episode="{{ episode.episode_number }}"
+                                                                   {% if episode.watched %}checked{% endif %}
+                                                                   onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
+                                                            <span class="checkmark"></span>
+                                                            <span class="episode-number">{{ episode.episode_number }}</span>
+                                                            <span class="episode-name">{{ episode.name }}</span>
+                                                        </label>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
                                             </div>
                                             {% endif %}
                                         {% endfor %}
@@ -840,25 +845,33 @@
                                     {% if show.seasons %}
                                     <div class="episodes-list">
                                         {% for season in show.seasons %}
-                                        <div class="season-header">
-                                            <h6 class="mb-0">Season {{ season.season_number }}</h6>
-                                        </div>
-                                        <div class="episodes-grid">
-                                            {% for episode in season.episodes %}
-                                            <label class="custom-checkbox" title="{{ episode.name }}">
-                                                <input type="checkbox" 
-                                                       class="episode-checkbox"
-                                                       data-show="{{ show.title|e }}" 
-                                                       data-season="{{ season.season_number }}"
-                                                       data-episode="{{ episode.episode_number }}"
-                                                       {% if episode.watched %}checked{% endif %}
-                                                       onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
-                                                <span class="checkmark"></span>
-                                                <span class="episode-number">{{ episode.episode_number }}</span>
-                                                <span class="episode-name">{{ episode.name }}</span>
-                                            </label>
-                                            {% endfor %}
-                                        </div>
+                                            {% if season.episodes %}
+                                            <div class="season-container">
+                                                <div class="collapse-header season-header" data-toggle="collapse" 
+                                                     data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" 
+                                                     aria-expanded="false">
+                                                    <h6 class="mb-0">Season {{ season.season_number }}</h6>
+                                                </div>
+                                                <div id="season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" class="collapse">
+                                                    <div class="episodes-grid">
+                                                        {% for episode in season.episodes %}
+                                                        <label class="custom-checkbox" title="{{ episode.name }}">
+                                                            <input type="checkbox" 
+                                                                   class="episode-checkbox"
+                                                                   data-show="{{ show.title|e }}" 
+                                                                   data-season="{{ season.season_number }}"
+                                                                   data-episode="{{ episode.episode_number }}"
+                                                                   {% if episode.watched %}checked{% endif %}
+                                                                   onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
+                                                            <span class="checkmark"></span>
+                                                            <span class="episode-number">{{ episode.episode_number }}</span>
+                                                            <span class="episode-name">{{ episode.name }}</span>
+                                                        </label>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
                                         {% endfor %}
                                     </div>
                                     {% endif %}

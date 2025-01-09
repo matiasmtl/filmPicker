@@ -2902,8 +2902,8 @@
     },
     {
         "title": "westworld",
-        "status": "ongoing",
-        "rating": 0,
+        "status": "watched",
+        "rating": 4,
         "overview": "A dark odyssey about the dawn of artificial consciousness and the evolution of sin. Set at the intersection of the near future and the reimagined past, it explores a world in which every human appetite, no matter how noble or depraved, can be indulged.",
         "poster": "https://image.tmdb.org/t/p/w500/8MfgyFHf7XEboZJPZXCIDqqiz6e.jpg",
         "year": "2016",
@@ -18672,6 +18672,539 @@
                         "name": "Playtime: Fulfillment",
                         "overview": "Courier O is stuck in the endless drudgery of a point-chasing grind, but when a mysterious figure entrusts her with a strange package, O discovers that powerful people are determined to get their hands on it.",
                         "air_date": "2024-12-17",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "dune prophecy",
+        "status": "watched",
+        "rating": 3,
+        "overview": "Ten thousand years before the ascension of Paul Atreides, sisters Valya and Tula Harkonnen establish the fabled sect and female order that would become known as the Bene Gesserit to control the future of humankind.",
+        "poster": "https://image.tmdb.org/t/p/w500/5B8Cxz8ZZXp3w2WmmdKTXpkS24e.jpg",
+        "year": "2024",
+        "tmdb_rating": 7.731,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 6,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Hidden Hand",
+                        "overview": "On Wallach IX, young Valya Harkonnen promises Mother Superior Raquella that she'll protect the Sisterhood by putting one of their own on the Imperial Throne. Thirty years later, Valya faces a threat to her long-awaited plan.",
+                        "air_date": "2024-11-17",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Two Wolves",
+                        "overview": "After receiving word about events on Salusa Secundus, Valya brings Theodosia to the Imperial House to help manage the situation. Meanwhile, a reluctant Tula enlists Lila for a vital mission.",
+                        "air_date": "2024-11-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Sisterhood Above All",
+                        "overview": "Following a tragedy, young Tula worries about being accepted despite her family name, while a skeptical Valya struggles with the decision to take the Sisterhood vow. Years later, Valya receives a message that confirms her suspicions.",
+                        "air_date": "2024-12-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Twice Born",
+                        "overview": "As Tula attempts to understand the acolytes' shared dream, Valya sets her plan in motion to redeem House Harkonnen ahead of the Landsraad.",
+                        "air_date": "2024-12-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "In Blood, Truth",
+                        "overview": "While Tula tries to keep her secret project from being discovered by the other Sisters, Desmond goes on a warpath to root out insurgents.",
+                        "air_date": "2024-12-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The High-Handed Enemy",
+                        "overview": "As Tula contends with his true identity, Valya's maneuvering leads her into an epic confrontation with an increasingly powerful Desmond.",
+                        "air_date": "2024-12-22",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "what we do in the shadows",
+        "status": "watched",
+        "rating": 0,
+        "overview": "A documentary-style look into the daily (or rather, nightly) lives of a group of vampires in Staten Island who have \u201clived\u201d together for hundreds and hundreds of years.",
+        "poster": "https://image.tmdb.org/t/p/w500/wa3ZQE9kLnqwN3vQ0NNjg1NPsCa.jpg",
+        "year": "2019",
+        "tmdb_rating": 7.992,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 10,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Pilot",
+                        "overview": "The vampires try to plan a lavish bloodfeast in honor of a visit by their ancient master from the Old Country.",
+                        "air_date": "2019-03-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "City Council",
+                        "overview": "The vampires get embroiled in local Staten Island politics as their first step to world domination.",
+                        "air_date": "2019-04-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Werewolf Feud",
+                        "overview": "The fragile truce between the vampires and Staten Island\u2019s werewolves is tested, and Colin Robinson finds romance with a new co-worker.",
+                        "air_date": "2019-04-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Manhattan Night Club",
+                        "overview": "The vampires venture into Manhattan, to make an alliance with an old friend who is now the king of the Manhattan vampires.",
+                        "air_date": "2019-04-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Animal Control",
+                        "overview": "Lazslo, in bat form, is captured by Staten Island Animal Control and must be rescued, while Nadja can no longer resist reconnecting with her reincarnated lover Gregor.",
+                        "air_date": "2019-04-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Baron's Night Out",
+                        "overview": "The Baron awakens from his slumber and demands to experience the wonders of the New World in a night out on the town.",
+                        "air_date": "2019-05-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Trial",
+                        "overview": "The vampires must defend themselves as an international vampire tribunal gathers to judge them for their transgressions.",
+                        "air_date": "2019-05-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Citizenship",
+                        "overview": "Nadja trains Jenna on how to take her first victim, and Nandor applies for American citizenship.",
+                        "air_date": "2019-05-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "The Orgy",
+                        "overview": "Tensions run high as the vampires prepare to host the Biannual Vampire Orgy.",
+                        "air_date": "2019-05-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Ancestry",
+                        "overview": "Nandor visits one of his living descendants, and a lover from Nadja's past re-emerges.",
+                        "air_date": "2019-05-29",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 2,
+                "episode_count": 10,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Resurrection",
+                        "overview": "Nadja and Laszlo's new familiar poses problems for an increasingly anxious Guillermo, and the vampires enlist the services of a local necromancer.",
+                        "air_date": "2020-04-15",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Ghosts",
+                        "overview": "The vampires hold a s\u00e9ance to deal with a ghost infestation, which leads to a larger ghost infestation.",
+                        "air_date": "2020-04-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Brain Scramblies",
+                        "overview": "The vampires attend their first human Super Bowl party, while Guillermo\u2019s search for virgins uncovers a deadly threat.",
+                        "air_date": "2020-04-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Curse",
+                        "overview": "While the vampires fear they've been electronically cursed, Guillermo tries to thwart a deadly threat to his masters.",
+                        "air_date": "2020-04-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Colin's Promotion",
+                        "overview": "Colin Robinson gets promoted at work, and his new power threatens the balance of power in the vampire house.",
+                        "air_date": "2020-05-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "On the Run",
+                        "overview": "After a vengeful enemy from the past appears without warning, Laszlo flees his home and goes into hiding to avoid certain death.",
+                        "air_date": "2020-05-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Return",
+                        "overview": "The vampires offer shelter to an old nemesis who\u2019s down on his luck.",
+                        "air_date": "2020-05-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Collaboration",
+                        "overview": "Nandor's old familiar from the 1970s returns to Staten Island, Guillermo leaves to serve a new master, and Nadja and Lazslo revive their musical act.",
+                        "air_date": "2020-05-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Witches",
+                        "overview": "When Nandor and Laszlo are abducted by a coven of witches, the others must venture to Brooklyn to rescue them.",
+                        "air_date": "2020-06-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Nouveau Th\u00e9\u00e2tre des Vampires",
+                        "overview": "As they prepare to attend the most exclusive event on the vampiric social calendar, the vampires try to survive without Guillermo.",
+                        "air_date": "2020-06-10",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 3,
+                "episode_count": 10,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Prisoner",
+                        "overview": "Guillermo's fate hangs in the balance as the vampires receive a promotion.",
+                        "air_date": "2021-09-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Cloak of Duplication",
+                        "overview": "A forbidden artifact is used to help Nandor court a health club employee.",
+                        "air_date": "2021-09-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Gail",
+                        "overview": "An old flame returns, and an ancient vehicle is resurrected.",
+                        "air_date": "2021-09-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Casino",
+                        "overview": "The vampires embark on a road trip from which they may never return.",
+                        "air_date": "2021-09-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Chamber of Judgement",
+                        "overview": "Justice is served, both vampirically and also in small claims court.",
+                        "air_date": "2021-09-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Escape",
+                        "overview": "An ancient beast escapes and threatens the existence of all vampires everywhere.",
+                        "air_date": "2021-09-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Siren",
+                        "overview": "Two travelers are shipwrecked and a doll runs away from home.",
+                        "air_date": "2021-10-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "The Wellness Center",
+                        "overview": "Nandor is persuaded to reject vampirism and pursue a healthier lifestyle.",
+                        "air_date": "2021-10-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "A Farewell",
+                        "overview": "Colin has a birthday and a vampire says goodbye.",
+                        "air_date": "2021-10-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Portrait",
+                        "overview": "The housemates grieve the loss of one of their own.",
+                        "air_date": "2021-10-28",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 4,
+                "episode_count": 10,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Reunited",
+                        "overview": "The vampires return from their world travels to find their mansion on the verge of collapse, and a freakish new creature in the house.",
+                        "air_date": "2022-07-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Lamp",
+                        "overview": "Nandor's search for love is finally successful, and Nadja realizes her lifelong ambition of opening a vampire nightclub.",
+                        "air_date": "2022-07-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Grand Opening",
+                        "overview": "The opening night of Nadja's vampire nightclub is threatened when the big musical guest cancels.",
+                        "air_date": "2022-07-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Night Market",
+                        "overview": "The vampires take a trip to the secret Night Market, where all the supernatural creatures gather to barter and haggle.",
+                        "air_date": "2022-07-26",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Private School",
+                        "overview": "The vampires endure the private school admissions interview process.",
+                        "air_date": "2022-08-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Wedding",
+                        "overview": "Guillermo loses his mind trying to help Nandor plan the perfect vampire wedding.",
+                        "air_date": "2022-08-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Pine Barrens",
+                        "overview": "Nandor and Laszlo air out their differences on a hunting trip at an isolated cabin, Nadja has a girls' night, and Guillermo reconnects with his family for the first time in twelve years.",
+                        "air_date": "2022-08-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Go Flip Yourself",
+                        "overview": "The mansion gets a makeover.",
+                        "air_date": "2022-08-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Freddie",
+                        "overview": "Guillermo has a visitor from overseas.",
+                        "air_date": "2022-08-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Sunrise, Sunset",
+                        "overview": "Baby Colin reaches that awkward age.",
+                        "air_date": "2022-09-06",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 5,
+                "episode_count": 10,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Mall",
+                        "overview": "The vampires discover the mall.",
+                        "air_date": "2023-07-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "A Night Out with the Guys",
+                        "overview": "Nandor and Laszlo have a night out with Sean and his friends. Nadja discovers the source of her bad luck.",
+                        "air_date": "2023-07-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Pride Parade",
+                        "overview": "The vampires help Sean host a Pride parade. Nadja helps her doll achieve a long-held dream.",
+                        "air_date": "2023-07-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Campaign",
+                        "overview": "Colin runs for office, Nandor makes a new friend and Nadja reconnects with her roots.",
+                        "air_date": "2023-07-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Local News",
+                        "overview": "Coverage of a local water main break brings unwanted attention to the vampires.",
+                        "air_date": "2023-08-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Urgent Care",
+                        "overview": "When Guillermo is injured, Nadja takes him to Urgent Care. Colin has trouble feeding.",
+                        "air_date": "2023-08-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Hybrid Creatures",
+                        "overview": "Nadja gives back to her community. Laszlo's experiments have some unexpected results.",
+                        "air_date": "2023-08-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "The Roast",
+                        "overview": "A roast held in Laszlo\u2019s honor reveals dark secrets.",
+                        "air_date": "2023-08-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "A Weekend at Morrigan Manor",
+                        "overview": "The housemates are invited for a weekend away at the home of a mysterious, illustrious vampire.",
+                        "air_date": "2023-08-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Exit Interview",
+                        "overview": "The vampires search for a missing Guillermo.",
+                        "air_date": "2023-08-31",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 6,
+                "episode_count": 11,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Return of Jerry",
+                        "overview": "The vampires' long-lost fifth roommate returns.",
+                        "air_date": "2024-10-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Headhunting",
+                        "overview": "Guillermo gets a new job, and Colin helps Laszlo make a new friend.",
+                        "air_date": "2024-10-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Sleep Hypnosis",
+                        "overview": "A dispute over who gets to use the newly available empty room under the stairs gets out of control.",
+                        "air_date": "2024-10-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Railroad",
+                        "overview": "Laszlo and Colin help neighbor Sean find a new job at the railroad at which they claim to work.",
+                        "air_date": "2024-10-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Nandor's Army",
+                        "overview": "The vampires are sent on a mission to New Hampshire to retrieve Nandor, who has lost his mind.",
+                        "air_date": "2024-11-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Laszlo's Father",
+                        "overview": "Laszlo's father's ghost returns to make amends, while Nadja and Nandor deal with the shapeshifters who have moved in next door.",
+                        "air_date": "2024-11-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "March Madness",
+                        "overview": "Laszlo and Nandor try to exorcise the demon who had possessed their neighbor Sean.",
+                        "air_date": "2024-11-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "P.I. Undercover: New York",
+                        "overview": "Colin and Nadja have a couples' night with an old friend, while Nandor and Laszlo battle the film crew that have invaded their neighborhood.",
+                        "air_date": "2024-11-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Come Out and Play",
+                        "overview": "The vampires get blamed for a murder at a meeting of all the New York vampires and must find a way back to the safety of Staten Island.",
+                        "air_date": "2024-12-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Promotion",
+                        "overview": "The vampires go to an office party to celebrate Guillermo's promotion.",
+                        "air_date": "2024-12-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "The Finale",
+                        "overview": "A surprising twist leads to a change of plans.",
+                        "air_date": "2024-12-16",
                         "watched": false
                     }
                 ]
