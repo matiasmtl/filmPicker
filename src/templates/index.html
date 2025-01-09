@@ -424,6 +424,9 @@
 
         async function startWatching(title) {
             try {
+                // Clear existing states before starting new show
+                clearCheckboxStates();
+                
                 const response = await fetch('/update_show_status', {
                     method: 'POST',
                     headers: {
@@ -439,13 +442,8 @@
                 }
                 
                 if (data.success) {
-                    // Add a brief delay before reloading to ensure server-side changes are complete
-                    await new Promise(resolve => setTimeout(resolve, 100));
-                    
-                    // Clear any lingering checkbox states from the DOM
-                    clearCheckboxStates();
-                    
-                    // Force reload to the TV section
+                    // Give server time to update before reloading
+                    await new Promise(resolve => setTimeout(resolve, 200));
                     window.location.href = '/#tv';
                     location.reload();
                 } else {
@@ -457,14 +455,19 @@
         }
 
         function clearCheckboxStates() {
-            // Clear all episode checkboxes
+            // Clear checkbox states from DOM
             document.querySelectorAll('.episode-checkbox').forEach(checkbox => {
                 checkbox.checked = false;
+                // Remove any data attributes that might store state
+                checkbox.removeAttribute('data-previous-state');
             });
             
-            // Clear any stored checkbox states in localStorage if you're using it
+            // Clear any stored checkbox states
             const checkboxKeys = Object.keys(localStorage).filter(key => key.startsWith('episode_'));
             checkboxKeys.forEach(key => localStorage.removeItem(key));
+            
+            // Clear any other potential state storage
+            sessionStorage.removeItem('lastShowState');
         }
 
         // Add this new function to handle page loads with hash
@@ -487,6 +490,8 @@
             });
             const data = await response.json();
             if (data.success) {
+                // Give server time to update before reloading
+                await new Promise(resolve => setTimeout(resolve, 200));
                 window.location.href = '/#tv';
                 location.reload();
                 setTimeout(() => showSection('tv'), 100);

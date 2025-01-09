@@ -315,24 +315,33 @@ def update_show_status():
     title = request.form.get('title')
     new_status = request.form.get('status')
     
+    if not title or not new_status:
+        return jsonify({'success': False, 'error': 'Missing title or status'})
+        
     try:
         with open(TV_SHOWS_FILE, 'r') as f:
             shows = json.load(f)
-        
+            
         for show in shows:
             if show['title'].lower() == title.lower():
+                prev_status = show.get('status')
                 show['status'] = new_status
-                # Reset all episodes to unwatched when starting a show
-                if new_status == 'ongoing':
+                
+                # Only reset episodes when starting to watch
+                if new_status == 'ongoing' and prev_status == 'to_watch':
                     for season in show.get('seasons', []):
                         for episode in season.get('episodes', []):
                             episode['watched'] = False
+                # Otherwise preserve episode watch states
+                break
                 
         with open(TV_SHOWS_FILE, 'w') as f:
             json.dump(shows, f, indent=4)
-        
+            
         return jsonify({'success': True})
+        
     except Exception as e:
+        logger.error(f"Error updating show {title}: {str(e)}")
         return jsonify({'success': False, 'error': str(e)})
 
 # Add new route to update episode watched status
