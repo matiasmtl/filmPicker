@@ -1,4 +1,4 @@
-# .gitignore
+.gitignore
 .vscode/
 __pycache__/
 *.pyc
@@ -7,4 +7,8 @@ __pycache__/
 .env
 /src/.env
 /src/movies.json
+/src/tv_shows.json
 /src/__pycache__/
+venv/
+Dockerfile
+.dockerignore
