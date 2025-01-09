@@ -60,6 +60,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 8px 15px;  /* Adjust padding to accommodate thumbnail */
         }
 
         .card-header.collapse-header:hover {
@@ -253,6 +254,21 @@
             color: #666;
             font-size: 0.85em;
             margin-left: 4px;
+        }
+
+        .show-header-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .show-thumbnail {
+            width: 30px;
+            height: 45px;
+            margin-right: 10px;
+            object-fit: cover;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
     </style>
     <script>
@@ -700,7 +716,12 @@
                         {% for show in tv_shows|selectattr('status', 'equalto', 'ongoing')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
                             <div class="card-header collapse-header" data-toggle="collapse" data-target="#show-{{ loop.index }}" aria-expanded="false">
-                                <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                <div class="show-header-content">
+                                    {% if show.poster %}
+                                    <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
+                                    {% endif %}
+                                    <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                </div>
                             </div>
                             <div id="show-{{ loop.index }}" class="collapse">
                                 <div class="card-body">
@@ -784,7 +805,12 @@
                         {% for show in tv_shows|selectattr('status', 'equalto', 'to_watch')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
                             <div class="card-header collapse-header" data-toggle="collapse" data-target="#show-to-{{ loop.index }}" aria-expanded="false">
-                                <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                <div class="show-header-content">
+                                    {% if show.poster %}
+                                    <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
+                                    {% endif %}
+                                    <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                </div>
                             </div>
                             <div id="show-to-{{ loop.index }}" class="collapse">
                                 <div class="card-body">
@@ -824,7 +850,12 @@
                         {% for show in tv_shows|selectattr('status', 'equalto', 'watched')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
                             <div class="card-header collapse-header" data-toggle="collapse" data-target="#show-watched-{{ loop.index }}" aria-expanded="false">
-                                <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                <div class="show-header-content">
+                                    {% if show.poster %}
+                                    <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
+                                    {% endif %}
+                                    <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                </div>
                             </div>
                             <div id="show-watched-{{ loop.index }}" class="collapse">
                                 <div class="card-body">

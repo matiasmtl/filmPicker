@@ -21398,5 +21398,1067 @@
                 ]
             }
         ]
+    },
+    {
+        "title": "The Nanny",
+        "status": "watched",
+        "rating": 4,
+        "overview": "Fran, fresh out of her job as a bridal consultant in her boyfriend\u2019s shop, first appears on the doorstep of Broadway producer Maxwell Sheffield peddling cosmetics, and quickly stumbled upon the opportunity to become The Nanny for his three children. But soon Fran, with her offbeat nurturing and no-nonsense honesty, touches Maxwell as well as the kids.",
+        "poster": "https://image.tmdb.org/t/p/w500/4syShXMjaPAP3mG81ekhruv94sd.jpg",
+        "year": "1993",
+        "tmdb_rating": 8.081,
+        "seasons": [
+            {
+                "season_number": 1,
+                "episode_count": 22,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Nanny",
+                        "overview": "Fran has just been dumped by her fianc\u00e9 and employer, and is selling cosmetics door-to-door, when she happens to be in the right place at the right time.",
+                        "air_date": "1993-11-03",
+                        "watched": true
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Smoke Gets in Your Lies",
+                        "overview": "When Brighton is caught smoking at school, Fran thinks it might be her fault.",
+                        "air_date": "1993-11-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "My Fair Nanny",
+                        "overview": "Fran agrees to be made over by Niles and Maxwell in order to host a social.",
+                        "air_date": "1993-11-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Nuchslep",
+                        "overview": "Fran chaperones Maggie and her date, who ends up being attracted to Fran.",
+                        "air_date": "1993-11-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Here Comes the Brood",
+                        "overview": "C.C. tells Grace that Fran acts like she loves them only because she's paid to.",
+                        "air_date": "1993-12-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Butler, the Husband, the Wife and Her Mother",
+                        "overview": "Niles poses as Fran's husband to impress her visiting relatives.",
+                        "air_date": "1993-12-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Imaginary Friend",
+                        "overview": "Fran and Maxwell face a sticky situation after Fran eats Grace's imaginary friend.",
+                        "air_date": "1993-12-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Christmas Episode",
+                        "overview": "Fran celebrates her first Christmas with the family.",
+                        "air_date": "1993-12-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Personal Business",
+                        "overview": "Fran agrees to help Maxwell close a deal by dating a young and restless soap-opera star.",
+                        "air_date": "1993-12-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Nanny-in-Law",
+                        "overview": "Maxwell's beloved Nanny Mueller makes herself at home, but makes Fran feel insecure.",
+                        "air_date": "1994-01-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "A Plot for Nanny",
+                        "overview": "Fran begins dating a funeral director she meets through her mother.",
+                        "air_date": "1994-01-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "The Show Must Go On",
+                        "overview": "Fran directs Grace's school production until Maxwell takes over.",
+                        "air_date": "1994-01-26",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "Maggie the Model",
+                        "overview": "A former model sets up a photo test for Maggie, but Fran is pushed out of the picture.",
+                        "air_date": "1994-02-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "The Family Plumbing",
+                        "overview": "Fran catches her young cousin kissing Brighton in the bathtub.",
+                        "air_date": "1994-02-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "Deep Throat",
+                        "overview": "Fran has to have her tonsils removed, so Maxwell puts CC's reunion on hold to await the outcome of Fran's surgery.",
+                        "air_date": "1994-03-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "Schlepped Away",
+                        "overview": "On the way to catch a flight to the islands, heavy snow maroons the family at Fran's parents' home in Queens.",
+                        "air_date": "1994-03-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "Stop the Wedding, I Want to Get Off",
+                        "overview": "Fran plans a wedding for Maxwell's sister, but she's in love with her chauffeur, not her fianc\u00e9.",
+                        "air_date": "1994-03-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "Sunday in the Park with Fran",
+                        "overview": "Fran has a run-in with the son of the town's toughest critic, and that could be catastrophic for Maxwell and CC's new play.",
+                        "air_date": "1994-03-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "The Gym Teacher",
+                        "overview": "Maggie's tyrannical gym teacher is Fran's former one; Maxwell hires an abrasive megastar.",
+                        "air_date": "1994-04-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "Ode to Barbra Joan",
+                        "overview": "CC won't warm up to her father's offer of Streisand tickets, but Fran's hot to go in her place.",
+                        "air_date": "1994-04-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "Frannie's Choice",
+                        "overview": "Fran accepts a proposal from the guy who once dumped her.",
+                        "air_date": "1994-04-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "I Don't Remember Mama",
+                        "overview": "Fran and Grace enter a mother-daughter pageant at the country club.",
+                        "air_date": "1994-05-16",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 2,
+                "episode_count": 26,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Fran-Lite",
+                        "overview": "Maxwell dates a woman with a striking resemblance to Fran.",
+                        "air_date": "1994-09-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Playwright",
+                        "overview": "A man whom Fran snubbed in high school has written a play and threatens to jump off a ledge unless Maxwell reads it.",
+                        "air_date": "1994-09-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Everybody Needs a Bubby Sometimes",
+                        "overview": "Grandma Yetta stays with Fran and the Sheffields while her retirement home is being fumigated.",
+                        "air_date": "1994-09-26",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Material Fran",
+                        "overview": "Fran goes out with a much older rich man.",
+                        "air_date": "1994-10-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Curse of the Grandmas",
+                        "overview": "Gracie's Red Robin troop goes to Grandma Yetta's retirement home to \"adopt\" a grandparent. When Gracie's first and second picks pass away, it sours her on scouting.",
+                        "air_date": "1994-10-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "The Nanny-Napper",
+                        "overview": "On the subway, a Russian immigrant accidentally leaves her baby, and Fran picks it up, believing it to be abandoned.",
+                        "air_date": "1994-10-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "A Star Is Unborn",
+                        "overview": "A director plans to sabotage his production of \"Romeo and Juliet\" by casting Fran in the lead role.",
+                        "air_date": "1994-10-24",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Pishke Business",
+                        "overview": "Maxwell has Fran pretend to be C.C. in order to get theatrical backing from a man C.C. attacked to get a cab.",
+                        "air_date": "1994-10-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Stock Tip",
+                        "overview": "Fran gives Maxwell a stock tip that turns out to be from a hot dog vendor.",
+                        "air_date": "1994-11-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Whine Cellar",
+                        "overview": "C.C.'s vision for a romantic weekend hit a snag when she and Fran end up locked inside Maxwell's wine cellar together.",
+                        "air_date": "1994-11-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "When You Pish Upon a Star",
+                        "overview": "Fran inadvertently persuades an obnoxious child star, who's set to star in Maxwell's revival of \"Oliver!\", to give up show business.",
+                        "air_date": "1994-11-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "Take Back Your Mink",
+                        "overview": "Maggie is upset when Fran inherits a mink coat. Fran decides to give it up to appease Maggie, but Sylvia won't hear of it.",
+                        "air_date": "1994-11-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "The Strike",
+                        "overview": "There's a busboy strike going on at the cast party for Maxwell's latest play. When Fran refuses to cross the picket line, a photo of Maxwell dragging her out of the line makes the news.",
+                        "air_date": "1994-11-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "I've Got a Secret",
+                        "overview": "Maxwell refuses to divulge the identity of the celebrity recuperating from surgery in the Sheffields' house.",
+                        "air_date": "1994-12-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "Kindervelt Days",
+                        "overview": "Fran receives a surprise when Sylvia sends in a long-lost \"Win a Date With Erik Estrada\" contest entry form.",
+                        "air_date": "1995-01-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "Canasta Masta",
+                        "overview": "After Brighton joins Sylvia's canasta team, Fran is dumped from it.",
+                        "air_date": "1995-01-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "The Will",
+                        "overview": "Maxwell draws up a will which states that Fran will remain nanny in the event of his death. Meanwhile, she thinks that a fax of a potential client's heart-sensitive diet given to Niles is really for Maxwell.",
+                        "air_date": "1995-01-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "The Nanny Behind the Man",
+                        "overview": "In an attempt to score a play by award-winning playwright Dakota Williams, Fran and Maxwell set him up to go out with Yetta. The romantic sparks are there\u2014but the play's script may not be.",
+                        "air_date": "1995-01-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "A Fine Friendship",
+                        "overview": "Fran strikes up a friendship with a male nanny whom she erroneously assumes is gay.",
+                        "air_date": "1995-02-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "Lamb Chop's on the Menu",
+                        "overview": "C.C. plans to move into feature film production with a star vehicle for Shari Lewis and Lamb Chop. When Shari and Lamb Chop visit the Sheffield mansion, C.C.'s dog Chester tries to eat Lamb Chop.",
+                        "air_date": "1995-02-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "Close Shave",
+                        "overview": "Maggie is a candy striper at the hospital. When she takes off to go on a date, Fran fills in for her and must shave Maxwell for an appendectomy.",
+                        "air_date": "1995-02-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "What the Butler Sang",
+                        "overview": "Maxwell hears Niles singing and asks him to sing for his backers' audition. Meanwhile, Fran clashes with her sister Nadine.",
+                        "air_date": "1995-02-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 23,
+                        "name": "A Kiss Is Just a Kiss",
+                        "overview": "Maggie is upset when Fran beats her in a kissing contest. The winner is to appear on an album cover with Billy Ray Cyrus.",
+                        "air_date": "1995-05-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 24,
+                        "name": "Strange Bedfellows",
+                        "overview": "Fran worries about her future when Mona, one of her fellow nannies, retires to Florida. The night of Mona's goodbye party, Fran gets drunk and staggers into Maxwell's bed.",
+                        "air_date": "1995-05-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 25,
+                        "name": "The Chatterbox",
+                        "overview": "Maggie receives a party invitation so Fran takes her to her favorite beauty salon. Fran gets a job there for an actress who loses a Sheffield audition.",
+                        "air_date": "1995-05-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 26,
+                        "name": "Fran Gets Mugged",
+                        "overview": "An valuable Shakespearian document is taken from Fran when she is mugged in New York's Central Park.",
+                        "air_date": "1995-05-22",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 3,
+                "episode_count": 26,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "Pen Pal",
+                        "overview": "After many years of exchanging letters, Fran's pen pal Lenny wants to meet her. But Fran is worried because over the past years she exaggerated a little on the lies and now is concerned that Lenny won't like her for who she really is. But Mr. Sheffield pushes her to attend the date (more because he wants to see Lenny than because he wants Ms. Fine to meet him) and waits for him with her at the Russian Tea Room. But Lenny never shows up and leaves a note at the door saying he couldn't possibly compete with such a good looking guy she was with (Mr. Sheffield). Meanwhile, C.C. arranges to work late just to seduce Maxwell, and Niles plays with her. Bored, the two have a few drinks and have their first romantic kiss after calling each other names.",
+                        "air_date": "1995-09-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Franny and the Professor",
+                        "overview": "C.C. makes a bet with her brother that he can't get Fran to play Jeopardy!. But Fran somehow enters the game and manages to win! Meanwhile, Mr. Sheffield is driving himself crazy for not being invited to the Renaissance Weekend held by the president, and Fran gets him tickets with the new next door neighbor, Roger Clinton.",
+                        "air_date": "1995-09-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Dope Diamond",
+                        "overview": "Fran's been going out with a rich, handsome Jewish doctor named Julius Kimble. After only 2 weeks, he asks her to marry him. Although having some doubts about it, Fran accepts after Sylvia pushes her into doing it. When they go out to buy Fran a ring, Julius disappears and takes the very expensive ring with him. Turns out he was just a thief and now Fran is left all alone. She blames her mother for the disaster and the Fine women end up going to a shrink to solve their problems. Back at home, both Mr. Sheffield and Fran complain about the lack of single attractive people for them to date.",
+                        "air_date": "1995-09-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "A Fine Family Feud",
+                        "overview": "Maggie's 16th birthday is approaching and Fran intervenes in her father's plans for her party. Instead of a boring party at the Guggenheim Museum, Fran convinces Mr. Sheffield to have it at her aunt Frieda's bar. While the place is not nearly as fancy as the museum, Fran has to solve a very important family feud before the party can happen: her mother and Frieda haven't spoken to each other since 1979. The two make peace, but when Frieda comes out of the bathroom, her butt is showing and she blames Sylvia for the same embarrassment when they first fought. They start a food fight which quickly spreads to the whole party in a huge food war. When Mr. Sheffield walks in, he is shocked to see that scene and just when he's about to twist nanny Fine's neck Maggie thanks him for the best party ever.",
+                        "air_date": "1995-10-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Val's Apartment",
+                        "overview": "Feeling that taking care of the kids has taken over her life and eliminated her personal life, Fran thinks about moving out of the mansion. But the real push is given by Mr. Sheffield who assures her she can't do it. So Fran and Val move in together to a very small apartment in a building full of gay men. Fran misses the mansion but doesn't want to give Mr. Sheffield the pleasure of being right. What she doesn't know is that he is also dying for her to come back. So they secretly ask for Sylvia's help, and Fran finally moves back to the mansion.",
+                        "air_date": "1995-10-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Shopaholic",
+                        "overview": "The news of Danny's marriage to Heather Biblow makes Fran start buying everything she cans. After being confronted by Mr. Sheffield, Fran enters shoppers anonymous, but has a very tough time giving up shopping, until an unexpected kiss from Mr. Sheffield cures her miraculously.",
+                        "air_date": "1995-10-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Oy Vey, You're Gay",
+                        "overview": "Fran tells Mr. Sheffield he should retire his wedding ring, and after C.C. points out that Andrew Lloyd Weber was featured in the paper's crossword puzzle, Maxwell decides to get a publicist to improve his image and make him more popular. He hires the gorgeous Sydney Mercer and radically changes his image to a middle aged bad boy. He starts to fall for Sydney, causing both C.C. and Fran to get jealous. They set a date in the Rainbow Room but Fran discovers in the last minute that Sydney is gay, and more interested in her, so she rushes to meet Mr. Sheffield, but they end up getting stuck in the elevator.",
+                        "air_date": "1995-10-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "The Party's Over",
+                        "overview": "Mr. Sheffield and C.C. are going to Boston for the weekend, but what originally started as a romantic getaway plan for C.C. turned into family weekend thanks to Niles. Fran, Maggie and Niles have the house to themselves, and Fran decides to throw a singles party at the house to fish an eligible bachelor. But the party is over when an undercovered cop shows up and arrests Fran for not having the required licenses. After spending the night in jail, Fran returns home and Mr. Sheffield almost fires her, if it wasn't for Maggie stepping in and taking the responsibility for the mess. Fran goes to court, but Mr. Sheffield shows up in the last minute to help her from her senile lawyer, Uncle Mannie.",
+                        "air_date": "1995-11-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "The Two Mrs. Sheffields",
+                        "overview": "When Maxwell's mother wants him to get rid of Fran, Maxwell reacts by proposing to Fran who makes him feel very guilty for using her.",
+                        "air_date": "1995-11-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "Having His Baby",
+                        "overview": "Fran wants to have a baby, husband or not.",
+                        "air_date": "1995-11-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "The Unkindest Cut",
+                        "overview": "Brighton faints while filming Fran's cousin's bris and Fran sends it to Hollywood. Everybody visits Hollywood and Fran keeps getting thrown off the Doctor Quinn Medicine Woman set.",
+                        "air_date": "1995-11-27",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "The Kibbutz",
+                        "overview": "Fran suggests that Maggie might go to a kibbutz in Israel for the summer instead of a convent.",
+                        "air_date": "1995-12-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "An Offer She Can't Refuse",
+                        "overview": "Fran gets a date with a guy named Tony Tattori, who later she discovers to be on the mob. Scared to death that her life might be in jeopardy, Fran doesn't have the guts to break up with him, and Mr. Sheffield decides to do it for her. Lucky him C.C. accidentally dumped Whoopi Goldberg from their show and they needed a singer and Tony was very interested on being on Broadway... Meanwhile, Brighton steals Maggie's diary and makes her his personal slave until Fran comes up with something that will get her out of that situation.",
+                        "air_date": "1995-12-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "Fashion Show",
+                        "overview": "Mr. Sheffield rushes Fran to get ready because they're late for a premiere. Fran worries about her purse not matching her dress, but Mr. Sheffield assures her no one will notice. But Fran appears on Gloss Magazine as a \"fashion don't\" and blames Mr. Sheffield for it since he was the one who didn't let her change the purse. So to make things up, he hires her as the costumer for his next play. What was set for disaster turns out to be quite a hit when Fran asks her cousin, renown designer Todd Oldham, to design the costumes with her.",
+                        "air_date": "1996-01-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "Where's Fran?",
+                        "overview": "When Fran catches Maggie smoking, she herself pretends to smoke so that Mr. Sheffield can teach her a lesson in front of Maggie. But Mr. Sheffield overreacts so Fran leaves their home. Mr. Sheffield remembers all the great times together (seen as flashbacks),  but eventually realizes what she was trying to do and wants her back.",
+                        "air_date": "1996-01-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "The Grandmas",
+                        "overview": "When her mother throws her father out of the house, Fran seeks advice from her grandmothers. She also thinks that Mr. Sheffield needs a change in his life.",
+                        "air_date": "1996-01-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "Val's Boyfriend",
+                        "overview": "Val's new boyfriend starts to move in on Fran.",
+                        "air_date": "1996-02-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "Love Is a Many Blundered Thing",
+                        "overview": "Thinking Mr. Sheffield wants her to be her valentine, she puts up a billboard in Times Square.",
+                        "air_date": "1996-02-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "Your Feets Too Big",
+                        "overview": "When Sylvia decides to have plastic surgery on her arms, the doctor tells her it's normal at a certain age for body parts to grow. Fran's feet modeling agency reunion is coming up, and Fran starts to freak out about her age and the fact that her feet have gone up a whole size. Luckily, she has Mr. Sheffield, who volunteers to escort her to the reunion.",
+                        "air_date": "1996-02-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "Where's the Pearls?",
+                        "overview": "Mr. Sheffield has Elizabeth Taylor over, and like with all celebrities, Fran can't control herself until she meets her. A very friendly Elizabeth asks Fran to take her black pearls necklace to a courier, but of course Fran has to do it in her own way. She takes a cab, and accidentally bumps her head against the window when the driver misses a red light. She is taken to the hospital and wakes up with amnesia. She thinks she's Mrs. Sheffield, and after her she remembers what happened she finds herself in a lot of trouble when she realizes she lost Elizabeth Taylor's pearls.",
+                        "air_date": "1996-02-26",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "The Hockey Show",
+                        "overview": "Fran starts to date Michael LaVoe, a famous hockey player for the NY Rangers. Mike is very superstitious and blames Fran for losing the game when she wears red shoes to the stadium. The entire city thinks she's a jinx and she decides to prove him wrong. But did the red shoes really jinx the game?",
+                        "air_date": "1996-03-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "That's Midlife",
+                        "overview": "After Fran beats him in tennis, Maxwell is feeling old and goes out and buys a younger image and a sports car.",
+                        "air_date": "1996-03-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 23,
+                        "name": "The Cantor Show",
+                        "overview": "Fran goes out with the new temple cantor, Gary. When Mr. Sheffield listens him singing, he hires him to be on his next play. He quickly promotes the cantor to the lead of the play after the original actor is run over by a bus, and Gary decides to quit the temple to dedicate his time to his Broadway career. Everyone blames Sylvia and Fran for it, and they start to be ignored at temple. Sylvia throws a curse on Fran and everything starts to backfire until Fran donates the $500 she got from the air company to temple.",
+                        "air_date": "1996-04-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 24,
+                        "name": "Green Card",
+                        "overview": "Brighton is failing French in school so Mr. Sheffield hires a tutor for him. His tutor is incredibly good looking and attractive, and Fran wastes no time in flirting with him. He quickly proposes to her, something Mr. Sheffield thinks is quite suspicious since he doesn't have a green card. But Fran doesn't listen to him until she finds out Philippe has made a pass on C.C. and only proposed to her to stay in the country. She dumps him and Mr. Sheffield takes Fran out to console her.",
+                        "air_date": "1996-05-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 25,
+                        "name": "Ship of Fran's",
+                        "overview": "Fran decides to take a cruise to meet guys and Mr. Sheffield and family join her.",
+                        "air_date": "1996-05-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 26,
+                        "name": "A Pup in Paris",
+                        "overview": "Fran runs onto Mr. Sheffield's plane with his bag and ends up having to go to Paris with him. On the flight back as the plane is plummeting down he tells Fran that he loves her.",
+                        "air_date": "1996-05-20",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 4,
+                "episode_count": 26,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Tart with Heart",
+                        "overview": "Fran and Maxwell return from their trip to Paris, and Fran couldn't be happier. Just as they are about to get home, Mr. Sheffield takes back saying \"I love you\" to Fran, and she is devastated. C.C. takes advantage of the fact that Fran is vulnerable and says Maxwell probably only hired her for her looks, which is accidentally confirmed by Max when he tries to compliment Fran. She decides to go to a singles bar with Val and meets a blind guy. The idea of dating a blind man sounds nice to Fran, since it'll serve as a proof that she isn't just a pretty face. After she is dumped by the blind guy, she and Mr. Sheffield decide to remain just friends.",
+                        "air_date": "1996-09-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "The Cradle Robbers",
+                        "overview": "Mr. Sheffield is furious when he finds out Maggie is seeing a 25 year-old boy. He wants Fran to make it stop, but won't listen to her when she tells him to see a doctor for his hearing problem. Fran decides to chaperone Maggie on her (last) date with John, but she completely forgets Mr. Sheffield's orders when she meets John's gorgeous friend Mark, who is interested in Fran. Still, she has to fix Maggie's problem, so she decides to let it flow and wait until she gets tired of John, which doesn't take long to happen. Too bad it means that Fran will have to drop her 25 year-old as well. Meanwhile, C.C. misses an incredible opportunity of dinner with Max when she falls asleep (the result of a caffeine trick Niles pulled on her).",
+                        "air_date": "1996-09-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Bird's Nest",
+                        "overview": "Fran takes Gracie to the Loehmann's Semi Annual Red Star Clearance and has to fight over a green sweater with another woman. Back at the mansion, Brighton is having some problems with his science grade and Maxwell tells him he'll be sent to military school shall his grades not rise. He also tells Fran not to help him with his science project, but of course Fran doesn't listen to him. They decide to warm up a bird's eggs with lights and make a report on the birth, but Fran forget the lights on and the eggs hard boil. Now she has to ask Brighton's teacher for an extension, and what a surprise when she turns out to be the same lady Fran stole the green sweater from.",
+                        "air_date": "1996-09-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "The Rosie Show",
+                        "overview": "Fran and Val go to The Rosie O'Donnell Show and Fran is picked out of the audience to talk to Rosie. She's so natural and funny that Rosie asks her to come on the show as a regular guest to give parenting advises. C.C. jumps in as her agent, and Fran starts to have a taste of life as a celebrity. Maxwell gets scared of losing her and makes up a story about a dream he had where a ghost told him something horrible would happen to Fran if she didn't quit the Rosie Show. Fran gets fired and is replaced by a retired couple from Florida.",
+                        "air_date": "1996-10-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Freida Needa Man",
+                        "overview": "Fran's aunt Freida has gone broke and moves into the Sheffield residence. The only way Fran can turn this around is if she convinces Freida's rich boyfriend Fred to propose to her. Fred doesn't think of himself as an exciting man, so Fran decides to teach him dance lessons. He has a heart attack and falls on Fran, just as Freida walks in. After the situation is cleared, everything seems to be fine again until Fred tells Fran he's in love with her. She almost puts a stop to the wedding, if Mr. Sheffield hadn't interfered. Fred has another heart attack, but this time everything ends up just fine.",
+                        "air_date": "1996-10-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "Me and Mrs. Joan",
+                        "overview": "Maxwell's father is in town and Fran decides to help end the Sheffield family feud inviting James Sheffield over for dinner. He brings Joan with him, his old secretary for whom he left Max's mother. Maxwell is outraged at his father's selfishness during dinner, while Fran keeps wondering why can't Maxwell act more like his father and marry the help.",
+                        "air_date": "1996-10-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "The Taxman Cometh",
+                        "overview": "Jay Leno leaves his dog under the cares of Mr. Sheffield. Meanwhile, Fran is being audited for her taxes, and not even flirting and champagne can help her out. She calls Mr. Sheffield for help, and they go to the INS office to prove Fran's income taxes. The hearing doesn't go too good until Jay Leno shows up, making the appeals officer happy enough to dismiss the case.",
+                        "air_date": "1996-11-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "An Affair to Dismember",
+                        "overview": "Nigel Sheffield arrives in New York, but since Maxwell is too busy to spend time with him he has Fran show him around town. They go out to nightclubs and parties, and Fran starts acting very happy for finally having a social life \u00e2\u20ac\u201c something she complained about not having since she started working at the house. Nigel surprises Fran when he proposes to her and asks her to leave with him aboard a luxurious boat. Doubtful, she thinks about her relationship with Maxwell, its past and its future. In one hand she has the man she really loves, who hasn't made a move in 3 years. In the other hand, a rich, good looking and single man, everything she always hoped for. She chooses to go with Nigel, but unfortunately she misses the boat and has to go back home. Maxwell arrives and takes care of Fran, who twisted her ankle on her way back. Some things are just meant (not) to be.",
+                        "air_date": "1996-11-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Tattoo",
+                        "overview": "While Fran is trying to convince Maggie not to get a tattoo, Val slips in front of everybody that Fran got herself a tattoo when they were teenagers. Sylvia tells Fran she'll have to have it removed if she wants to be buried in a Jewish cemetery when she dies; and Mr. Sehffield is dying to know where her tattoo is. Fran, of course, faces that as another opportunity for romance with Mr. Sheffield, so she arranges the whole family to go on a trip to the Bermudas, where she can put on a tiny bikini and reveal where her tattoo is. But in the last minute she changes her mind, and the two have a very exciting ping pong game instead.",
+                        "air_date": "1996-11-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Car Show",
+                        "overview": "Maggie wants a new car, but since her father won't give her one she convinces Fran to enter a beauty pageant to win one for her. In the contest, Fran has to drive a stick shift car, which she doesn't know how to, so Mr. Sheffield takes her up to the country to teach her. But Fran gets traumatized after running over a bunny, which causes her to lose the contest. To cheer her up, Maxwell invites her to go with them to the charity dinner at Barbara Streisand's house. On their way there, Mr. Sheffield has a stomachache, forcing Fran to drive. Later she realizes it was all a plan of his to make her get over her trauma. Now she has to go to Barbara's again, but to return the boot and purse she stole from her.",
+                        "air_date": "1996-12-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "Hurricane Fran",
+                        "overview": "Fran decides to spend her holidays away with Val, but this time just the two of them, no Mr. Sheffield, no kids, nobody but the two single gals. A hurricane hits the island, making Fran's dream vacations a living hell. She returns home early to find a lonely Maxwell, who later takes the entire family on a cruise around the Greek Islands.",
+                        "air_date": "1996-12-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "Danny's Dead and Who's Got the Will?",
+                        "overview": "Danny Imperiali, Fran's former fiance, is dead. At his funeral (while comforting Danny's widow Heather Biblow), she meets a Jewish man who is ignored by his former lover's family and got nothing after he died. Afraid the same thing will happen to her, Fran stands up for herself and imposes Mr. Sheffield to do something. Afraid his grandmother (who's in town visiting), might judge him and remove him from her will, Mr. Sheffield does nothing, so Fran quits. When he realizes he might have lost Fran forever, Mr. Sheffield goes after her and takes back taking back saying he loved her.",
+                        "air_date": "1997-01-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "Kissing Cousins",
+                        "overview": "Fran meets an incredible man at a singles bar. He's Jewish, he's a doctor, he's rich, he's everything Fran ever dreamed of in a man. But during her cousin's wedding - where she was a bridesmaid - Fran discovers that Mr. Perfect is her cousin! Seeing Fran devastated, Mr. Sheffield decides to send her to a therapist, and the therapist says Fran has an obsession about getting married. Fran decides to stop chasing men around, just to make Mr. Sheffield guilty.",
+                        "air_date": "1997-01-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "The Fifth Wheel",
+                        "overview": "Fran decides to stop chasing men like Dr. Miller told her. Sylvia doesn't like that at all and blames Mr. Sheffield for her daughter staying single forever. Fran, Val and Ms. Babcock decide to go out together on a \"girls night\", with no pressure to find a man, but after Val and C.C. get dates, Fran finds herself as a fifth wheel on their double date. Alone, embarrassed and depressed, Fran goes home trying to act as if she had a great time with them, but can't. Once again, Mr. Sheffield and Fran find themselves alone, comforting each other. Meanwhile, Dr. Miller tries hypnosis with Sylvia but that doesn't go too well.",
+                        "air_date": "1997-01-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "The Nose Knows",
+                        "overview": "Fran freaks out on Mr. Sheffield after he brings home a model and makes out with her in the living room. Dr. Miller says Fran is upset because she is thinking of Maxwell as her husband, not as her employer. At the movies, she runs into Dr. Miller, but is shocked to see him picking his nose. She is so disgusted that she thinks of never seeing him again. Mr. Sheffield worries about her and confronts Dr. Miller about his actions, but gets very embarrassed when he finds out the \"\"inappropriate behavior\"\" Sylvia told him about wasn't what he had in mind. Meanwhile, C.C. is dumped by her boyfriend and asks Niles to escort her to an awards show, and the two end up having a very pleasant night out.",
+                        "air_date": "1997-02-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "The Bank Robbery",
+                        "overview": "It's Valentine's Day, and Maxwell decides to diffuse the whole \"love\" situation with Fran by giving her a gag greeting card. Big mistake. Later, Fran and Sylvia are at the bank when it gets held up. News of the hold-up quickly gets back to the Sheffield household. What the hostages at the bank quickly find out is that the bank robber, Leslie Tilbert, is a meek man and an inept bank robber. Leslie is actually a kind man who is facing some personal stresses, to which Fran can relate. Fran becomes Leslie's negotiator with the authorities, and Leslie becomes Fran's negotiator with Maxwell and his faux pas with the greeting card. If nothing else, the bank robbery has shown Maxwell how he really feels about Fran and he lets her and the world know. Leslie's fate is not as good as he takes Sylvia as his final hostage.",
+                        "air_date": "1997-02-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "Samson, He Denied Her",
+                        "overview": "Mr. Sheffield calls from the limo saying he has to make up to Fran a mistake he made 6 months ago. She's very excited thinking he might take back taking back saying he loved her, but for her misery he only wanted to pay her extra money he got from tax refund. Tired of living on high expectations, Fran decides to take some time off the house and joins C.C. on jury duty. How surprised is Fran when the case is about a woman who chopped off her boss's hair just because he told her he loved her then took it back. Fran manages to convince the jury that the woman is not guilty, and finds out later that the man married the his employee. Meanwhile, Sylvia takes over Fran's job as the nanny, and the entire family starts to feel hungry since Sylvia is an eating machine.",
+                        "air_date": "1997-02-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "The Facts of Lice",
+                        "overview": "After Niles is depressed about his life as a butler, he begins to act strange and while he is cleaning, he drops a piece of paper containing a list of items that convinces Fran that Niles is possibly a murderer due to his recent strange behavior and the contents of his list. A search of his room confirms her suspicions. During a stormy night, Maxwell takes the children out for dinner leaving Fran and Niles alone. Niles approaches Fran and she thinks Niles is about to murder her. He confronts Fran about how she knows what he is up to when in fact he is simply writing a play.",
+                        "air_date": "1997-03-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "Fran's Roots",
+                        "overview": "A woman calls Fran saying she might be her mother due to a mix up that happened in the hospital the day she was born. Doubtful, Fran goes to Sylvia to ask her about the day she was born, and finds out the story might be true after Sylvia says she left her for a moment while chasing for food. Terrified that her whole life might have been a lie, Fran invites the strange woman to her house, and for her surprise, she turns out to be black. Still, after Fran pays a visit to Lila Baker's huge mansion, Fran insists that she might be her daughter, since her late husband was Jewish, but the DNA test proofs not. Fran is really Sylvia's daughter, which is something Sylvia only gets after spending some time pleasuring herself with the wonderful food Lila has at her house. Meanwhile, Niles tries to convince Maxwell to sell one of his plays to CBS so C.C. has to move to LA.",
+                        "air_date": "1997-03-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "The Nanny and the Hunk Producer",
+                        "overview": "After winning the Tony Award for play of the year - for \"The Widower\", beating his lifetime rival, Andrew Lloyd Webber - a tabloid starts to publish fake stories about Mr. Sheffield and Fran having an affair since Maxwell's honeymoon. Maggie is very upset about it, and won't believe it's not true. Fran's upset not by the fact that it's a fake story, but that the story said she was 40. Maxwell and Fran go to the tabloid to confront the journalist, but he assures them he won't print any more stories about them, since they were the lowest selling edition in 5 years! Meanwhile, Niles is upset because Maxwell didn't invite him to the cast party, and Dr. Miller convinces Mr. Sheffield to give him a \"Butler of the Year\" award.",
+                        "air_date": "1997-04-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "The Passed-Over Story",
+                        "overview": "Fran's high school classmate, Morgan Faulkner, is hired by Mr. Sheffield as the star of his upcoming play. This causes Fran to get a bit envy, seeing how Morgan's life turned out great while she is just a nanny. On top of that, Maggie decides not to go to college and become Morgan's personal assistant (just what Fran needed. She's rich, beautiful, famous, and now she's stealing her children!), but Fran manages to talk her out of it. Meanwhile, the entire family is invited to Passover at the Fine's, and Niles quickly learns the secrets of the Jewish cuisine.",
+                        "air_date": "1997-04-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "No Muse is Good Muse",
+                        "overview": "After watching Tasha's (a new female rock star) video on MTV, Fran decides to write lyrics of her own about her misery and suffering and make it big on showbiz. Discouraged by Mr. Sheffield, Fran decides to hand her lyrics to Tasha no matter what, and even passes herself as hotel maid with Val just to meet Tasha. When she finally does, Tasha is so interested in reaching out and listening to what the people have to say that she actually hangs out with Fran. Unfortunately, Fran's song is no good, but her misery is good enough for Tasha, who uses Fran as her muse \u00e2\u20ac\u201c until Mr. Sheffield tells Fran he misses her and Fran turns happy, which makes Tasha turn to Val for inspiration (after all, Val lives with her parents, is over 30 and single).",
+                        "air_date": "1997-04-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 23,
+                        "name": "You Bette Your Life",
+                        "overview": "Fran offers herself for the charity auction Mr. Sheffield is putting together with Bette Midler. A gifted 10 year old pianist, son of a big time investor, wins the auction and gets to have Fran as his babysitter for 5,000 dollars. Fran takes him to Yetta's retirement home and while entertaining the elderly with his piano skills, one senior collapses and dies in front of the kid. Shocked, he says he will never play again, and his father cancels the 5 million he promised to invest. Bette Midler goes to the mansion herself to teach Fran a lesson, but luckily Gracie picked up a few things from Fran over the past 4 years, which is enough to convince the kid to play again and his father not to back out on the investment.",
+                        "air_date": "1997-04-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 24,
+                        "name": "The Heather Biblow Story",
+                        "overview": "Fran is shocked to learn that her biggest rival, Heather Biblow (who stole her fianc\u00e9 and her job) is starring on her favorite soap opera, \"The Young and the Restless\". Heather invites Fran and Val over to her Malibu beach house, where she can rub it on their faces how successful she is. Fran and Val visit the studios, where they run across some of their favorite celebrities. Heather has a really hard time memorizing the lines, and Fran doesn't think twice before jumping at the chance of finally stealing something from Heather: her daytime TV job. Fran is hired to replace her, and calls the mansion saying she won't return. C.C. is happy at first, but quickly realizes she needs Ms. Fine back when Maxwell hires a new nanny: Heather Biblow. Fran is so upset with the thought of Heather in the house that she is fired from the show and returns to NY to get her job back.",
+                        "air_date": "1997-05-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 25,
+                        "name": "The Boca Story",
+                        "overview": "Sylvia decides to invest in a condo in Boca. This much anticipated fact that should come as a blessing for Fran upsets her deeply, and Dr. Miller says it's because deep down she doesn't want her mother to leave. Mr. Sheffield thinks if he takes Fran to see the condo she'll accept the idea, and just when Fran finally realized how much peace she'd get from that, they discover there isn't any condo, only a swamp. Fran's devastated (specially when Sylvia interrupts her fantasy from coming true), but at least she won't have to separate from her mother yet. Meanwhile, Niles feels bad for being the only one of his friends who's still single.",
+                        "air_date": "1997-05-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 26,
+                        "name": "Fran's Gotta Have It",
+                        "overview": "Mr. Sheffield is going to London to convince Celine Dion into doing Broadway. Fran decides to go after him and take advantage of the romantic scenario to solve their situation once and for all. After a romantic afternoon together, Max and Fran go back to the hotel and almost sleep together, if it wasn't for him backing out in the last minute. Insulted, offended and tired of all the cat and mouse play, Fran decides to leave him before it's too late for her to marry anybody. But they receive a phone call from NY saying that Niles just suffered a heart attack. Fran decides to stay and help while Niles recovers, giving Mr. Sheffield another chance to make a commitment. Meanwhile, C.C. is surprisingly sad after Niles's attack and even drops by at the hospital to bring him some flowers. She reveals to Fran that deep down she doesn't hate Niles as much as it seems.",
+                        "air_date": "1997-05-21",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 5,
+                "episode_count": 23,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Morning After",
+                        "overview": "Mr. Sheffield wants to buy himself some time before his relationship with Fran grows, so he asks Fran to redecorate the kitchen. Fran invites her cousin Sheila over to help her, and Sheila proposes a special aphrodisiac decoration to give Fran a little push in conquering Maxwell's heart. But Fran finds the similarities between her life and her cousin Sheila's too big and fears that Mr. Sheffield will dump her after seeing the new decoration (exactly what Sheila's husband did to her). Fran decides then to do her own decoration, and Maxwell loves it.",
+                        "air_date": "1997-10-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "First Date",
+                        "overview": "Maxwell invites Fran to be his date at the very exclusive dinner party given by Elton John to celebrate Tantrums and Tiaras, the new film he and his partner, David Furnish, are premiering. Unfortunately, Fran's lurid past catches up with her when she appears in the film as the fam who prompted one of John's \"\"Tantrums\"\" by verbally abusing Elton. Yes, it's another Fine mess, and Fran--\u00c3\u00a0 la Lucy--goes to extraordinary lengths to hide her identity during dinner. Then, trying to hide her identity, she doesn't make a very good impression as Maxwell's date. Meanwhile, C.C. tries to cope with Maxwell's apparent preference for Fran over her.",
+                        "air_date": "1997-10-08",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "The Bobbie Fleckman Story",
+                        "overview": "Fran screwed up with Elton John, and Brighton won a radio contest and the prize is that a film crew is coming to his house for a music video. When the film producers crew comes, a duplicate of Fran shows up, and Maxwell starts to fall for her. Guest star: Brian Setzer.",
+                        "air_date": "1997-10-15",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Fransom",
+                        "overview": "Needing extra money for Yetta's bridal shower, Fran is hired by to be Chester's dog walker. As Fran and Gracie are strolling in Central Perk, a man distracts them and steals Chester. He asks for $20,000 for Chester to be returned safe, and for that much money Fran and Val decide to take over the investigation and rescue Chester themselves, but of course they also end up being kidnapped. Now the kidnapping couple is asking for $40,000 to return the ladies and the dog. Mr. Sheffield goes out for the rescue, but Fran gets rid of the kidnappers with some laxative chocolate Yetta gave her.",
+                        "air_date": "1997-10-22",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "The Ex-Niles",
+                        "overview": "Fran and C.C. agree to let Dr. Joyce Brothers decide who's the better woman for Maxwell; Niles quits after he's denied a raise, a demand based on his faulty impression of Fran's salary.",
+                        "air_date": "1997-10-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "A Decent Proposal",
+                        "overview": "The Sheffields, Niles, Fran, and C.C are going to Atlantic City for a project, and are staying at Trump Taj Mahal. Maxwell is jealous that Chevy asks Fran to be in his room. Meanwhile, Niles is addicted to gambling.",
+                        "air_date": "1997-11-05",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Mommy and Mai",
+                        "overview": "Mai Ling, the Cambodian girl Fran and Val \"adopted\" in high school for 17 cents a day, is coming to NY to visit them. Sylvia doesn't like the girl, for whom Fran and Val fight over, resulting in a split up between the two best friends. Sylvia thinks Mai Ling will also come between Fran and Mr. Sheffield, but Fran finds out Mai Ling got engaged to Brighton to get a green card!",
+                        "air_date": "1997-11-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Fair Weather Fran",
+                        "overview": "Upset about Yetta's upcoming wedding, Fran is advised by Dr. Miller to focus her energy on new life projects. She decides to pursue an old dream of becoming a weather girl, and thanks to Sammy, who's Bryant Gumbel's uncle, Fran scores an audition for editorial commenter of Public Eye. Mr. Sheffield doesn't like the idea of Fran leaving the house, so he sets up a scheme with Gracie to convince Fran into quitting her new job. But they don't have to do that, Fran ruins her audition by herself (by mistaking gene therapy with therapeutic jeans). Meanwhile, Sylvia has problems accepting her soon-to-be stepfather.",
+                        "air_date": "1997-11-19",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Educating Fran",
+                        "overview": "Fran goes to Maggie's school to have a word with her Philosophy teacher and ends up developing a crush on him. After having to ask Maggie for her approval, Fran starts dating the gorgeous Jewish bachelor, which, of course, upsets Mr. Sheffield (who won't do anything regarding his true feelings towards Fran). Fran lies about her age to Professor Steve, and later pays the price when his astrologist tells him he should be with a woman in her mid-thirties \u00e2\u20ac\u201c C.C.!",
+                        "air_date": "1997-12-10",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "From Flushing with Love",
+                        "overview": "Fran and Niles fight over who gets to ask Mr. Sheffield for the weekend off. Fran wins, and Niles accuses her of seducing Mr. Sheffield to get what she wants. He decides to get back at her and allies with C.C. against Fran. Finally, Niles and Fran forgive each other, and he suggests Fran takes Mr. Sheffield with her to the Fine Family Reunion at the Niagara Falls, the perfect place for him to propose and a solution that will give them both the weekend off. Unfortunately, Fran doesn't listen Mr. Sheffield's proposal. He slips and falls, with no recollection of what happened.",
+                        "air_date": "1997-12-17",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "Rash to Judgment",
+                        "overview": "Val has two tickets for Michael Bolton's album premiere party, so Fran asks Mr. Sheffield on a romantic date. She's terrified with a weird rash that appeared all over her body, and rushes to the hospital after Mr. Sheffield decides to take her up to a room for their first intimate night together. She gets a cortisone shot from an inexperienced doctor, which makes Fran swells like a balloon. The romantic night is ruined, thanks to Sylvia's squash-filled pasta that gave Fran the allergic reaction.",
+                        "air_date": "1998-01-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "One False Mole and You're Dead",
+                        "overview": "Margo Lange, the famous actress, is starring in one of Maxwell's plays, and Ms. Fine disguises as a gardener so she can spy on them. After being busted by Mr. Sheffield, Fran accidently sprays water on Margo, and as she tries to dry her, Margo's famous Marilyn-Monroe-like mole comes out. Fran takes her mom to the doctor, and as they were talking on the waiting room, Cindy Adams, the columnist, overhears the story about Margo's fake mole, and announces it on her show, which makes Margo quit the play. Now Fran has to make things up to Mr. Sheffield, and in order to do so, she comes up with the idea of selling fake moles on the internet with Margo. But the whole plan falls through after Maxwell blabs about it to Mel Brooks, who steals it. Maxwell asks Fran to marry him so he can be forgiven, but she says no to it because she doesn't want to marry a man out of guilt. But he actually meant it this time...",
+                        "air_date": "1998-01-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "Call Me Fran",
+                        "overview": "Fran decides to take her father to a basketball game, but he refuses to go knowing the tickets came from Mr. Sheffield. Confused, Fran goes to Dr. Miller for advice, and he tells her she's always looking for men like her father \u2013 that will keep a distance between them. Fran decides then to make Mr. Sheffield change, and when that doesn't work, she decides quit her job and change herself. Not wanting to let her go, Mr. Sheffield \u2013 Maxwell \u2013 calls her Fran. Although they agree on not doing it in front of others yet, Max and Fran take their first step on the road of commitment.",
+                        "air_date": "1998-01-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "Not Without My Nanny",
+                        "overview": "Gracie is invited by a school friend to fly to his palace in Koorestan. Fran tries to convince Maxwell to let Niles take her, so they can call each other by their first names all weekend, but Max needs Niles there so he sends Fran instead. There, she is flattered by all the luxury, and by how much the Sultan looks like Mr. Sheffield. After the Sultan invites Fran to stay with him forever, she thinks he proposed and says no. And when she decides to fly back to NY, she is surprised to see that her passport and clothes are missing, and there are guards at her door. Meanwhile, Niles tricks C.C. by saying that it's Mr. Sheffield's birthday and she uses his gift to look good, but Niles had tickets to Koorestan instead. Mr. Sheffield goes to Koorestan to rescue her, but turns out the Sultan only wanted her to be his nanny. Mr. Sheffield says he loves Fran.",
+                        "air_date": "1998-01-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "The Engagement",
+                        "overview": "Fran is thrilled to tell the family that Maxwell has told her he loved her, and this time he didn't take it back! Everybody is happy for her (except for C.C.) and congratulate Fran. Maxwell reveals to Niles that he bought an engagement ring and is going to propose to Fran tonight. He, of course, can't keep a secret and tells Fran, who tells Sylvia, in a chain reaction that results in virtually everybody knowing about it. Maxwell asks Fran to invite her family over because they're having a very important dinner at the Rainbow Room and they should all be there. All the Sheffield and Fine families gather and wait for Maxwell, who never shows up. Afraid something happened to him (because she was sure he wouldn't just leave her waiting), Fran goes after him, and finds a passed out Mr. Sheffield behind the theater. He was knocked out by burglars who stole his watch and Fran's ring. Nevertheless, he proposes to Fran.",
+                        "air_date": "1998-03-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "The Dinner Party",
+                        "overview": "Maxwell decides to shop for a new ring for Fran, and Sylvia asks them to go to their uncle Stanley's, because he is family. But once there, they change their minds and go to Cartier instead. Fran gets an astonishing ring and they are mentioned in the social column (and Fran's name is mistyped Fran Fone...). But Fran starts to see that she might not be very well accepted among Maxwell's rich friends: she, Sylvia and Val are mistaken by ordinary people at a fancy clothe store, and at a dinner party Fran finds out that everybody is making fun of her behind her back. Hurt and afraid she might not be good enough for Maxwell, she goes to the park and meets a homeless man. She offers him chicken and opens her heart for him, giving him her address and offering him to drop by at anytime he feels hungry. That man turns out to be one of the richest men in the city and he ends up sponsoring Maxwell's new play. Meanwhile, Sylvia gets Maxwell and the kids to call her \"\"ma\"\" and \"\"nana\"\"; Niles has fun b",
+                        "air_date": "1998-03-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "Homie-Work",
+                        "overview": "Fran decides that even though she's marrying Maxwell, she still wants to work. She decides to help him with his new play. They have to find a rapper and Fran gets Sammy's grandson, who is a gift wrapper instead. In major trouble, Fran has to turn the nerd gift wrapper into a music rapper in less than 24 hours to prove to Mr. Sheffield that she is not stupid. Meanwhile, C.C. feels left out and replaced by Fran, and Niles doesn't let the opportunity of teasing her go away, until she finally goes nuts and is taken to a mental hospital.",
+                        "air_date": "1998-03-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "The Reunion Show",
+                        "overview": "Fran attends her high school reunion and is surprised to see that all her old friends are getting divorced, while she's the only one getting engaged. Trying not to be affected by all the negativity, Fran discusses with Maxwell the little things of life as a couple - which side of the bed they sleep on, what to do on the weekends, and how many children they'll have. That becomes an issue because Maxwell doesn't want anymore children, while Fran does. After realizing how much motherhood means to Fran, Maxwell says they'll plan it in the future, leaving them plenty of time to practice. Meanwhile, Niles goes through depression without having Ms. Babcock around to tease on; and Gracie gets scared she'll be sent away to a boarding school after a friend tells her it happened after her dad married her stepmother.",
+                        "air_date": "1998-03-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "Immaculate Concepcion",
+                        "overview": "Maxwell's father unexpectedly passes away, and in his will he leaves everything to Concepcion, a secret daughter he had with a flamenco dancer. C.C. is back from the sanatorium and doesn't miss the opportunity of terrifying Fran and trying to split Fran and Maxwell up. Afraid that the Sheffields are going bankrupt, Fran visits Concepcion trying to persuade her to share the money with her siblings, but can't. Knowing what if feels like being poor, Fran tells Maxwell that she'll understand if he decides to marry a rich woman in order to keep his lifestyle. C.C. offers herself to marry Maxwell, but his love for Fran is beyond money. Then Sheffield's lawyer arrives with the news: Concepcion decided to share her money, all because Fran made her feel like family. Niles plays tricks on Ms. Babcock, making her doubt her own sanity.",
+                        "air_date": "1998-04-01",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "The Pre-nup",
+                        "overview": "Pressured by his family, Maxwell wants Fran to sign a pre-nup, which upsets her. She thinks he doesn't trust her and/or doesn't have faith their marriage will last forever. Unbelievably, Val is the one that opens her eyes to what's happening and how it is better for Fran to sign it. Brighton has an ice-skating accident and is taken to the hospital, and Fran is not allowed in because she's not his legal guardian. So she disguises herself as a nun (much like in guest Whoopi Goldberg's Sister Act) in order to see him. In the hospital room, Fran tells Brighton, Maggie and Gracie that she loves them like they were hers. After listening to that, Maxwell decides he doesn't want Fran to sign any pre-nup, but the adoption papers that will make Fran the kid's mother. Meanwhile, C.C. sends in a temporary substitute, who walks, talks and acts just like her, for Niles's desperation - until she reveals her taste for men.",
+                        "air_date": "1998-04-29",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "The Best Man",
+                        "overview": "Maxwell's brother, Nigel, is back to throw him a bachelor party, and Fran is terrified because Maxwell doesn't know that she almost married Nigel a year and a half ago. She tries to keep it a secret, but after Nigel gets drunk at the party, he tells Maxwell, just as Fran comes out of the cake in a surprise for him (after Sylvia confessed that Morty cancelled his wedding and ran off with the cake girl - Sylvia!). Fran and Maxwell have a fight over it, and they end up calling the wedding off, until C.C. (under the influence of Prozac) tells Fran that Maxwell didn't spend 5 years \"\"doing the one man show\"\". So Fran gets Marla Maples, who had a quick fling with Maxwell a year and a half ago, and confronts Maxwell. They finally realize they love each other and call the wedding back on.",
+                        "air_date": "1998-05-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "The Wedding, Part 1",
+                        "overview": "Fran moves to her mom's because she doesn't want Maxwell to see her 24 hours before the wedding. Maxwell's sister arrives for the wedding and says their mother is not coming because she doesn't like Fran, which concerns Maxwell, but after awhile he gets over it, after realizing that it's not important. Fran goes to Jersey to pick up her sexy white negligee that she had ordered specially for their wedding night. On their way back, Val's car breaks down in the middle of nowhere, and Sylvia, Val and Fran have to spend the whole day waiting for someone to rescue them. Maxwell is visited by a very special someone: Sara, his late wife, who comes to wish him a happy marriage and confess that she sent Fran into their lives. Val's mother call Maxwell and goes to rescue them.",
+                        "air_date": "1998-05-13",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 23,
+                        "name": "The Wedding, Part 2",
+                        "overview": "Finally, after 5 long years, the wedding day has arrived. Fran spends her last night as a single woman at her mom's house, where Sylvia reads her a letter she wrote to Fran when Fran was born. They both cry. Just a few moments before the wedding, Maxwell's sister Jocelyn tells Fran that the social differences between she and Maxwell will ruin their marriage as it did to hers. At the ceremony, Ms. Babcock tries to give it one last shot and pretends being the bride, but it doesn't work. Fran doesn't show up at the altar, leaving everybody apprehensive about what happened to her. Sylvia goes to her dressing room and finds Fran crying on the couch. Maxwell arrives and Fran tells him that their marriage will never work and decides it will be better if they cancelled it. Max tells Fran that what happened with his sister will not happen to them, because they love each other. He tells Fran all the wonderful things she has and says he will never get bored with them. The wedding proceeds, and Fr",
+                        "air_date": "1998-05-13",
+                        "watched": false
+                    }
+                ]
+            },
+            {
+                "season_number": 6,
+                "episode_count": 22,
+                "episodes": [
+                    {
+                        "episode_number": 1,
+                        "name": "The Honeymoon's Overboard",
+                        "overview": "Fran and Maxwell find themselves on a desert island after falling off their honeymoon yacht.",
+                        "air_date": "1998-09-30",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 2,
+                        "name": "Fran Gets Shushed",
+                        "overview": "While trying to learn to live together Fran agrees to be less forward if Maxwell will learn to be less uptight. They both tryout their new personalities at a business dinner meeting.",
+                        "air_date": "1998-10-07",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 3,
+                        "name": "Once a Secretary, Always a Secretary",
+                        "overview": "Brighton wants to go to Atlantic City and his father is totally against it. Fran finds herself torn between being nanny and wife.",
+                        "air_date": "1998-10-14",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 4,
+                        "name": "Sara's Parents",
+                        "overview": "Fran dreads a visit by Sara's parents.",
+                        "air_date": "1998-10-21",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 5,
+                        "name": "Maggie's Boyfriend",
+                        "overview": "Fran couldn't be happier with Maggie's rich, handsome, Jewish, model boyfriend, but when they decide to move in together, Maxwell wants Fran to put her foot down.",
+                        "air_date": "1998-10-28",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 6,
+                        "name": "I'm Pregnant",
+                        "overview": "When Maggie thinks that she is pregnant, Fran takes her to the doctor and finds that she is the expectant mother.",
+                        "air_date": "1998-11-04",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 7,
+                        "name": "Mom's the Word",
+                        "overview": "Fran is excited about the news of her pregnancy though Maxwell doesn't seem to want any more children.",
+                        "air_date": "1998-11-11",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 8,
+                        "name": "Making Whoopi",
+                        "overview": "Fran's devastated after hearing from Dr. Reynolds she was never pregnant at all, that it was a false positive. Maxwell keeps hiding her pregnancy tests to avoid further sadness, and even invites Fran and her relatives to join him on his special appearance on the Hollywood Squares. Val, Sylvia and Yetta advise Fran to go see a herbalist to help Maxwell's swimmers. At the herbal store, Fran buys a special shake that will help Maxwell's little swimmers swim faster and some special cookies that will make them hot for each other. The shake doesn't help, so Dr. Reynolds prescribes hormones for Fran, who also buys an ovulation kit. Her timing couldn't be worse when she starts ovulating right when Maxwell is up on the squares. But nothing that Whoopi Goldberg's dressing room can't fix. Meanwhile, C.C. and Niles accidentally eat the special cookies and feel hot for each other, and Val quits her brightness pills because it was making her too gassy.",
+                        "air_date": "1998-11-18",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 9,
+                        "name": "Oh, Say, Can You Ski?",
+                        "overview": "On a ski trip to Aspen, the Sheffields accept a dinner invitation from the President. Fran's blood test needed to get some antibiotics have some wonderful results.",
+                        "air_date": "1998-11-25",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 10,
+                        "name": "The Hanukkah Story",
+                        "overview": "While excited about celebrating her first Hanukkah with her new husband and family, Maxwell, C.C. and Gracie have to drive to Boston in a snowstorm. Fran is worried sick when they don't arrive on time after they run off the road.",
+                        "air_date": "1998-12-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 11,
+                        "name": "The In-Law Who Came Forever",
+                        "overview": "After Aunt Freida buys her parents' condo, the Fines move into the Sheffield mansion.",
+                        "air_date": "1999-01-06",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 12,
+                        "name": "The Fran in the Mirror",
+                        "overview": "After Fran lends a college buddy of Maxwell's $1 million, she hears that he is broke and has been swindling others.",
+                        "air_date": "1999-01-20",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 13,
+                        "name": "The Yummy Mummy",
+                        "overview": "Fran finds out that she and Maxwell are having twins and she is disturbed when Brighton doesn't want her go with him on his tour of colleges.",
+                        "air_date": "1999-02-03",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 14,
+                        "name": "California, Here We Come",
+                        "overview": "Maxwell is asked to turn one of his plays into a sitcom and the Sheffields might be moving to California. And her mother may be having an affair.",
+                        "air_date": "1999-03-31",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 15,
+                        "name": "Ma'ternal Affairs",
+                        "overview": "Fran checks into a man that her mother is seeing and coaches her father on spicing up their marriage.",
+                        "air_date": "1999-06-02",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 16,
+                        "name": "The Producers",
+                        "overview": "Fran tries to produce a play written by a friend of Niles and he confesses his love for C.C.",
+                        "air_date": "1999-06-09",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 17,
+                        "name": "The Dummy Twins",
+                        "overview": "Fran is coaching Niles in his unappreciated courtship of C.C. Finally Niles calls her pathetic and lonely after which the Sheffields find them in bed together.",
+                        "air_date": "1999-06-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 18,
+                        "name": "Yetta's Letters",
+                        "overview": "Maxwell uses Yetta's letters as the basis for a play on Broadway beating out Andrew Lloyd Webber who also wanted to use them.",
+                        "air_date": "1999-06-16",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 19,
+                        "name": "Maggie's Wedding",
+                        "overview": "Fran learns that Michael's cousin is James Brolin and that Barbra Streisand is coming to Maggie and Michael's wedding. Fran is so excited that she goes into premature labor almost missing Barbra.",
+                        "air_date": "1999-06-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 20,
+                        "name": "The Baby Shower",
+                        "overview": "After her fortune telling hair dresser sees Maxwell in bed with a blonde while in California Fran flies out to check on him. Fran Fine Sheffield also runs into actress Fran Drescher and there is a bit of a resemblance.",
+                        "air_date": "1999-06-23",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 21,
+                        "name": "The Finale, Part 1",
+                        "overview": "C.C. flees after Niles proposes again. Fran runs after her and gets stuck in an elevator with her and goes into labor.",
+                        "air_date": "1999-05-12",
+                        "watched": false
+                    },
+                    {
+                        "episode_number": 22,
+                        "name": "The Finale, Part 2",
+                        "overview": "C.C. and Niles get married while Fran is in labor and find out that they are also expectant parents. Maggie and Brighton head off to Europe as the Sheffields head to California with the new twins and a new life together.",
+                        "air_date": "1999-05-12",
+                        "watched": false
+                    }
+                ]
+            }
+        ]
     }
 ]
