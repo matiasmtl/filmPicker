@@ -6,7 +6,8 @@ __pycache__/
 .DS_Store
 .env
 /src/.env
-/src/movies.json
+tv_shows.json
+/src/__pycache__/
 /src/tv_shows.json
 /src/__pycache__/
 venv/
