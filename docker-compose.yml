@@ -8,8 +8,10 @@ services:
       - "32778:5000"
     environment:
       - TMDB_API_KEY=${TMDB_API_KEY?TMDB API key is required}
+      - MOVIES_FILE=/app/src/data/movies.json
+      - TV_SHOWS_FILE=/app/src/data/tv_shows.json
     volumes:
-      - movie-data:/app/src
+      - movie-data:/app/src/data
     restart: unless-stopped
 
 volumes:

@@ -13,13 +13,16 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all application files
 COPY src /app/src
 
-# Set permissions
-RUN chmod 777 /app/src && \
-    chmod 666 /app/src/movies.json
+# Create data directory and initialize empty JSON files
+RUN mkdir -p /app/src/data && \
+    echo '[]' > /app/src/data/movies.json && \
+    echo '[]' > /app/src/data/tv_shows.json && \
+    chmod -R 777 /app/src/data
 
-# Define environment variable
-ENV FLASK_APP=src/main.py \
-    MOVIES_FILE=/app/src/movies.json \
+# Set environment variables
+ENV MOVIES_FILE=/app/src/data/movies.json \
+    TV_SHOWS_FILE=/app/src/data/tv_shows.json \
+    FLASK_APP=src/main.py \
     FLASK_ENV=production \
     FLASK_DEBUG=0
 
@@ -30,8 +33,8 @@ EXPOSE 5000
 RUN useradd -m myuser
 USER myuser
 
-# Define volume
-VOLUME ["/app/src"]
+# Define volume for data directory specifically
+VOLUME ["/app/src/data"]
 
 # Run app.py when the container launches
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
