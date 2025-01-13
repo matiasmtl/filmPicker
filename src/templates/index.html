@@ -811,9 +811,11 @@
                                               onclick="rateShow(this.parentElement.getAttribute('data-show'), {{ i }})">★</span>
                                         {% endfor %}
                                     </div>
-                                    <button class="btn btn-sm btn-success mt-2" 
-                                            onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
-                                    <button class="btn btn-sm btn-danger ml-2" onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    <div class="mt-2">
+                                        <button class="btn btn-sm btn-success" 
+                                                onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    </div>
                                     {% if show.seasons %}
                                     <div class="episodes-list">
                                         {% for season in show.seasons %}
@@ -947,7 +949,7 @@
                                               onclick="rateShow(this.parentElement.getAttribute('data-show'), {{ i }})">★</span>
                                         {% endfor %}
                                     </div>
-                                    <button class="btn btn-sm btn-danger ml-2" onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    <button class="btn btn-sm btn-danger mt-2" onclick="deleteShow('{{ show.title }}')">Remove Show</button>
                                     {% if show.seasons %}
                                     <div class="episodes-list">
                                         {% for season in show.seasons %}
