@@ -270,6 +270,15 @@
             border-radius: 3px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
+
+        .red-dot {
+            height: 10px;
+            width: 10px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+        }
     </style>
     <script>
         async function pickMovie() {
@@ -705,10 +714,44 @@
             
             modal.modal('show');
         }
+
+        async function pullNewEpisodes() {
+            try {
+                const response = await fetch('/pull_new_episodes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                });
+                const data = await response.json();
+                const banner = document.getElementById('notification-banner');
+                if (data.success) {
+                    if (data.new_episodes_added) {
+                        banner.className = 'alert alert-success';
+                        banner.innerText = 'New episodes were added!';
+                    } else {
+                        banner.className = 'alert alert-danger';
+                        banner.innerText = 'No new episodes found.';
+                    }
+                    banner.style.display = 'block';
+                    setTimeout(() => {
+                        banner.style.display = 'none';
+                    }, 2000);
+                    location.reload();
+                } else {
+                    console.error('Failed to pull new episodes:', data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
     </script>
 </head>
 
 <body>
+    <!-- Add this banner at the top of the body -->
+    <div id="notification-banner" class="alert" style="display: none; position: fixed; top: 0; width: 100%; z-index: 1000;"></div>
+
     <div class="container text-center">
         <h1 class="my-4">Entertainment Picker</h1>
         
@@ -766,6 +809,10 @@
 
         <!-- TV Shows Section -->
         <div id="tv" class="section">
+            <!-- Add this button in the TV Shows Section -->
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-primary" onclick="pullNewEpisodes()">Pull New Episodes</button>
+            </div>
             <div class="tv-categories">
                 <div class="tv-category">
                     <div class="collapse-header" data-toggle="collapse" data-target="#ongoing-shows" aria-expanded="true">
@@ -779,7 +826,12 @@
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
                                     {% endif %}
-                                    <h5 class="card-title mb-0">{{ show.title }}</h5>
+                                    <div class="show-title">
+                                        {{ show.title }}
+                                        {% if show.new_episodes %}
+                                        <span class="red-dot"></span>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                             <div id="show-{{ loop.index }}" class="collapse">
