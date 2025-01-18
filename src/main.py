@@ -526,5 +526,50 @@ def pull_new_episodes():
         logger.error(f"Error pulling new episodes: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
+@app.route('/api/unwatched_episodes', methods=['GET'])
+def get_unwatched_episodes():
+    try:
+        shows = load_tv_shows()
+        unwatched_episodes = []
+        
+        for show in shows:
+            # Only include shows that are being watched
+            if show['status'] == 'ongoing':
+                show_episodes = []
+                for season in show.get('seasons', []):
+                    for episode in season.get('episodes', []):
+                        if not episode.get('watched', False):
+                            # Format the episode information
+                            episode_info = {
+                                'show_title': show['title'],
+                                'season': season['season_number'],
+                                'episode': episode['episode_number'],
+                                'title': episode['name'],
+                                'air_date': episode.get('air_date'),
+                                'poster': show.get('poster')  # Include show poster if available
+                            }
+                            show_episodes.append(episode_info)
+                
+                # Sort episodes by season and episode number
+                if show_episodes:
+                    show_episodes.sort(key=lambda x: (x['season'], x['episode']))
+                    unwatched_episodes.extend(show_episodes)
+        
+        # Sort all episodes by show title
+        unwatched_episodes.sort(key=lambda x: x['show_title'])
+        
+        return jsonify({
+            'success': True,
+            'unwatched_count': len(unwatched_episodes),
+            'episodes': unwatched_episodes
+        })
+        
+    except Exception as e:
+        logger.error(f"Error getting unwatched episodes: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
 if __name__ == "__main__":
     app.run(debug=True)
