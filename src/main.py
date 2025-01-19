@@ -466,9 +466,11 @@ def pull_new_episodes():
     try:
         shows = load_tv_shows()
         new_episodes_added = False
+        status_changes = []
+        today = datetime.today().date()
         
         for show in shows:
-            if show['status'] == 'ongoing':
+            if show['status'] in ['ongoing', 'on_hold']:
                 # First get the show ID if it's missing
                 show_id = show.get('tmdb_id')
                 if not show_id:
@@ -501,12 +503,39 @@ def pull_new_episodes():
                         logger.debug(f"Current episodes: {list(current_episodes.keys())}")
                         logger.debug(f"New episodes: {list(new_episodes.keys())}")
                         
-                        # Check for missing episodes
-                        if new_episodes.keys() - current_episodes.keys():
-                            logger.info(f"Found new episodes: {new_episodes.keys() - current_episodes.keys()}")
-                            new_episodes_added = True
+                        # Check for new episodes
+                        has_new_episodes = bool(new_episodes.keys() - current_episodes.keys())
+                        
+                        # Find latest episode air date
+                        latest_air_date = None
+                        for episode in new_episodes.values():
+                            if episode.get('air_date'):
+                                episode_date = datetime.strptime(episode['air_date'], '%Y-%m-%d').date()
+                                if not latest_air_date or episode_date > latest_air_date:
+                                    latest_air_date = episode_date
+                        
+                        # Update show status based on latest episode
+                        if latest_air_date:
+                            days_since_latest = (today - latest_air_date).days
                             
-                            # Replace show's seasons while preserving watch status
+                            if show['status'] == 'ongoing' and days_since_latest > 30:
+                                show['status'] = 'on_hold'
+                                status_changes.append({
+                                    'show': show['title'],
+                                    'from': 'ongoing',
+                                    'to': 'on_hold'
+                                })
+                            elif show['status'] == 'on_hold' and has_new_episodes:
+                                show['status'] = 'ongoing'
+                                status_changes.append({
+                                    'show': show['title'],
+                                    'from': 'on_hold',
+                                    'to': 'ongoing'
+                                })
+                        
+                        # Update episodes while preserving watch status
+                        if has_new_episodes:
+                            new_episodes_added = True
                             show['seasons'] = new_seasons
                             for season in show['seasons']:
                                 for ep in season['episodes']:
@@ -517,11 +546,21 @@ def pull_new_episodes():
                                         ep['watched'] = False
                                         logger.info(f"Added new episode: {key} - {ep['name']}")
         
-        if new_episodes_added:
+        if new_episodes_added or status_changes:
             save_tv_shows(shows)
         
-        logger.info(f"\nPull complete. New episodes added: {new_episodes_added}\n{'='*50}")
-        return jsonify({'success': True, 'new_episodes_added': new_episodes_added})
+        logger.info(f"\nPull complete. New episodes added: {new_episodes_added}")
+        if status_changes:
+            logger.info("Status changes:")
+            for change in status_changes:
+                logger.info(f"- {change['show']}: {change['from']} -> {change['to']}")
+        logger.info('='*50)
+        
+        return jsonify({
+            'success': True, 
+            'new_episodes_added': new_episodes_added,
+            'status_changes': status_changes
+        })
     except Exception as e:
         logger.error(f"Error pulling new episodes: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
