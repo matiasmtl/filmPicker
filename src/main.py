@@ -10,7 +10,12 @@ from datetime import datetime
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
+if not TMDB_API_KEY:
+    logger.error("TMDB_API_KEY is not set. Please check your .env file.")
+else:
+    logger.debug(f"TMDB_API_KEY loaded successfully: {TMDB_API_KEY}")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
@@ -287,7 +292,17 @@ def mark_watched():
 def add_movie():
     new_movie_title = request.form['title']
     movies = load_movies()
-    movies.append({"title": new_movie_title, "watched": False})
+    movie_details = get_movie_details(new_movie_title)
+    if movie_details:
+        poster = movie_details['poster_path']
+    else:
+        poster = None
+    movies.append({
+        "title": new_movie_title,
+        "watched": False,
+        "rating": 0,
+        "poster": poster
+    })
     save_movies(movies)
     return jsonify({"message": "Movie added successfully!"})
 
@@ -406,6 +421,13 @@ def update_episode_status():
                     for ep in s['episodes']:
                         if ep['episode_number'] == episode:
                             ep['watched'] = watched
+                            # **Check if all episodes are watched**
+                            all_watched = all(
+                                ep['watched'] for season in show['seasons'] for ep in season['episodes']
+                            )
+                            if all_watched:
+                                show['new_episodes'] = False
+                                logger.info(f"All episodes for '{title}' are watched. 'new_episodes' set to False.")
                             save_tv_shows(shows)
                             return jsonify({'success': True})
     
@@ -440,6 +462,13 @@ def update_episode_status_batch():
                     # Don't touch episodes in future seasons
                 
                 if updated:
+                    # **Check if all episodes are watched**
+                    all_watched = all(
+                        ep['watched'] for season in show['seasons'] for ep in season['episodes']
+                    )
+                    if all_watched:
+                        show['new_episodes'] = False
+                        logger.info(f"All episodes for '{title}' are watched. 'new_episodes' set to False.")
                     save_tv_shows(shows)
                     return jsonify({'success': True})
                 
@@ -545,6 +574,11 @@ def pull_new_episodes():
                                     else:
                                         ep['watched'] = False
                                         logger.info(f"Added new episode: {key} - {ep['name']}")
+                            # **Set the 'new_episodes' flag to True**
+                            show['new_episodes'] = True
+                        else:
+                            # **Ensure the 'new_episodes' flag is False if no new episodes**
+                            show['new_episodes'] = False
         
         if new_episodes_added or status_changes:
             save_tv_shows(shows)
