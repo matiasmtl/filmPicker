@@ -59,17 +59,26 @@ def title_case(s):
     
     return ' '.join(words)
 
+# Function to load movies from the movies JSON file
 def load_movies():
+    # Try to load and parse the movies file
     try:
+        # Check if the movies file exists
         if not os.path.exists(MOVIES_FILE):
             # If the file doesn't exist, create it with an empty list
             with open(MOVIES_FILE, 'w') as file:
+                # Write an empty list as JSON to the new file
                 json.dump([], file)
         
+        # Open the movies file for reading
         with open(MOVIES_FILE, 'r') as file:
+            # Parse and return the JSON contents
             return json.load(file)
+    # Handle any errors that occur
     except Exception as e:
+        # Print error message and return empty list
         print(f"Error loading movies: {str(e)}")
+        # Return empty list if there was an error
         return []
 
 def save_movies(movies):
@@ -109,27 +118,43 @@ def pick_random_movie(movies):
 
 def get_movie_details(title):
     try:
+        # Format the title for better search results
+        formatted_title = title_case(title)
+        logger.debug(f"Searching for movie: {formatted_title}")
+        
+        # Set up headers with Bearer token
+        headers = {
+            'Authorization': f'Bearer {TMDB_API_KEY}',
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+        
         # Search for the movie
         search_response = requests.get(
             TMDB_SEARCH_URL,
             params={
-                'api_key': TMDB_API_KEY,
-                'query': title,
+                'query': formatted_title,
                 'language': 'en-US'
-            }
+            },
+            headers=headers  # Add headers here
         )
         search_data = search_response.json()
+        logger.debug(f"TMDB API Response: {search_data}")
         
-        if search_data['results']:
+        if search_data.get('results'):
             movie = search_data['results'][0]
-            return {
-                'overview': movie['overview'],
-                'poster_path': f"https://image.tmdb.org/t/p/w500{movie['poster_path']}" if movie['poster_path'] else None,
-                'release_date': movie['release_date'],
-                'rating': movie['vote_average']
+            logger.debug(f"Found movie: {movie}")
+            
+            details = {
+                'overview': movie.get('overview'),
+                'poster': f"https://image.tmdb.org/t/p/w500{movie.get('poster_path')}" if movie.get('poster_path') else None,
+                'release_date': movie.get('release_date'),
+                'rating': movie.get('vote_average')
             }
+            logger.debug(f"Returning details: {details}")
+            return details
+            
     except Exception as e:
-        print(f"Error fetching movie details: {str(e)}")
+        logger.error(f"Error fetching movie details: {str(e)}")
     return None
 
 # Add function to get TV show details
@@ -249,29 +274,21 @@ def index():
 def pick_movie():
     try:
         movies = load_movies()
-        unwatched_movies = [movie for movie in movies if not movie['watched']]
+        movie = pick_random_movie(movies)
         
-        if not unwatched_movies:
-            return jsonify({'error': 'No unwatched movies left!'})
+        if not movie:
+            return jsonify({'error': 'No unwatched movies available'})
         
-        movie = random.choice(unwatched_movies)
-        movie_details = get_movie_details(movie['title'])
+        # Get additional details from TMDB
+        tmdb_details = get_movie_details(movie['title'])
         
         response = {
             'title': movie['title'],
-            'overview': None,
-            'poster': None,
-            'year': None,
-            'tmdb_rating': None
+            'poster': movie['poster'],  # Use the poster from our JSON
+            'year': movie['release_date'][:4] if tmdb_details and 'release_date' in tmdb_details else None,
+            'overview': tmdb_details['overview'] if tmdb_details else None,
+            'tmdb_rating': tmdb_details['rating'] if tmdb_details else None
         }
-        
-        if movie_details:
-            response.update({
-                'overview': movie_details['overview'],
-                'poster': movie_details['poster_path'],
-                'year': movie_details['release_date'][:4] if movie_details['release_date'] else None,
-                'tmdb_rating': movie_details['rating']
-            })
         
         return jsonify(response)
     except Exception as e:
@@ -290,19 +307,35 @@ def mark_watched():
 
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
-    new_movie_title = request.form['title']
+    new_movie_title = title_case(request.form['title'])  # Format the title
     movies = load_movies()
+    
+    # Check if movie already exists
+    if any(movie['title'].lower() == new_movie_title.lower() for movie in movies):
+        return jsonify({"error": "Movie already exists!"}), 400
+    
     movie_details = get_movie_details(new_movie_title)
-    if movie_details:
-        poster = movie_details['poster_path']
-    else:
-        poster = None
-    movies.append({
+    logger.debug(f"Movie details received: {movie_details}")
+    
+    new_movie = {
         "title": new_movie_title,
         "watched": False,
         "rating": 0,
-        "poster": poster
-    })
+        "poster": None,
+        "overview": None,
+        "release_date": None,
+        "tmdb_rating": None
+    }
+    
+    if movie_details:  # Only update if we got details back
+        new_movie.update({
+            "poster": movie_details.get('poster'),
+            "overview": movie_details.get('overview'),
+            "release_date": movie_details.get('release_date'),
+            "tmdb_rating": movie_details.get('rating')
+        })
+    
+    movies.append(new_movie)
     save_movies(movies)
     return jsonify({"message": "Movie added successfully!"})
 

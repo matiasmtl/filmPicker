@@ -540,14 +540,14 @@
         "poster": "https://image.tmdb.org/t/p/w500/vxTNlao45QcCr97s0VcBFXXIxF6.jpg"
     },
     {
-        "title": "La noche de los lÃ¡pices",
+        "title": "La noche de los l\u00c3\u0192\u00c2\u00a1pices",
         "watched": false,
         "rating": 0,
         "poster": null
     },
     {
         "title": "The 400 Blows",
-        "watched": false,
+        "watched": true,
         "rating": 0,
         "poster": "https://image.tmdb.org/t/p/w500/12PuU23kkDLvTd0nb8hMlE3oShB.jpg"
     },
