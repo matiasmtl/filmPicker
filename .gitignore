@@ -13,3 +13,4 @@ tv_shows.json
 venv/
 Dockerfile
 .dockerignore
+MagicMirror-module/
