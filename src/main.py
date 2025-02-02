@@ -10,7 +10,12 @@ from datetime import datetime
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
+if not TMDB_API_KEY:
+    logger.error("TMDB_API_KEY is not set. Please check your .env file.")
+else:
+    logger.debug(f"TMDB_API_KEY loaded successfully: {TMDB_API_KEY}")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
@@ -54,17 +59,26 @@ def title_case(s):
     
     return ' '.join(words)
 
+# Function to load movies from the movies JSON file
 def load_movies():
+    # Try to load and parse the movies file
     try:
+        # Check if the movies file exists
         if not os.path.exists(MOVIES_FILE):
             # If the file doesn't exist, create it with an empty list
             with open(MOVIES_FILE, 'w') as file:
+                # Write an empty list as JSON to the new file
                 json.dump([], file)
         
+        # Open the movies file for reading
         with open(MOVIES_FILE, 'r') as file:
+            # Parse and return the JSON contents
             return json.load(file)
+    # Handle any errors that occur
     except Exception as e:
+        # Print error message and return empty list
         print(f"Error loading movies: {str(e)}")
+        # Return empty list if there was an error
         return []
 
 def save_movies(movies):
@@ -104,27 +118,43 @@ def pick_random_movie(movies):
 
 def get_movie_details(title):
     try:
+        # Format the title for better search results
+        formatted_title = title_case(title)
+        logger.debug(f"Searching for movie: {formatted_title}")
+        
+        # Set up headers with Bearer token
+        headers = {
+            'Authorization': f'Bearer {TMDB_API_KEY}',
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+        
         # Search for the movie
         search_response = requests.get(
             TMDB_SEARCH_URL,
             params={
-                'api_key': TMDB_API_KEY,
-                'query': title,
+                'query': formatted_title,
                 'language': 'en-US'
-            }
+            },
+            headers=headers  # Add headers here
         )
         search_data = search_response.json()
+        logger.debug(f"TMDB API Response: {search_data}")
         
-        if search_data['results']:
+        if search_data.get('results'):
             movie = search_data['results'][0]
-            return {
-                'overview': movie['overview'],
-                'poster_path': f"https://image.tmdb.org/t/p/w500{movie['poster_path']}" if movie['poster_path'] else None,
-                'release_date': movie['release_date'],
-                'rating': movie['vote_average']
+            logger.debug(f"Found movie: {movie}")
+            
+            details = {
+                'overview': movie.get('overview'),
+                'poster': f"https://image.tmdb.org/t/p/w500{movie.get('poster_path')}" if movie.get('poster_path') else None,
+                'release_date': movie.get('release_date'),
+                'rating': movie.get('vote_average')
             }
+            logger.debug(f"Returning details: {details}")
+            return details
+            
     except Exception as e:
-        print(f"Error fetching movie details: {str(e)}")
+        logger.error(f"Error fetching movie details: {str(e)}")
     return None
 
 # Add function to get TV show details
@@ -244,29 +274,21 @@ def index():
 def pick_movie():
     try:
         movies = load_movies()
-        unwatched_movies = [movie for movie in movies if not movie['watched']]
+        movie = pick_random_movie(movies)
         
-        if not unwatched_movies:
-            return jsonify({'error': 'No unwatched movies left!'})
+        if not movie:
+            return jsonify({'error': 'No unwatched movies available'})
         
-        movie = random.choice(unwatched_movies)
-        movie_details = get_movie_details(movie['title'])
+        # Get additional details from TMDB
+        tmdb_details = get_movie_details(movie['title'])
         
         response = {
             'title': movie['title'],
-            'overview': None,
-            'poster': None,
-            'year': None,
-            'tmdb_rating': None
+            'poster': movie['poster'],  # Use the poster from our JSON
+            'year': movie['release_date'][:4] if tmdb_details and 'release_date' in tmdb_details else None,
+            'overview': tmdb_details['overview'] if tmdb_details else None,
+            'tmdb_rating': tmdb_details['rating'] if tmdb_details else None
         }
-        
-        if movie_details:
-            response.update({
-                'overview': movie_details['overview'],
-                'poster': movie_details['poster_path'],
-                'year': movie_details['release_date'][:4] if movie_details['release_date'] else None,
-                'tmdb_rating': movie_details['rating']
-            })
         
         return jsonify(response)
     except Exception as e:
@@ -285,9 +307,35 @@ def mark_watched():
 
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
-    new_movie_title = request.form['title']
+    new_movie_title = title_case(request.form['title'])  # Format the title
     movies = load_movies()
-    movies.append({"title": new_movie_title, "watched": False})
+    
+    # Check if movie already exists
+    if any(movie['title'].lower() == new_movie_title.lower() for movie in movies):
+        return jsonify({"error": "Movie already exists!"}), 400
+    
+    movie_details = get_movie_details(new_movie_title)
+    logger.debug(f"Movie details received: {movie_details}")
+    
+    new_movie = {
+        "title": new_movie_title,
+        "watched": False,
+        "rating": 0,
+        "poster": None,
+        "overview": None,
+        "release_date": None,
+        "tmdb_rating": None
+    }
+    
+    if movie_details:  # Only update if we got details back
+        new_movie.update({
+            "poster": movie_details.get('poster'),
+            "overview": movie_details.get('overview'),
+            "release_date": movie_details.get('release_date'),
+            "tmdb_rating": movie_details.get('rating')
+        })
+    
+    movies.append(new_movie)
     save_movies(movies)
     return jsonify({"message": "Movie added successfully!"})
 
@@ -406,6 +454,13 @@ def update_episode_status():
                     for ep in s['episodes']:
                         if ep['episode_number'] == episode:
                             ep['watched'] = watched
+                            # **Check if all episodes are watched**
+                            all_watched = all(
+                                ep['watched'] for season in show['seasons'] for ep in season['episodes']
+                            )
+                            if all_watched:
+                                show['new_episodes'] = False
+                                logger.info(f"All episodes for '{title}' are watched. 'new_episodes' set to False.")
                             save_tv_shows(shows)
                             return jsonify({'success': True})
     
@@ -440,6 +495,13 @@ def update_episode_status_batch():
                     # Don't touch episodes in future seasons
                 
                 if updated:
+                    # **Check if all episodes are watched**
+                    all_watched = all(
+                        ep['watched'] for season in show['seasons'] for ep in season['episodes']
+                    )
+                    if all_watched:
+                        show['new_episodes'] = False
+                        logger.info(f"All episodes for '{title}' are watched. 'new_episodes' set to False.")
                     save_tv_shows(shows)
                     return jsonify({'success': True})
                 
@@ -466,9 +528,11 @@ def pull_new_episodes():
     try:
         shows = load_tv_shows()
         new_episodes_added = False
+        status_changes = []
+        today = datetime.today().date()
         
         for show in shows:
-            if show['status'] == 'ongoing':
+            if show['status'] in ['ongoing', 'on_hold']:
                 # First get the show ID if it's missing
                 show_id = show.get('tmdb_id')
                 if not show_id:
@@ -501,12 +565,39 @@ def pull_new_episodes():
                         logger.debug(f"Current episodes: {list(current_episodes.keys())}")
                         logger.debug(f"New episodes: {list(new_episodes.keys())}")
                         
-                        # Check for missing episodes
-                        if new_episodes.keys() - current_episodes.keys():
-                            logger.info(f"Found new episodes: {new_episodes.keys() - current_episodes.keys()}")
-                            new_episodes_added = True
+                        # Check for new episodes
+                        has_new_episodes = bool(new_episodes.keys() - current_episodes.keys())
+                        
+                        # Find latest episode air date
+                        latest_air_date = None
+                        for episode in new_episodes.values():
+                            if episode.get('air_date'):
+                                episode_date = datetime.strptime(episode['air_date'], '%Y-%m-%d').date()
+                                if not latest_air_date or episode_date > latest_air_date:
+                                    latest_air_date = episode_date
+                        
+                        # Update show status based on latest episode
+                        if latest_air_date:
+                            days_since_latest = (today - latest_air_date).days
                             
-                            # Replace show's seasons while preserving watch status
+                            if show['status'] == 'ongoing' and days_since_latest > 30:
+                                show['status'] = 'on_hold'
+                                status_changes.append({
+                                    'show': show['title'],
+                                    'from': 'ongoing',
+                                    'to': 'on_hold'
+                                })
+                            elif show['status'] == 'on_hold' and has_new_episodes:
+                                show['status'] = 'ongoing'
+                                status_changes.append({
+                                    'show': show['title'],
+                                    'from': 'on_hold',
+                                    'to': 'ongoing'
+                                })
+                        
+                        # Update episodes while preserving watch status
+                        if has_new_episodes:
+                            new_episodes_added = True
                             show['seasons'] = new_seasons
                             for season in show['seasons']:
                                 for ep in season['episodes']:
@@ -516,12 +607,27 @@ def pull_new_episodes():
                                     else:
                                         ep['watched'] = False
                                         logger.info(f"Added new episode: {key} - {ep['name']}")
+                            # **Set the 'new_episodes' flag to True**
+                            show['new_episodes'] = True
+                        else:
+                            # **Ensure the 'new_episodes' flag is False if no new episodes**
+                            show['new_episodes'] = False
         
-        if new_episodes_added:
+        if new_episodes_added or status_changes:
             save_tv_shows(shows)
         
-        logger.info(f"\nPull complete. New episodes added: {new_episodes_added}\n{'='*50}")
-        return jsonify({'success': True, 'new_episodes_added': new_episodes_added})
+        logger.info(f"\nPull complete. New episodes added: {new_episodes_added}")
+        if status_changes:
+            logger.info("Status changes:")
+            for change in status_changes:
+                logger.info(f"- {change['show']}: {change['from']} -> {change['to']}")
+        logger.info('='*50)
+        
+        return jsonify({
+            'success': True, 
+            'new_episodes_added': new_episodes_added,
+            'status_changes': status_changes
+        })
     except Exception as e:
         logger.error(f"Error pulling new episodes: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500

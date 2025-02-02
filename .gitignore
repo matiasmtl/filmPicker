@@ -14,3 +14,4 @@ venv/
 Dockerfile
 .dockerignore
 MagicMirror-module/
+populate_movie_posters.py

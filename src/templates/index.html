@@ -726,17 +726,42 @@
                 const data = await response.json();
                 const banner = document.getElementById('notification-banner');
                 if (data.success) {
+                    let message = '';
+                    
                     if (data.new_episodes_added) {
-                        banner.className = 'alert alert-success';
-                        banner.innerText = 'New episodes were added!';
-                    } else {
-                        banner.className = 'alert alert-danger';
-                        banner.innerText = 'No new episodes found.';
+                        message = 'New episodes were added!';
                     }
-                    banner.style.display = 'block';
-                    setTimeout(() => {
-                        banner.style.display = 'none';
-                    }, 2000);
+                    
+                    if (data.status_changes && data.status_changes.length > 0) {
+                        const statusMessages = data.status_changes.map(change => {
+                            if (change.from === 'ongoing' && change.to === 'on_hold') {
+                                return `${change.show} moved to On Hold (no new episodes in 30 days)`;
+                            } else if (change.from === 'on_hold' && change.to === 'ongoing') {
+                                return `${change.show} moved back to Currently Watching (new episodes available)`;
+                            }
+                        }).filter(Boolean);
+                        
+                        if (statusMessages.length > 0) {
+                            if (message) message += '<br>';
+                            message += statusMessages.join('<br>');
+                        }
+                    }
+                    
+                    if (message) {
+                        banner.className = 'alert alert-success';
+                        banner.innerHTML = message;
+                        banner.style.display = 'block';
+                        setTimeout(() => {
+                            banner.style.display = 'none';
+                        }, 5000);  // Show for 5 seconds instead of 2
+                    } else {
+                        banner.className = 'alert alert-info';
+                        banner.innerText = 'No changes found.';
+                        banner.style.display = 'block';
+                        setTimeout(() => {
+                            banner.style.display = 'none';
+                        }, 3000);
+                    }
                     location.reload();
                 } else {
                     console.error('Failed to pull new episodes:', data.error);
@@ -792,13 +817,19 @@
                 <div id="watchedMovies" class="collapse">
                     {% for movie in watched_movies %}
                     <div class="card my-2">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ movie.title }}</h5>
-                            <div class="star-rating" data-movie="{{ movie.title|e }}">
-                                {% for i in range(1, 6) %}
-                                <span class="star {% if movie.rating >= i %}active{% endif %}" data-rating="{{ i }}"
-                                    onclick="rateMovie(this.parentElement.getAttribute('data-movie'), {{ i }})">★</span>
-                                {% endfor %}
+                        {% if movie.poster %}
+                        <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster mr-3" style="width: 50px; height: auto;">
+                        {% endif %}
+                        <div class="card-body d-flex align-items-center">
+                            
+                            <div>
+                                <h5 class="card-title">{{ movie.title }}</h5>
+                                <div class="star-rating" data-movie="{{ movie.title|e }}">
+                                    {% for i in range(1, 6) %}
+                                    <span class="star {% if movie.rating >= i %}active{% endif %}" data-rating="{{ i }}"
+                                        onclick="rateMovie(this.parentElement.getAttribute('data-movie'), {{ i }})">★</span>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -835,6 +866,103 @@
                                 </div>
                             </div>
                             <div id="show-{{ loop.index }}" class="collapse">
+                                <div class="card-body">
+                                    {% if show.poster %}
+                                    <img src="{{ show.poster }}" alt="{{ show.title }}" class="movie-poster">
+                                    {% endif %}
+                                    {% if show.overview or show.year or show.tmdb_rating %}
+                                    <div class="movie-details">
+                                        {% if show.year %}
+                                        <p><strong>Year:</strong> {{ show.year }}</p>
+                                        {% endif %}
+                                        {% if show.tmdb_rating %}
+                                        <p><strong>TMDB Rating:</strong> 
+                                            <span class="tmdb-rating">
+                                                <span class="star-icon">★</span> {{ show.tmdb_rating }}/10
+                                            </span>
+                                        </p>
+                                        {% endif %}
+                                        {% if show.overview %}
+                                        <p><strong>Synopsis:</strong> {{ show.overview }}</p>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                    <div class="star-rating" data-show="{{ show.title|e }}">
+                                        {% for i in range(1, 6) %}
+                                        <span class="star {% if show.rating >= i %}active{% endif %}" 
+                                              data-rating="{{ i }}"
+                                              onclick="rateShow(this.parentElement.getAttribute('data-show'), {{ i }})">★</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mt-2">
+                                        <button class="btn btn-sm btn-success" 
+                                                onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    </div>
+                                    {% if show.seasons %}
+                                    <div class="episodes-list">
+                                        {% for season in show.seasons %}
+                                            {% if season.episodes %}
+                                            <div class="season-container">
+                                                <div class="collapse-header season-header" data-toggle="collapse" 
+                                                     data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" 
+                                                     aria-expanded="false">
+                                                    <h6 class="mb-0">Season {{ season.season_number }}</h6>
+                                                </div>
+                                                <div id="season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}" class="collapse">
+                                                    <div class="episodes-grid">
+                                                        {% for episode in season.episodes %}
+                                                        <label class="custom-checkbox" title="{{ episode.name }}">
+                                                            <input type="checkbox" 
+                                                                   class="episode-checkbox"
+                                                                   data-show="{{ show.title|e }}" 
+                                                                   data-season="{{ season.season_number }}"
+                                                                   data-episode="{{ episode.episode_number }}"
+                                                                   {% if episode.watched %}checked{% endif %}
+                                                                   onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
+                                                            <span class="checkmark"></span>
+                                                            <span class="episode-number">{{ episode.episode_number }}. </span>
+                                                            <span class="episode-name">{{ episode.name }}</span>
+                                                            {% if episode.air_date %}
+                                                            <span class="episode-air-date"> ({{ episode.air_date }})</span>
+                                                            {% endif %}
+                                                        </label>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="tv-category">
+                    <div class="collapse-header" data-toggle="collapse" data-target="#on-hold-shows" aria-expanded="true">
+                        <h4>On Hold</h4>
+                    </div>
+                    <div id="on-hold-shows" class="collapse show">
+                        {% for show in tv_shows|selectattr('status', 'equalto', 'on_hold')|sort(attribute='title') %}
+                        <div class="card my-2 alert-success">
+                            <div class="card-header collapse-header" data-toggle="collapse" data-target="#show-hold-{{ loop.index }}" aria-expanded="false">
+                                <div class="show-header-content">
+                                    {% if show.poster %}
+                                    <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
+                                    {% endif %}
+                                    <div class="show-title">
+                                        {{ show.title }}
+                                        {% if show.new_episodes %}
+                                        <span class="red-dot"></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="show-hold-{{ loop.index }}" class="collapse">
                                 <div class="card-body">
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="movie-poster">
