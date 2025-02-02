@@ -1,4 +1,5 @@
 # from CLI run SECRET_KEY=your_secret_key_here TMDB_API_KEY=your_tmdb_api_key_here docker-compose up
+# if using the .yml, create a folder for the app and in that folder, make sure to have a src/data folder with the movies.json files if you want to use the default data. Otherwise, a default data file will be created for you.
 version: '3.8'
 
 services:
@@ -11,8 +12,5 @@ services:
       - MOVIES_FILE=/app/src/data/movies.json
       - TV_SHOWS_FILE=/app/src/data/tv_shows.json
     volumes:
-      - movie-data:/app/src/data
+      - ./src/data:/app/src/data # Bind mount local data directory instead
     restart: unless-stopped
-
-volumes:
-  movie-data:
