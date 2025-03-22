@@ -285,7 +285,7 @@ def pick_movie():
         response = {
             'title': movie['title'],
             'poster': movie['poster'],  # Use the poster from our JSON
-            'year': movie['release_date'][:4] if tmdb_details and 'release_date' in tmdb_details else None,
+            'year': tmdb_details['release_date'][:4] if tmdb_details and 'release_date' in tmdb_details else None,
             'overview': tmdb_details['overview'] if tmdb_details else None,
             'tmdb_rating': tmdb_details['rating'] if tmdb_details else None
         }
