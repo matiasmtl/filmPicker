@@ -356,16 +356,118 @@ def rate_movie():
     
     return jsonify({'success': False, 'error': 'Movie not found'}), 404
 
-# Update add_show route to include show details
-@app.route('/add_show', methods=['POST'])
-def add_show():
+@app.route('/search_tv_shows', methods=['POST'])
+def search_tv_shows():
     title = request.form.get('title')
     if not title:
         return jsonify({'success': False, 'error': 'Title is required'})
     
-    title = title_case(title)
+    try:
+        headers = {
+            'Authorization': f'Bearer {TMDB_API_KEY}',
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+        
+        # Search for the TV show
+        search_response = requests.get(
+            TMDB_TV_SEARCH_URL,
+            params={
+                'query': title,
+                'language': 'en-US'
+            },
+            headers=headers
+        )
+        search_data = search_response.json()
+        
+        if not search_data.get('results'):
+            return jsonify({'success': False, 'error': 'No results found'})
+        
+        # Return up to 10 results with basic info
+        results = []
+        for show in search_data.get('results')[:10]:  # Limit to 10 results
+            results.append({
+                'id': show.get('id'),
+                'title': show.get('name'),
+                'overview': show.get('overview', '')[:150] + '...' if show.get('overview') and len(show.get('overview')) > 150 else show.get('overview', ''),
+                'poster': f"https://image.tmdb.org/t/p/w200{show.get('poster_path')}" if show.get('poster_path') else None,
+                'year': show.get('first_air_date', '')[:4] if show.get('first_air_date') else None,
+                'tmdb_rating': show.get('vote_average')
+            })
+        
+        return jsonify({'success': True, 'results': results})
+        
+    except Exception as e:
+        logger.error(f"Error searching TV shows: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)})
+
+# Update add_show route to include show details
+@app.route('/add_show', methods=['POST'])
+def add_show():
+    title = request.form.get('title')
+    show_id = request.form.get('show_id')  # Now we accept a specific show ID
+    
+    if not (title or show_id):
+        return jsonify({'success': False, 'error': 'Title or Show ID is required'})
     
     shows = load_tv_shows()
+    
+    # If we have a show ID, we'll use it directly
+    if show_id:
+        # Check if we already have this show by ID
+        if any(str(show.get('tmdb_id')) == str(show_id) for show in shows):
+            return jsonify({'success': False, 'error': 'Show already exists'})
+            
+        # Get show details directly using the ID
+        try:
+            headers = {
+                'Authorization': f'Bearer {TMDB_API_KEY}',
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+            
+            show_response = requests.get(
+                f"https://api.themoviedb.org/3/tv/{show_id}",
+                headers=headers
+            )
+            show_data = show_response.json()
+            
+            if 'status_code' in show_data and show_data['status_code'] in [34, 404]:
+                return jsonify({'success': False, 'error': 'Show not found'})
+                
+            title = show_data.get('name')
+            
+            # Format the title for consistency
+            title = title_case(title) if title else ''
+            
+            # Check if we already have this show by title
+            if any(show['title'].lower() == title.lower() for show in shows):
+                return jsonify({'success': False, 'error': 'Show already exists'})
+                
+            episodes = get_tv_show_episodes(show_id)
+            
+            new_show = {
+                'title': title,
+                'status': 'to_watch',
+                'rating': 0,
+                'overview': show_data.get('overview', ''),
+                'poster': f"https://image.tmdb.org/t/p/w500{show_data.get('poster_path')}" if show_data.get('poster_path') else None,
+                'year': show_data.get('first_air_date', '')[:4] if show_data.get('first_air_date') else None,
+                'tmdb_id': int(show_id),
+                'tmdb_rating': show_data.get('vote_average', 0),
+                'seasons': episodes
+            }
+            
+            shows.append(new_show)
+            save_tv_shows(shows)
+            return jsonify({'success': True})
+            
+        except Exception as e:
+            logger.error(f"Error adding show by ID: {str(e)}")
+            return jsonify({'success': False, 'error': str(e)})
+    
+    # If no ID provided, fall back to the original behavior with title search
+    title = title_case(title)
+    
+    # Check if show already exists
     if any(show['title'] == title for show in shows):
         return jsonify({'success': False, 'error': 'Show already exists'})
     

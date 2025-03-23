@@ -290,6 +290,35 @@
             display: inline-block;
             margin-left: 10px;
         }
+
+        /* TV Show Search Modal styles */
+        #showSearchModal .card-img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        #showSearchModal .card-text {
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        #showSearchModal .modal-lg {
+            max-width: 90%;
+        }
+
+        @media (max-width: 576px) {
+
+            #showSearchModal .col-md-4,
+            #showSearchModal .col-md-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            #showSearchModal .card-img {
+                max-height: 300px;
+                width: 100%;
+            }
+        }
     </style>
     <script>
         // Global variables for movie picking
@@ -429,6 +458,159 @@
         document.addEventListener('DOMContentLoaded', function () {
             initializeSections();
         });
+
+        async function searchShow(event) {
+            event.preventDefault();
+            const title = document.getElementById('new-show-title').value;
+
+            try {
+                // Display a loading indicator
+                const searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = '<div class="col-12 text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>';
+
+                const errorDiv = document.getElementById('searchError');
+                errorDiv.style.display = 'none';
+
+                // Show the modal
+                $('#showSearchModal').modal('show');
+
+                const response = await fetch('/search_tv_shows', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `title=${encodeURIComponent(title)}`
+                });
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    errorDiv.textContent = data.error || 'Failed to search for TV shows';
+                    errorDiv.style.display = 'block';
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                if (!data.results || data.results.length === 0) {
+                    errorDiv.textContent = 'No shows found matching your search';
+                    errorDiv.style.display = 'block';
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                // If only one result, add it automatically
+                if (data.results.length === 1) {
+                    $('#showSearchModal').modal('hide');
+                    await addShowById(data.results[0].id);
+                    return;
+                }
+
+                // Display the results
+                searchResults.innerHTML = '';
+                data.results.forEach(show => {
+                    const showCard = document.createElement('div');
+                    showCard.className = 'col-md-6 mb-3';
+
+                    let cardContent = `
+                        <div class="card h-100">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    ${show.poster ?
+                            `<img src="${show.poster}" class="card-img" alt="${show.title}">` :
+                            `<div class="card-img bg-secondary text-center text-white d-flex align-items-center justify-content-center" style="height: 100%;">No Image</div>`}
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${show.title}</h5>
+                                        ${show.year ? `<p class="card-text"><small class="text-muted">Year: ${show.year}</small></p>` : ''}
+                                        ${show.tmdb_rating ? `<p class="card-text"><small class="text-muted">Rating: ${show.tmdb_rating}/10</small></p>` : ''}
+                                        <p class="card-text">${show.overview || 'No description available'}</p>
+                                        <button class="btn btn-primary btn-sm select-show" data-id="${show.id}">Select</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    showCard.innerHTML = cardContent;
+                    searchResults.appendChild(showCard);
+                });
+
+                // Add event listeners to select buttons
+                document.querySelectorAll('.select-show').forEach(button => {
+                    button.addEventListener('click', async function () {
+                        const showId = this.getAttribute('data-id');
+                        $('#showSearchModal').modal('hide');
+                        await addShowById(showId);
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error searching shows:', error);
+                const errorDiv = document.getElementById('searchError');
+                errorDiv.textContent = 'An error occurred while searching for TV shows';
+                errorDiv.style.display = 'block';
+                document.getElementById('searchResults').innerHTML = '';
+            }
+        }
+
+        async function addShowById(showId) {
+            try {
+                const response = await fetch('/add_show', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `show_id=${showId}`
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Clear the input field
+                    document.getElementById('new-show-title').value = '';
+
+                    // Show success message using the notification banner
+                    const banner = document.getElementById('notification-banner');
+                    banner.className = 'alert alert-success';
+                    banner.textContent = 'TV show added successfully!';
+                    banner.style.display = 'block';
+
+                    // Hide the banner after a few seconds
+                    setTimeout(() => {
+                        banner.style.display = 'none';
+                    }, 3000);
+
+                    // Refresh the page to show the new show
+                    window.location.href = '/#tv';
+                    location.reload();
+                } else {
+                    // Show error message
+                    const banner = document.getElementById('notification-banner');
+                    banner.className = 'alert alert-danger';
+                    banner.textContent = data.error || 'Failed to add TV show';
+                    banner.style.display = 'block';
+
+                    // Hide the banner after a few seconds
+                    setTimeout(() => {
+                        banner.style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Error adding show:', error);
+
+                // Show error message
+                const banner = document.getElementById('notification-banner');
+                banner.className = 'alert alert-danger';
+                banner.textContent = 'An error occurred while adding the TV show';
+                banner.style.display = 'block';
+
+                // Hide the banner after a few seconds
+                setTimeout(() => {
+                    banner.style.display = 'none';
+                }, 3000);
+            }
+        }
 
         async function addShow(event) {
             event.preventDefault();
@@ -1240,12 +1422,12 @@
                 </div>
 
                 <!-- Add TV Show Form -->
-                <form class="mt-4" onsubmit="addShow(event)">
+                <form class="mt-4" onsubmit="searchShow(event)">
                     <div class="form-group">
                         <input type="text" id="new-show-title" class="form-control"
                             placeholder="Enter new TV show title" required>
                     </div>
-                    <button type="submit" class="btn btn-custom">Add TV Show</button>
+                    <button type="submit" class="btn btn-custom">Search TV Show</button>
                 </form>
             </div>
         </div>
@@ -1290,6 +1472,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TV Show Search Results Modal -->
+    <div class="modal fade" id="showSearchModal" tabindex="-1" role="dialog" aria-labelledby="showSearchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showSearchModalLabel">Select TV Show</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="searchResults" class="row"></div>
+                    <div id="searchError" class="alert alert-danger" style="display: none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
