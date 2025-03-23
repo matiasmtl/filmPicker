@@ -449,6 +449,11 @@ def update_episode_status():
     shows = load_tv_shows()
     for show in shows:
         if show['title'] == title:
+            # If marking as watched and show is on hold, move to currently watching
+            if watched and show['status'] == 'on_hold':
+                logger.info(f"Moving show '{title}' from On Hold to Currently Watching due to watched episode")
+                show['status'] = 'ongoing'
+                
             for s in show['seasons']:
                 if s['season_number'] == season:
                     for ep in s['episodes']:
@@ -478,6 +483,11 @@ def update_episode_status_batch():
         shows = load_tv_shows()
         for show in shows:
             if show['title'] == title:
+                # If marking as watched and show is on hold, move to currently watching
+                if watched and show['status'] == 'on_hold':
+                    logger.info(f"Moving show '{title}' from On Hold to Currently Watching due to batch watched episodes")
+                    show['status'] = 'ongoing'
+                    
                 updated = False
                 for season in show['seasons']:
                     season_num = season['season_number']
