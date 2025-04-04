@@ -1,0 +1,10 @@
+.gitignore
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.env
+/src/.env
+# /src/movies.json
+/src/__pycache__/

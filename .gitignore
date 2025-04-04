@@ -1,0 +1,17 @@
+.gitignore
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.env
+/src/.env
+tv_shows.json
+/src/__pycache__/
+/src/tv_shows.json
+/src/__pycache__/
+venv/
+Dockerfile
+.dockerignore
+MagicMirror-module/
+populate_movie_posters.py

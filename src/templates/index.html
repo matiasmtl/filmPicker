@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entertainment Picker</title>
+    <title>Movie Picker</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/movie-picker.png') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;
@@ -41,12 +39,6 @@
             /* Make room for arrow */
         }
 
-        /* Add dark mode styles for collapse header */
-        body.dark-mode .collapse-header {
-            background-color: var(--dark-card);
-            color: var(--dark-text);
-        }
-
         .collapse-header::after {
             content: "→";
             position: absolute;
@@ -64,11 +56,6 @@
             background-color: #e9ecef;
         }
 
-        /* Add dark mode styles for collapse header hover */
-        body.dark-mode .collapse-header:hover {
-            background-color: #333333;
-        }
-
         .card-header.collapse-header {
             background-color: rgba(40, 167, 69, 0.1);
             /* Light green to match alert-success */
@@ -79,19 +66,8 @@
             /* Adjust padding to accommodate thumbnail */
         }
 
-        /* Add dark mode styles for card header */
-        body.dark-mode .card-header.collapse-header {
-            background-color: rgba(40, 167, 69, 0.05);
-            color: var(--dark-text);
-        }
-
         .card-header.collapse-header:hover {
             background-color: rgba(40, 167, 69, 0.2);
-        }
-
-        /* Add dark mode styles for card header hover */
-        body.dark-mode .card-header.collapse-header:hover {
-            background-color: rgba(40, 167, 69, 0.1);
         }
 
         .card-header.collapse-header .card-title {
@@ -190,21 +166,9 @@
             padding: 15px;
         }
 
-        /* Add dark mode styles for TV category */
-        body.dark-mode .tv-category {
-            background-color: #1e1e1e;
-            color: #e9ecef;
-            border-color: #333333;
-        }
-
         .tv-category h4 {
             color: #007bff;
             margin-bottom: 15px;
-        }
-
-        /* Dark mode for section headers */
-        body.dark-mode .tv-category h4 {
-            color: #4cc9f0;
         }
 
         /* Specific styling for section headers */
@@ -252,13 +216,6 @@
             margin-bottom: 10px;
         }
 
-        /* Add dark mode styles for custom checkbox */
-        body.dark-mode .custom-checkbox {
-            background-color: #1e1e1e;
-            color: #e9ecef;
-            border-color: #333333;
-        }
-
         .custom-checkbox input[type="checkbox"] {
             display: none;
         }
@@ -271,12 +228,6 @@
             border-radius: 4px;
             margin-right: 10px;
             position: relative;
-        }
-
-        /* Add dark mode styles for checkmark */
-        body.dark-mode .custom-checkbox .checkmark {
-            background-color: #333333;
-            border-color: #444444;
         }
 
         .custom-checkbox input[type="checkbox"]:checked+.checkmark {
@@ -505,32 +456,6 @@
 
         // Initialize when DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function () {
-            // Simple approach to make Bootstrap 5 collapses work with data-bs-toggle
-            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(element => {
-                element.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('data-bs-target'));
-                    if (target) {
-                        target.classList.toggle('show');
-                        const isExpanded = target.classList.contains('show');
-                        this.setAttribute('aria-expanded', isExpanded);
-                    }
-                });
-            });
-
-            // Initialize all collapse elements using Bootstrap's built-in functionality
-            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(element => {
-                element.addEventListener('click', function() {
-                    const target = document.querySelector(this.getAttribute('data-bs-target'));
-                    if (target) {
-                        new bootstrap.Collapse(target, {
-                            toggle: true
-                        });
-                    }
-                });
-            });
-
-            // Initialize sections
             initializeSections();
         });
 
@@ -834,9 +759,8 @@
             }
         }
 
-        async function updateEpisodeStatus(checkbox, title, season, episode) {
-            let currentCheckbox = checkbox;
-            let watched = checkbox.checked;
+        async function updateEpisodeStatus(title, season, episode, watched) {
+            let currentCheckbox = event.target;
 
             if (watched) {
                 const allCheckboxes = document.querySelectorAll(
@@ -1076,78 +1000,56 @@
 </head>
 
 <body>
-    <!-- Notification Banner -->
-    <div id="notification-banner" class="alert" style="display: none;"></div>
+    <!-- Add this banner at the top of the body -->
+    <div id="notification-banner" class="alert"
+        style="display: none; position: fixed; top: 0; width: 100%; z-index: 1000;"></div>
 
-    <!-- Fixed Header -->
-    <header class="app-header">
-        <div class="header-content">
-            <h1 class="app-title">Entertainment Picker</h1>
-            <div class="d-flex align-items-center">
-                <!-- Navigation -->
-                <ul class="nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-section="movies">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-section="tv">TV Shows</a>
-                    </li>
-                </ul>
+    <div class="container text-center">
+        <h1 class="my-4">Entertainment Picker</h1>
 
-                <!-- Theme Toggle -->
-                <div class="theme-toggle">
-                    <span class="toggle-icon"><i class="fas fa-sun"></i></span>
-                    <label class="theme-toggle-label">
-                        <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle">
-                        <span class="theme-toggle-slider"></span>
-                    </label>
-                    <span class="toggle-icon"><i class="fas fa-moon"></i></span>
-                </div>
-            </div>
-        </div>
-    </header>
+        <!-- Navigation -->
+        <ul class="nav nav-pills mb-4 justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="movies">Movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="tv">TV Shows</a>
+            </li>
+        </ul>
 
-    <div class="container">
         <!-- Welcome message when no section is selected -->
         <div id="welcome" class="section active">
             <h2 class="my-4">Welcome!</h2>
             <p class="lead">What do you want to watch next?</p>
         </div>
 
-        <!-- Movies Section -->
+        <!-- Movies Section - remove 'active' class -->
         <div id="movies" class="section">
             <p class="lead">You have {{ unwatched_count }} movies remaining in your 2025 must-watch list.</p>
             <p class="lead"> Roll the dice to pick one.</p>
-            <button class="btn btn-primary btn-lg" onclick="pickMovie()"><i class="fas fa-dice"></i></button>
+            <button class="btn btn-custom btn-lg" onclick="pickMovie()">🎲</button>
             <div id="message" class="mt-4"></div>
             <form class="mt-4" onsubmit="addMovie(event)">
                 <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" id="new-movie-title" class="form-control" placeholder="Enter new movie title"
-                            required>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Add Movie
-                        </button>
-                    </div>
+                    <input type="text" id="new-movie-title" class="form-control" placeholder="Enter new movie title"
+                        required>
                 </div>
+                <button type="submit" class="btn btn-custom">Add Movie</button>
             </form>
 
-            <div class="watched-movies mt-4">
-                    <div class="collapse-header" data-bs-toggle="collapse" data-bs-target="#watchedMovies"
-                        aria-expanded="false">
+            <div class="watched-movies">
+                <div class="collapse-header" data-toggle="collapse" data-target="#watchedMovies" aria-expanded="false">
                     <h3>Watched Movies</h3>
                 </div>
-                    <div id="watchedMovies" class="collapse">
+                <div id="watchedMovies" class="collapse">
                     {% for movie in watched_movies %}
                     <div class="card my-2">
+                        {% if movie.poster %}
+                        <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster mr-3"
+                            style="width: 50px; height: auto;">
+                        {% endif %}
                         <div class="card-body d-flex align-items-center">
-                            {% if movie.poster %}
-                            <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="show-thumbnail mr-3">
-                            {% else %}
-                            <div class="show-thumbnail mr-3 d-flex align-items-center justify-content-center bg-light">
-                                <i class="fas fa-film text-muted"></i>
-                            </div>
-                            {% endif %}
+
                             <div>
                                 <h5 class="card-title">{{ movie.title }}</h5>
                                 <div class="star-rating" data-movie="{{ movie.title|e }}">
@@ -1168,21 +1070,19 @@
         <div id="tv" class="section">
             <!-- Add this button in the TV Shows Section -->
             <div class="d-flex justify-content-end mb-3">
-                <button class="btn btn-primary" onclick="pullNewEpisodes()">
-                    <i class="fas fa-sync-alt"></i> Pull New Episodes
-                </button>
+                <button class="btn btn-primary" onclick="pullNewEpisodes()">Pull New Episodes</button>
             </div>
             <div class="tv-categories">
                 <div class="tv-category">
-                    <div class="collapse-header" data-bs-toggle="collapse" data-bs-target="#ongoing-shows"
-                        aria-expanded="false">
+                    <div class="collapse-header" data-toggle="collapse" data-target="#ongoing-shows"
+                        aria-expanded="true">
                         <h4>Currently Watching</h4>
                     </div>
-                    <div id="ongoing-shows" class="collapse">
+                    <div id="ongoing-shows" class="collapse show">
                         {% for show in tv_shows|selectattr('status', 'equalto', 'ongoing')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
-                            <div class="card-header collapse-header" data-bs-toggle="collapse"
-                                data-bs-target="#show-{{ loop.index }}" aria-expanded="false">
+                            <div class="card-header collapse-header" data-toggle="collapse"
+                                data-target="#show-{{ loop.index }}" aria-expanded="false">
                                 <div class="show-header-content">
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
@@ -1237,8 +1137,8 @@
                                         {% for season in show.seasons %}
                                         {% if season.episodes %}
                                         <div class="season-container">
-                                            <div class="collapse-header season-header" data-bs-toggle="collapse"
-                                                data-bs-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
+                                            <div class="collapse-header season-header" data-toggle="collapse"
+                                                data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
                                                 aria-expanded="false">
                                                 <h6 class="mb-0">Season {{ season.season_number }}</h6>
                                             </div>
@@ -1252,7 +1152,7 @@
                                                             data-season="{{ season.season_number }}"
                                                             data-episode="{{ episode.episode_number }}" {% if
                                                             episode.watched %}checked{% endif %}
-                                                    onchange="updateEpisodeStatus(this, '{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }})">
+                                                            onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
                                                         <span class="checkmark"></span>
                                                         <span class="episode-number">{{ episode.episode_number }}.
                                                         </span>
@@ -1277,15 +1177,15 @@
                 </div>
 
                 <div class="tv-category">
-                    <div class="collapse-header" data-bs-toggle="collapse" data-bs-target="#on-hold-shows"
-                        aria-expanded="false">
+                    <div class="collapse-header" data-toggle="collapse" data-target="#on-hold-shows"
+                        aria-expanded="true">
                         <h4>On Hold</h4>
                     </div>
-                    <div id="on-hold-shows" class="collapse">
+                    <div id="on-hold-shows" class="collapse show">
                         {% for show in tv_shows|selectattr('status', 'equalto', 'on_hold')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
-                            <div class="card-header collapse-header" data-bs-toggle="collapse"
-                                data-bs-target="#show-hold-{{ loop.index }}" aria-expanded="false">
+                            <div class="card-header collapse-header" data-toggle="collapse"
+                                data-target="#show-hold-{{ loop.index }}" aria-expanded="false">
                                 <div class="show-header-content">
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
@@ -1340,8 +1240,8 @@
                                         {% for season in show.seasons %}
                                         {% if season.episodes %}
                                         <div class="season-container">
-                                            <div class="collapse-header season-header" data-bs-toggle="collapse"
-                                                data-bs-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
+                                            <div class="collapse-header season-header" data-toggle="collapse"
+                                                data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
                                                 aria-expanded="false">
                                                 <h6 class="mb-0">Season {{ season.season_number }}</h6>
                                             </div>
@@ -1355,7 +1255,7 @@
                                                             data-season="{{ season.season_number }}"
                                                             data-episode="{{ episode.episode_number }}" {% if
                                                             episode.watched %}checked{% endif %}
-                                                    onchange="updateEpisodeStatus(this, '{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }})">
+                                                            onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
                                                         <span class="checkmark"></span>
                                                         <span class="episode-number">{{ episode.episode_number }}.
                                                         </span>
@@ -1380,15 +1280,15 @@
                 </div>
 
                 <div class="tv-category">
-                    <div class="collapse-header" data-bs-toggle="collapse" data-bs-target="#to-watch-shows"
-                        aria-expanded="false">
+                    <div class="collapse-header" data-toggle="collapse" data-target="#to-watch-shows"
+                        aria-expanded="true">
                         <h4>To Watch</h4>
                     </div>
-                    <div id="to-watch-shows" class="collapse">
+                    <div id="to-watch-shows" class="collapse show">
                         {% for show in tv_shows|selectattr('status', 'equalto', 'to_watch')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
-                            <div class="card-header collapse-header" data-bs-toggle="collapse"
-                                data-bs-target="#show-to-{{ loop.index }}" aria-expanded="false">
+                            <div class="card-header collapse-header" data-toggle="collapse"
+                                data-target="#show-to-{{ loop.index }}" aria-expanded="false">
                                 <div class="show-header-content">
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
@@ -1430,15 +1330,15 @@
                 </div>
 
                 <div class="tv-category">
-                    <div class="collapse-header" data-bs-toggle="collapse" data-bs-target="#watched-shows"
-                        aria-expanded="false">
+                    <div class="collapse-header" data-toggle="collapse" data-target="#watched-shows"
+                        aria-expanded="true">
                         <h4>Completed</h4>
                     </div>
-                    <div id="watched-shows" class="collapse">
+                    <div id="watched-shows" class="collapse show">
                         {% for show in tv_shows|selectattr('status', 'equalto', 'watched')|sort(attribute='title') %}
                         <div class="card my-2 alert-success">
-                            <div class="card-header collapse-header" data-bs-toggle="collapse"
-                                data-bs-target="#show-watched-{{ loop.index }}" aria-expanded="false">
+                            <div class="card-header collapse-header" data-toggle="collapse"
+                                data-target="#show-watched-{{ loop.index }}" aria-expanded="false">
                                 <div class="show-header-content">
                                     {% if show.poster %}
                                     <img src="{{ show.poster }}" alt="{{ show.title }}" class="show-thumbnail">
@@ -1482,8 +1382,8 @@
                                         {% for season in show.seasons %}
                                         {% if season.episodes %}
                                         <div class="season-container">
-                                            <div class="collapse-header season-header" data-bs-toggle="collapse"
-                                                data-bs-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
+                                            <div class="collapse-header season-header" data-toggle="collapse"
+                                                data-target="#season-{{ show.title|replace(' ', '-') }}-{{ season.season_number }}"
                                                 aria-expanded="false">
                                                 <h6 class="mb-0">Season {{ season.season_number }}</h6>
                                             </div>
@@ -1497,7 +1397,7 @@
                                                             data-season="{{ season.season_number }}"
                                                             data-episode="{{ episode.episode_number }}" {% if
                                                             episode.watched %}checked{% endif %}
-                                                    onchange="updateEpisodeStatus(this, '{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }})">
+                                                            onchange="updateEpisodeStatus('{{ show.title|e }}', {{ season.season_number }}, {{ episode.episode_number }}, this.checked)">
                                                         <span class="checkmark"></span>
                                                         <span class="episode-number">{{ episode.episode_number }}.
                                                         </span>
@@ -1524,14 +1424,10 @@
                 <!-- Add TV Show Form -->
                 <form class="mt-4" onsubmit="searchShow(event)">
                     <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" id="new-show-title" class="form-control"
-                                placeholder="Enter new TV show title" required>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-search"></i> Search TV Show
-                            </button>
-                        </div>
+                        <input type="text" id="new-show-title" class="form-control"
+                            placeholder="Enter new TV show title" required>
                     </div>
+                    <button type="submit" class="btn btn-custom">Search TV Show</button>
                 </form>
             </div>
         </div>
@@ -1603,72 +1499,15 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Theme Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const themeToggle = document.getElementById('theme-toggle');
-            const storedTheme = localStorage.getItem('theme');
-
-            // Check for saved theme preference or system preference
-            if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.body.classList.add('dark-mode');
-                themeToggle.checked = true;
-            }
-
-            // Handle toggle change
-            themeToggle.addEventListener('change', function () {
-                if (this.checked) {
-                    document.body.classList.add('dark-mode');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                    localStorage.setItem('theme', 'light');
-                }
+        // Add event listeners to update aria-expanded attribute
+        document.querySelectorAll('[data-toggle="collapse"]').forEach(header => {
+            header.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
             });
-
-            // Show all sections by default, handle tab navigation
-            function activateTab(tabId) {
-                // Hide all sections
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                // Show the selected section
-                const selectedSection = document.getElementById(tabId);
-                if (selectedSection) {
-                    selectedSection.classList.add('active');
-                }
-
-                // Update active state for tabs
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-section') === tabId) {
-                        link.classList.add('active');
-                    }
-                });
-
-                // We're no longer expanding all collapsible elements automatically
-                // Only expand them if we're on the welcome section
-                if (tabId === 'welcome') {
-                    document.querySelectorAll('.collapse').forEach(collapse => {
-                        collapse.classList.add('show');
-                    });
-                }
-            }
-
-            // Set up tab navigation
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = this.getAttribute('data-section');
-                    activateTab(target);
-                });
-            });
-
-            // Activate welcome section by default
-            activateTab('welcome');
         });
     </script>
 </body>
