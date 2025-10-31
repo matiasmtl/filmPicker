@@ -6,6 +6,7 @@ import requests
 from dotenv import load_dotenv
 import logging
 from datetime import datetime
+from apscheduler.schedulers.background import BackgroundScheduler
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -790,4 +791,7 @@ def get_unwatched_episodes():
         }), 500
 
 if __name__ == "__main__":
+    scheduler = BackgroundScheduler(daemon=True)
+    scheduler.add_job(pull_new_episodes, 'cron', hour=20, timezone='EST')
+    scheduler.start()
     app.run(debug=True)
