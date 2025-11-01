@@ -674,9 +674,6 @@
                 }
 
                 if (data.success) {
-                    // Give server time to update before reloading
-                    await new Promise(resolve => setTimeout(resolve, 200));
-                    window.location.href = '/#tv';
                     location.reload();
                 } else {
                     console.error('Failed to update show status:', data.error);
@@ -729,9 +726,6 @@
                 }
 
                 if (data.success) {
-                    // Give server time to update before reloading
-                    await new Promise(resolve => setTimeout(resolve, 200));
-                    window.location.href = '/#tv';
                     location.reload();
                 } else {
                     console.error('Failed to update show status:', data.error);
@@ -780,11 +774,7 @@
             });
             const data = await response.json();
             if (data.success) {
-                // Give server time to update before reloading
-                await new Promise(resolve => setTimeout(resolve, 200));
-                window.location.href = '/#tv';
                 location.reload();
-                setTimeout(() => showSection('tv'), 100);
             }
         }
 
@@ -1160,6 +1150,9 @@
                                             onclick="moveToWatching('{{ show.title }}')">Move to Watching</button>
                                         <button class="btn btn-sm btn-danger"
                                             onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
                                     </div>
                                     <div class="mt-2">
                                         <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
