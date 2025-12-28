@@ -208,64 +208,7 @@
             color: #666;
         }
 
-        /* Custom checkbox styles */
-        .custom-checkbox {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
 
-        .custom-checkbox input[type="checkbox"] {
-            display: none;
-        }
-
-        .custom-checkbox .checkmark {
-            width: 20px;
-            height: 20px;
-            background-color: #eee;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-            position: relative;
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked+.checkmark {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .custom-checkbox .checkmark::after {
-            content: "";
-            position: absolute;
-            display: none;
-            left: 6px;
-            top: 2px;
-            width: 5px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked+.checkmark::after {
-            display: block;
-        }
-
-        .episode-number {
-            margin-left: 5px;
-            /* Add these properties to preserve whitespace */
-            white-space: pre;
-            display: inline-block;
-            min-width: 28px;
-            /* Increase min-width to accommodate number + period + space */
-        }
-
-        .episode-air-date {
-            color: #666;
-            font-size: 0.85em;
-            margin-left: 4px;
-        }
 
         .show-header-content {
             display: flex;
