@@ -25,8 +25,8 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Update file paths to be absolute
-MOVIES_FILE = os.path.join(BASE_DIR, 'data', 'movies.json')
-TV_SHOWS_FILE = os.path.join(BASE_DIR, 'data', 'tv_shows.json')
+MOVIES_FILE = os.environ.get('MOVIES_FILE', os.path.join(BASE_DIR, 'data', 'movies.json'))
+TV_SHOWS_FILE = os.environ.get('TV_SHOWS_FILE', os.path.join(BASE_DIR, 'data', 'tv_shows.json'))
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
