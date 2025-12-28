@@ -208,64 +208,7 @@
             color: #666;
         }
 
-        /* Custom checkbox styles */
-        .custom-checkbox {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
 
-        .custom-checkbox input[type="checkbox"] {
-            display: none;
-        }
-
-        .custom-checkbox .checkmark {
-            width: 20px;
-            height: 20px;
-            background-color: #eee;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-            position: relative;
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked+.checkmark {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .custom-checkbox .checkmark::after {
-            content: "";
-            position: absolute;
-            display: none;
-            left: 6px;
-            top: 2px;
-            width: 5px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked+.checkmark::after {
-            display: block;
-        }
-
-        .episode-number {
-            margin-left: 5px;
-            /* Add these properties to preserve whitespace */
-            white-space: pre;
-            display: inline-block;
-            min-width: 28px;
-            /* Increase min-width to accommodate number + period + space */
-        }
-
-        .episode-air-date {
-            color: #666;
-            font-size: 0.85em;
-            margin-left: 4px;
-        }
 
         .show-header-content {
             display: flex;
@@ -674,9 +617,6 @@
                 }
 
                 if (data.success) {
-                    // Give server time to update before reloading
-                    await new Promise(resolve => setTimeout(resolve, 200));
-                    window.location.href = '/#tv';
                     location.reload();
                 } else {
                     console.error('Failed to update show status:', data.error);
@@ -729,6 +669,32 @@
                 }
 
                 if (data.success) {
+                    location.reload();
+                } else {
+                    console.error('Failed to update show status:', data.error);
+                }
+            } catch (error) {
+                console.error('Error moving show to on hold:', error);
+            }
+        }
+
+        async function moveToWatching(title) {
+            try {
+                const response = await fetch('/update_show_status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `title=${encodeURIComponent(title)}&status=ongoing`
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    console.error('Error:', data.error);
+                    return;
+                }
+
+                if (data.success) {
                     // Give server time to update before reloading
                     await new Promise(resolve => setTimeout(resolve, 200));
                     window.location.href = '/#tv';
@@ -737,7 +703,7 @@
                     console.error('Failed to update show status:', data.error);
                 }
             } catch (error) {
-                console.error('Error moving show to on hold:', error);
+                console.error('Error moving show to watching:', error);
             }
         }
 
@@ -751,11 +717,7 @@
             });
             const data = await response.json();
             if (data.success) {
-                // Give server time to update before reloading
-                await new Promise(resolve => setTimeout(resolve, 200));
-                window.location.href = '/#tv';
                 location.reload();
-                setTimeout(() => showSection('tv'), 100);
             }
         }
 
@@ -1128,9 +1090,15 @@
                                         <button class="btn btn-sm btn-success"
                                             onclick="markAsCompleted('{{ show.title }}')">Mark as Completed</button>
                                         <button class="btn btn-sm btn-warning"
-                                            onclick="moveToOnHold('{{ show.title }}')">Move to On Hold</button>
+                                            onclick="moveToWatching('{{ show.title }}')">Move to Watching</button>
                                         <button class="btn btn-sm btn-danger"
                                             onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
                                     </div>
                                     {% if show.seasons %}
                                     <div class="episodes-list">
@@ -1322,6 +1290,9 @@
                                         onclick="startWatching('{{ show.title }}')">Start Watching</button>
                                     <button class="btn btn-sm btn-danger ml-2"
                                         onclick="deleteShow('{{ show.title }}')">Delete</button>
+                                    <div class="mt-2">
+                                        <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1377,6 +1348,9 @@
                                     </div>
                                     <button class="btn btn-sm btn-danger mt-2"
                                         onclick="deleteShow('{{ show.title }}')">Remove Show</button>
+                                    <div class="mt-2">
+                                        <a href="https://www.themoviedb.org/tv/{{ show.tmdb_id }}" target="_blank">See more in TMD...</a>
+                                    </div>
                                     {% if show.seasons %}
                                     <div class="episodes-list">
                                         {% for season in show.seasons %}

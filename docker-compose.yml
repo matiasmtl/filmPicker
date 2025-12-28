@@ -12,5 +12,5 @@ services:
       - MOVIES_FILE=/app/src/data/movies.json
       - TV_SHOWS_FILE=/app/src/data/tv_shows.json
     volumes:
-      - ./src/data:/app/src/data # Bind mount local data directory instead
+      - ./src/data:/src/data:rw # Bind mount local data directory instead
     restart: unless-stopped

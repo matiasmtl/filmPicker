@@ -6,6 +6,7 @@ import requests
 from dotenv import load_dotenv
 import logging
 from datetime import datetime
+from apscheduler.schedulers.background import BackgroundScheduler
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -23,9 +24,9 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
 # Get the absolute path to the directory containing main.py
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Update file paths to use environment variables
-MOVIES_FILE = os.getenv('MOVIES_FILE', os.path.join(BASE_DIR, 'data', 'movies.json'))
-TV_SHOWS_FILE = os.getenv('TV_SHOWS_FILE', os.path.join(BASE_DIR, 'data', 'tv_shows.json'))
+# Update file paths to be absolute
+MOVIES_FILE = os.environ.get('MOVIES_FILE', os.path.join(BASE_DIR, 'data', 'movies.json'))
+TV_SHOWS_FILE = os.environ.get('TV_SHOWS_FILE', os.path.join(BASE_DIR, 'data', 'tv_shows.json'))
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
@@ -790,4 +791,7 @@ def get_unwatched_episodes():
         }), 500
 
 if __name__ == "__main__":
+    scheduler = BackgroundScheduler(daemon=True)
+    scheduler.add_job(pull_new_episodes, 'cron', hour=20, timezone='EST')
+    scheduler.start()
     app.run(debug=True)
